@@ -1,0 +1,87 @@
+<title>Logic — Painel</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#171a21; --line:#262b36; --tx:#e7e9ee; --mut:#8b93a3;
+    --acc:#5b8cff; --g:#3fb950; --y:#d29922; --r:#f85149;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f6f7f9; --card:#fff; --line:#e6e8ec; --tx:#1a1d24; --mut:#6b7280; --acc:#2f6bff; }
+  }
+  :root[data-theme="dark"]{ --bg:#0f1115; --card:#171a21; --line:#262b36; --tx:#e7e9ee; --mut:#8b93a3; }
+  :root[data-theme="light"]{ --bg:#f6f7f9; --card:#fff; --line:#e6e8ec; --tx:#1a1d24; --mut:#6b7280; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:960px;margin:0 auto;padding:40px 20px}
+  header{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  h1{font-size:26px;margin:0;letter-spacing:-.02em}
+  .tag{font-size:12px;color:var(--mut);border:1px solid var(--line);
+    padding:2px 8px;border-radius:20px}
+  .sub{color:var(--mut);margin:0 0 28px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px}
+  .card h3{margin:0 0 4px;font-size:16px}
+  .card .meta{color:var(--mut);font-size:13px;margin-bottom:12px}
+  .steps{display:flex;flex-wrap:wrap;gap:6px}
+  .pill{font-size:11px;padding:3px 9px;border-radius:20px;border:1px solid var(--line);color:var(--mut)}
+  .pill.done{background:color-mix(in srgb,var(--g) 18%,transparent);
+    border-color:transparent;color:var(--tx)}
+  .video{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px;margin-bottom:28px}
+  .video .ph{border:1.5px dashed var(--line);border-radius:10px;padding:34px;
+    text-align:center;color:var(--mut)}
+  .empty{border:1.5px dashed var(--line);border-radius:14px;padding:40px;
+    text-align:center;color:var(--mut)}
+  code{background:color-mix(in srgb,var(--acc) 14%,transparent);
+    padding:2px 6px;border-radius:6px;font-size:13px}
+  footer{margin-top:36px;color:var(--mut);font-size:13px;text-align:center}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Logic</h1><span class="tag">painel local</span>
+  </header>
+  <p class="sub">Seus estudos de empresa, organizados. A inteligência acontece no Claude — aqui só o mapa.</p>
+
+  <!-- Espaço para o vídeo Loom (trocar o src pelo embed real) -->
+  <div class="video">
+    <strong>Como usar o Logic</strong>
+    <div class="ph" id="loom">
+      Cole aqui o embed do seu vídeo Loom (3–5 min)<br>
+      <small>&lt;iframe src="https://www.loom.com/embed/SEU_ID" …&gt;&lt;/iframe&gt;</small>
+    </div>
+  </div>
+
+  <!-- Cards de clientes — regenerados pelo Claude a cada mudança -->
+  <div class="grid" id="clientes">
+    <div class="card">
+      <h3>Chatuba Materiais de Construção</h3>
+      <div class="meta">Materiais de construção · Rio de Janeiro/RJ</div>
+      <div class="steps">
+        <span class="pill done">Diagnóstico E1</span>
+        <span class="pill">Etapa 2</span>
+        <span class="pill done">Pesquisa</span>
+        <span class="pill done">Plano 30d</span>
+        <span class="pill">Casos</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>Logic · roda no Claude, na sua máquina · sem servidor, sem banco de dados</footer>
+</div>
+
+<!--
+  MODELO de card de cliente (o Claude copia e preenche dentro de #clientes):
+
+  <div class="card">
+    <h3>Nome da Empresa</h3>
+    <div class="meta">Nicho · Cidade/UF</div>
+    <div class="steps">
+      <span class="pill done">Diagnóstico</span>
+      <span class="pill">Pesquisa</span>
+      <span class="pill">Plano</span>
+      <span class="pill">Casos</span>
+    </div>
+  </div>
+-->

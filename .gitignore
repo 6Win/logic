@@ -1,0 +1,7 @@
+# Referência histórica / dados do negócio antigo — NÃO distribuir aos clientes
+_nucleo/_origem/
+
+# Lixo de sistema
+Thumbs.db
+.DS_Store
+desktop.ini
