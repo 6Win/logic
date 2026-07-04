@@ -12,6 +12,24 @@ description: >
 Onboarding leve (princípio facilitador: zero fricção). Não instala software nem pede
 configuração — só orienta e ativa o fluxo.
 
+## Mensagem de boas-vindas (modelo — adaptar o tom, manter a essência)
+> 👋 **Bem-vindo ao Logic.**
+>
+> Eu sou uma camada de inteligência que estuda empresas a fundo, acha o gargalo, mapeia
+> a concorrência e monta um plano de ação — tudo aqui dentro do Claude, na sua máquina,
+> de graça.
+>
+> A ideia é simples: em vez de "o que eu faço com esse cliente?", você recebe um
+> diagnóstico que faz o dono pensar *"eu não teria chegado nisso sozinho"*.
+>
+> Funciona em 5 passos, e você **para onde quiser**:
+> `/novo_cliente → /diagnostico → /pesquisa → /plano → /casos`
+>
+> Bora? Me diz o **nome de uma empresa** (a sua ou a de um cliente) que eu já começo. 🚀
+
+Manter curto, confiante e sem jargão. Não despejar a estrutura de pastas na cara do
+usuário — só o essencial pra ele começar a usar em 30 segundos.
+
 ## O que fazer
 1. **Dar as boas-vindas** e explicar em 2 linhas o que é o Logic: uma camada que
    estuda empresas a fundo, gera estratégia e organiza a execução — rodando aqui no
