@@ -29,7 +29,15 @@
 - O Logic entrega o **roteiro**; o dono grava e manda o link; embed no painel.
 - (Roteiro a produzir.)
 
-## 🚀 Subir no GitHub
-- Renomear a pasta `Logic-Produto/` → `logic` (limpo).
-- Repositório **privado**, com a conta do dono (ele conecta pra push seguro).
-- README já no estilo "cola 2 linhas no Claude" (feito — falta a URL real do repo).
+## 🚀 GitHub (FEITO) + estratégia de distribuição
+- ✅ Repositório criado: **github.com/6Win/logic** — hoje **PRIVADO**.
+- ✅ URL real já no README ("cola 2 linhas no Claude").
+
+**Plano de lançamento (decisão do dono):**
+- **Beta:** abrir **público** ao lançar, com a mensagem "v1, muito mais vindo" (repele
+  cópia: quem copia foto estática fica pra trás). Alcance > controle.
+- **Depois (cobrança):** tornar **privado** e liberar por convite/sistema de venda.
+- ⚠️ **Verdade importante:** tornar privado depois **NÃO apaga** as cópias que já foram
+  baixadas na fase pública — quem pegou, fica com a v1 pra sempre. O moat real continua
+  sendo **atualização contínua + ser o oficial + suporte**, não esconder o arquivo.
+- Alternativa: manter beta **privado com convites** desde já (mais controle, menos alcance).

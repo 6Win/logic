@@ -25,14 +25,14 @@ Dois caminhos. Escolhe o que combina contigo.
 **Pelo Claude (mais rápido)** — abre o Claude Code em qualquer pasta e cola:
 
 ```
-Clona o https://github.com/SEU-USUARIO/logic.git na pasta atual,
+Clona o https://github.com/6Win/logic.git na pasta atual,
 entra nela e roda o /instalar.
 ```
 
 **Pelo terminal (mais previsível):**
 
 ```
-git clone https://github.com/SEU-USUARIO/logic.git
+git clone https://github.com/6Win/logic.git
 cd logic
 code .
 ```
@@ -69,6 +69,22 @@ O `/instalar` roda uma vez, te dá as boas-vindas e mostra o fluxo. Depois é s�
 - `clientes/` — um estudo por empresa (a sua memória)
 - `painel/index.html` — o dashboard que organiza tudo
 - `ARQUITETURA.md` — como o produto é pensado por dentro
+
+---
+
+## 🚧 Versão 1 — isto é só o começo
+
+O Logic está na **v1** e já entrega diagnóstico, pesquisa e plano no nível "eu pagaria
+pra ler". Mas isto é a fundação — tem **muita coisa no forno**, e o produto evolui rápido:
+
+- coleta automática mais profunda (identificação de empresa, dados públicos)
+- painel visual novo e mais completo
+- novos comandos e frameworks no cérebro
+- integrações e automações
+
+**Quem acompanha a versão oficial fica sempre à frente.** Uma cópia estática de hoje
+já nasce desatualizada amanhã — o valor do Logic está na evolução contínua, não no
+arquivo parado. Acompanhe o repositório pra receber cada atualização.
 
 ---
 
