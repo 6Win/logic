@@ -22,11 +22,14 @@ sempre que algo muda. Só os dados — o design (CSS/HTML/JS) permanece intacto.
    - `insight` — o insight-âncora do diagnóstico
    - `scores` — as 6 notas do Painel /10 (Oferta&Preço, Posicionamento, Aquisição,
      Conversão, Reputação/Retenção, Presença/Conteúdo)
-2. Montar a `timeline` (eventos datados: o que foi feito, quando) e `atividade`
-   (lista de datas ISO com atividade, pra marcar no calendário).
+2. Montar a `timeline` — histórico completo e detalhado, cada evento com
+   `{data, tipo, tit, tx}` (data ISO, tipo curto ex. "Diagnóstico", título e detalhe).
 3. **Substituir APENAS** o objeto `const DADOS = {…}` dentro de
    `painel/index.html` (entre os marcadores de comentário). **Não alterar** o CSS,
-   o HTML nem as funções JS.
+   o HTML, as funções JS, nem a referência da logo (`logo.png`).
+
+> Os marcadores que o usuário adiciona no calendário ficam no **localStorage do
+> navegador dele** (não no arquivo) — regenerar o `DADOS` não apaga esses marcadores.
 4. Confirmar ao usuário: *"Painel atualizado — abre `painel/index.html`."*
 
 ## Regras
