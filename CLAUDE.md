@@ -33,6 +33,7 @@ leu — só use.
 | `/pesquisa` | concorrentes, mercado, tendências | aprofundar |
 | `/plano` | transforma diagnóstico em execução (horizonte à escolha) | venda ampliada |
 | `/casos` | registra resultado pós-execução, personaliza o Logic | uso próprio |
+| `/painel` | atualiza o dashboard visual (painel/index.html) | organização |
 
 Verifique sempre se há skill em `.claude/skills/` antes de executar. Siga a skill.
 

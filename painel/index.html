@@ -1,87 +1,304 @@
 <title>Logic — Painel</title>
 <style>
   :root{
-    --bg:#0f1115; --card:#171a21; --line:#262b36; --tx:#e7e9ee; --mut:#8b93a3;
-    --acc:#5b8cff; --g:#3fb950; --y:#d29922; --r:#f85149;
+    --bg:#0a0a0c; --surface:#131317; --surface-2:#1b1b21; --line:#2a2a31;
+    --text:#f5f5f7; --muted:#8b8b95; --muted-2:#5f5f68;
+    --red:#e5323b; --red-soft:rgba(229,50,59,.14); --red-line:rgba(229,50,59,.45);
+    --green:#37b24d; --yellow:#e0a400;
+    --radius:16px; --maxw:1080px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
-  @media (prefers-color-scheme: light){
-    :root{ --bg:#f6f7f9; --card:#fff; --line:#e6e8ec; --tx:#1a1d24; --mut:#6b7280; --acc:#2f6bff; }
-  }
-  :root[data-theme="dark"]{ --bg:#0f1115; --card:#171a21; --line:#262b36; --tx:#e7e9ee; --mut:#8b93a3; }
-  :root[data-theme="light"]{ --bg:#f6f7f9; --card:#fff; --line:#e6e8ec; --tx:#1a1d24; --mut:#6b7280; }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--tx);
-    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-  .wrap{max-width:960px;margin:0 auto;padding:40px 20px}
-  header{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
-  h1{font-size:26px;margin:0;letter-spacing:-.02em}
-  .tag{font-size:12px;color:var(--mut);border:1px solid var(--line);
-    padding:2px 8px;border-radius:20px}
-  .sub{color:var(--mut);margin:0 0 28px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:18px}
-  .card h3{margin:0 0 4px;font-size:16px}
-  .card .meta{color:var(--mut);font-size:13px;margin-bottom:12px}
-  .steps{display:flex;flex-wrap:wrap;gap:6px}
-  .pill{font-size:11px;padding:3px 9px;border-radius:20px;border:1px solid var(--line);color:var(--mut)}
-  .pill.done{background:color-mix(in srgb,var(--g) 18%,transparent);
-    border-color:transparent;color:var(--tx)}
-  .video{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:18px;margin-bottom:28px}
-  .video .ph{border:1.5px dashed var(--line);border-radius:10px;padding:34px;
-    text-align:center;color:var(--mut)}
-  .empty{border:1.5px dashed var(--line);border-radius:14px;padding:40px;
-    text-align:center;color:var(--mut)}
-  code{background:color-mix(in srgb,var(--acc) 14%,transparent);
-    padding:2px 6px;border-radius:6px;font-size:13px}
-  footer{margin-top:36px;color:var(--mut);font-size:13px;text-align:center}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);
+    font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(900px 500px at 100% -10%,rgba(229,50,59,.08),transparent 60%);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:32px 22px 64px}
+
+  /* topbar */
+  .top{display:flex;align-items:center;justify-content:space-between;
+    padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:26px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:34px;height:34px;border-radius:9px;background:var(--red);
+    display:flex;align-items:center;justify-content:center;position:relative;
+    box-shadow:0 6px 20px -6px var(--red)}
+  .mark::before{content:"";position:absolute;width:13px;height:13px;
+    border:2.5px solid #fff;border-radius:50%;clip-path:inset(0 0 45% 0)}
+  .mark::after{content:"";position:absolute;width:2.5px;height:9px;background:#fff;
+    top:17px;border-radius:2px}
+  .brand h1{font-size:19px;letter-spacing:.02em;font-weight:700}
+  .brand span{display:block;font-size:11px;color:var(--muted);letter-spacing:.14em;
+    text-transform:uppercase;margin-top:1px}
+  .top .meta{font-size:12px;color:var(--muted);text-align:right}
+  .top .meta b{color:var(--text);font-weight:600}
+
+  /* tabs */
+  .tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);
+    border-radius:12px;padding:5px;width:fit-content;margin-bottom:26px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);
+    font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.02em;
+    padding:8px 16px;border-radius:8px;cursor:pointer;transition:.18s}
+  .tab:hover{color:var(--text)}
+  .tab.active{background:var(--red);color:#fff}
+
+  .panel{display:none;animation:fade .35s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px}
+  .stat .n{font-size:26px;font-weight:700;letter-spacing:-.02em}
+  .stat .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+  .stat .n .u{color:var(--red)}
+
+  /* client grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .card{position:relative;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px;cursor:pointer;overflow:hidden;
+    transition:transform .22s ease,border-color .22s ease,background .22s ease}
+  .card:hover{transform:translateY(-4px);border-color:var(--red-line);background:var(--surface-2)}
+  .card::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(150deg,var(--red-soft),transparent 55%);
+    opacity:0;transition:opacity .25s}
+  .card:hover::after{opacity:1}
+  .card .cname{font-size:17px;font-weight:700;letter-spacing:-.01em}
+  .card .cmeta{font-size:12px;color:var(--muted);margin-top:2px}
+  .card .arrow{position:absolute;top:18px;right:18px;width:30px;height:30px;
+    border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;
+    opacity:0;transform:rotate(8deg) translateY(6px);transition:.28s ease}
+  .card:hover .arrow{opacity:1;transform:rotate(0) translateY(0)}
+  .card .arrow svg{width:14px;height:14px;stroke:#fff}
+  .steps{display:flex;gap:7px;margin-top:16px;position:relative;z-index:2}
+  .step{flex:1;display:flex;flex-direction:column;gap:6px;align-items:center}
+  .step .bar{width:100%;height:4px;border-radius:3px;background:var(--surface-2);border:1px solid var(--line)}
+  .step.done .bar{background:var(--red);border-color:var(--red)}
+  .step .t{font-size:9.5px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em}
+  .step.done .t{color:var(--muted)}
+  .gargalo{margin-top:16px;font-size:12.5px;color:var(--muted);position:relative;z-index:2;
+    padding-left:12px;border-left:2px solid var(--red)}
+
+  /* histórico + calendar */
+  .cols{display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:start}
+  .block{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .block h3{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+  .cal-head{display:flex;align-items:baseline;gap:8px;margin-bottom:14px}
+  .cal-head .m{font-size:16px;font-weight:700}
+  .cal-head .y{font-size:13px;color:var(--muted)}
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .cal .dow{font-size:10px;color:var(--muted-2);text-align:center;font-weight:600;letter-spacing:.05em;padding-bottom:4px}
+  .cal .d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+    font-size:12px;color:var(--muted);border-radius:9px;transition:.15s}
+  .cal .d.today{background:var(--red);color:#fff;font-weight:700}
+  .cal .d.act{background:var(--red-soft);color:var(--text);border:1px solid var(--red-line)}
+  .cal .d.empty{visibility:hidden}
+  .timeline .ev{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .timeline .ev:last-child{border-bottom:0}
+  .timeline .dot{flex-shrink:0;width:9px;height:9px;border-radius:50%;background:var(--red);margin-top:6px}
+  .timeline .ev .d{font-size:11px;color:var(--muted-2);letter-spacing:.04em}
+  .timeline .ev .txt{font-size:13.5px}
+  .timeline .ev .txt b{font-weight:600}
+
+  /* guia */
+  .video{aspect-ratio:16/9;background:var(--surface-2);border:1px dashed var(--line);
+    border-radius:var(--radius);display:flex;align-items:center;justify-content:center;
+    text-align:center;color:var(--muted);flex-direction:column;gap:8px;margin-bottom:16px;padding:24px}
+  .video code{background:#000;color:var(--muted);padding:2px 7px;border-radius:6px;font-size:12px}
+  .cmds{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+  .cmd{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .cmd .k{font-family:ui-monospace,monospace;font-size:13px;color:var(--red);font-weight:600}
+  .cmd .v{font-size:12.5px;color:var(--muted);margin-top:4px}
+
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);
+    display:none;align-items:flex-start;justify-content:center;padding:40px 20px;z-index:50;overflow:auto}
+  .overlay.open{display:flex;animation:fade .25s}
+  .modal{background:var(--surface);border:1px solid var(--line);border-radius:20px;
+    max-width:640px;width:100%;padding:28px}
+  .modal .x{float:right;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);
+    width:32px;height:32px;border-radius:9px;cursor:pointer;font-size:16px}
+  .modal .x:hover{color:var(--text);border-color:var(--red-line)}
+  .modal h2{font-size:22px;letter-spacing:-.02em}
+  .modal .sub{font-size:12.5px;color:var(--muted);margin-top:2px;margin-bottom:18px}
+  .insight{background:var(--red-soft);border:1px solid var(--red-line);border-radius:12px;
+    padding:14px 16px;font-size:14px;line-height:1.5;margin-bottom:18px}
+  .insight .lbl{font-size:10px;color:var(--red);text-transform:uppercase;letter-spacing:.12em;
+    font-weight:700;margin-bottom:6px;display:block}
+  .scores{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+  .score{display:grid;grid-template-columns:130px 1fr 28px;align-items:center;gap:10px;font-size:12.5px}
+  .score .track{height:7px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+  .score .fill{height:100%;border-radius:4px}
+  .score .val{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .links{display:flex;flex-wrap:wrap;gap:8px}
+  .links a{font-size:12.5px;color:var(--text);text-decoration:none;background:var(--surface-2);
+    border:1px solid var(--line);padding:7px 12px;border-radius:9px;transition:.15s}
+  .links a:hover{border-color:var(--red-line);color:var(--red)}
+
+  footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--muted-2);text-align:center}
+  .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:48px;
+    border:1px dashed var(--line);border-radius:var(--radius)}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}}
 </style>
 
 <div class="wrap">
-  <header>
-    <h1>Logic</h1><span class="tag">painel local</span>
-  </header>
-  <p class="sub">Seus estudos de empresa, organizados. A inteligência acontece no Claude — aqui só o mapa.</p>
-
-  <!-- Espaço para o vídeo Loom (trocar o src pelo embed real) -->
-  <div class="video">
-    <strong>Como usar o Logic</strong>
-    <div class="ph" id="loom">
-      Cole aqui o embed do seu vídeo Loom (3–5 min)<br>
-      <small>&lt;iframe src="https://www.loom.com/embed/SEU_ID" …&gt;&lt;/iframe&gt;</small>
+  <div class="top">
+    <div class="brand">
+      <div class="mark"></div>
+      <div><h1>LOGIC</h1><span>Painel</span></div>
     </div>
+    <div class="meta">Inteligência rodando no Claude<br><b id="today"></b></div>
   </div>
 
-  <!-- Cards de clientes — regenerados pelo Claude a cada mudança -->
-  <div class="grid" id="clientes">
-    <div class="card">
-      <h3>Chatuba Materiais de Construção</h3>
-      <div class="meta">Materiais de construção · Rio de Janeiro/RJ</div>
-      <div class="steps">
-        <span class="pill done">Diagnóstico E1</span>
-        <span class="pill">Etapa 2</span>
-        <span class="pill done">Pesquisa</span>
-        <span class="pill done">Plano 30d</span>
-        <span class="pill">Casos</span>
+  <div class="tabs">
+    <button class="tab active" data-tab="clientes">Clientes</button>
+    <button class="tab" data-tab="historico">Histórico</button>
+    <button class="tab" data-tab="guia">Guia</button>
+  </div>
+
+  <!-- CLIENTES -->
+  <section class="panel active" id="clientes">
+    <div class="stats" id="stats"></div>
+    <div class="grid" id="cards"></div>
+  </section>
+
+  <!-- HISTÓRICO -->
+  <section class="panel" id="historico">
+    <div class="cols">
+      <div class="block">
+        <div class="cal-head"><span class="m" id="calM"></span><span class="y" id="calY"></span></div>
+        <div class="cal" id="cal"></div>
+      </div>
+      <div class="block">
+        <h3>Linha do tempo</h3>
+        <div class="timeline" id="timeline"></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <footer>Logic · roda no Claude, na sua máquina · sem servidor, sem banco de dados</footer>
+  <!-- GUIA -->
+  <section class="panel" id="guia">
+    <div class="block" style="margin-bottom:16px">
+      <h3>Como usar o Logic</h3>
+      <div class="video">
+        <div>Espaço para o vídeo (3–5 min)</div>
+        <div>cole o embed do Loom aqui no <code>index.html</code></div>
+      </div>
+    </div>
+    <div class="cmds" id="cmds"></div>
+  </section>
+
+  <footer>Logic — roda no Claude, na sua máquina. Sem servidor, sem banco de dados.</footer>
 </div>
 
-<!--
-  MODELO de card de cliente (o Claude copia e preenche dentro de #clientes):
+<div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
 
-  <div class="card">
-    <h3>Nome da Empresa</h3>
-    <div class="meta">Nicho · Cidade/UF</div>
-    <div class="steps">
-      <span class="pill done">Diagnóstico</span>
-      <span class="pill">Pesquisa</span>
-      <span class="pill">Plano</span>
-      <span class="pill">Casos</span>
-    </div>
-  </div>
--->
+<script>
+/* ===== DADOS — o Claude regenera este bloco a cada mudança (/painel) ===== */
+const DADOS = {
+  clientes: [
+    {
+      slug:"chatuba", nome:"Chatuba Materiais de Construção",
+      nicho:"Materiais de construção", cidade:"Rio de Janeiro/RJ",
+      etapas:{diagnostico:true, pesquisa:true, plano:true, casos:false},
+      gargalo:"Logística de entrega corrói o cliente profissional bem quando a Obramax entra no RJ.",
+      insight:"O único fosso da Chatuba contra a Leroy é a proximidade — entrega local confiável. E é justo esse fosso que está quebrado.",
+      scores:[
+        {k:"Oferta & Preço",v:6},{k:"Posicionamento",v:6},{k:"Aquisição",v:9},
+        {k:"Conversão",v:6},{k:"Reputação/Retenção",v:5},{k:"Presença/Conteúdo",v:9}
+      ]
+    }
+  ],
+  timeline:[
+    {data:"2026-07-04", txt:"<b>Chatuba</b> — cliente criado + diagnóstico, pesquisa e plano"}
+  ],
+  atividade:["2026-07-04"]
+};
+const CMDS = [
+  {k:"/novo_cliente",v:"cadastra a empresa (só o nome é obrigatório)"},
+  {k:"/diagnostico",v:"raio-X em 3 etapas — pare em qualquer uma"},
+  {k:"/pesquisa",v:"concorrentes, mercado, oportunidade"},
+  {k:"/plano",v:"transforma o diagnóstico em plano de ação"},
+  {k:"/casos",v:"registra resultado e aprende"}
+];
+const ETAPAS=[["diagnostico","Diag"],["pesquisa","Pesq"],["plano","Plano"],["casos","Casos"]];
+
+/* ===== render ===== */
+const $=s=>document.querySelector(s);
+const meses=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const now=new Date();
+$("#today").textContent=now.toLocaleDateString("pt-BR",{day:"2-digit",month:"long",year:"numeric"});
+
+function scoreColor(v){return v<=3?"var(--red)":v<=6?"var(--yellow)":"var(--green)";}
+
+/* stats */
+(function(){
+  const c=DADOS.clientes, done=k=>c.filter(x=>x.etapas[k]).length;
+  const s=[["Clientes",c.length],["Diagnósticos",done("diagnostico")],["Planos",done("plano")],["Casos",done("casos")]];
+  $("#stats").innerHTML=s.map(([l,n])=>`<div class="stat"><div class="n">${n}<span class="u">.</span></div><div class="l">${l}</div></div>`).join("");
+})();
+
+/* cards */
+$("#cards").innerHTML = DADOS.clientes.length ? DADOS.clientes.map(c=>`
+  <div class="card" onclick="abrir('${c.slug}')">
+    <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7L7 17M17 7H9M17 7V15"/></svg></div>
+    <div class="cname">${c.nome}</div>
+    <div class="cmeta">${c.nicho} · ${c.cidade}</div>
+    <div class="steps">${ETAPAS.map(([k,t])=>`<div class="step ${c.etapas[k]?'done':''}"><div class="bar"></div><div class="t">${t}</div></div>`).join("")}</div>
+    <div class="gargalo">${c.gargalo}</div>
+  </div>`).join("")
+  : `<div class="empty">Nenhum cliente ainda. Comece com <code>/novo_cliente</code> no Claude.</div>`;
+
+/* calendar */
+(function(){
+  const y=now.getFullYear(), m=now.getMonth();
+  $("#calM").textContent=meses[m].charAt(0).toUpperCase()+meses[m].slice(1);
+  $("#calY").textContent=y;
+  const first=new Date(y,m,1).getDay(), days=new Date(y,m+1,0).getDate();
+  const dows=["D","S","T","Q","Q","S","S"];
+  let h=dows.map(d=>`<div class="dow">${d}</div>`).join("");
+  for(let i=0;i<first;i++)h+=`<div class="d empty"></div>`;
+  for(let d=1;d<=days;d++){
+    const iso=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const t=d===now.getDate()?"today":DADOS.atividade.includes(iso)?"act":"";
+    h+=`<div class="d ${t}">${d}</div>`;
+  }
+  $("#cal").innerHTML=h;
+})();
+
+/* timeline */
+$("#timeline").innerHTML = DADOS.timeline.length ? DADOS.timeline.map(e=>{
+  const d=new Date(e.data+"T00:00:00").toLocaleDateString("pt-BR",{day:"2-digit",month:"short"});
+  return `<div class="ev"><div class="dot"></div><div><div class="d">${d}</div><div class="txt">${e.txt}</div></div></div>`;
+}).join("") : `<div class="txt" style="color:var(--muted)">Sem atividade ainda.</div>`;
+
+/* cmds */
+$("#cmds").innerHTML=CMDS.map(c=>`<div class="cmd"><div class="k">${c.k}</div><div class="v">${c.v}</div></div>`).join("");
+
+/* tabs */
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));
+  t.classList.add("active"); $("#"+t.dataset.tab).classList.add("active");
+});
+
+/* modal */
+function abrir(slug){
+  const c=DADOS.clientes.find(x=>x.slug===slug); if(!c)return;
+  const scores=c.scores.map(s=>`<div class="score"><span>${s.k}</span><div class="track"><div class="fill" style="width:${s.v*10}%;background:${scoreColor(s.v)}"></div></div><span class="val">${s.v}/10</span></div>`).join("");
+  const files=["diagnostico","pesquisa","plano","casos"].filter(f=>c.etapas[f]||f==="casos")
+    .map(f=>`<a href="../clientes/${c.slug}/${f}.md" target="_blank">${f}.md</a>`).join("");
+  $("#modal").innerHTML=`
+    <button class="x" onclick="fechar()">×</button>
+    <h2>${c.nome}</h2>
+    <div class="sub">${c.nicho} · ${c.cidade}</div>
+    <div class="insight"><span class="lbl">Insight</span>${c.insight}</div>
+    <div class="scores">${scores}</div>
+    <div class="links">${files}</div>`;
+  $("#overlay").classList.add("open");
+}
+function fechar(){$("#overlay").classList.remove("open");}
+$("#overlay").onclick=e=>{if(e.target===$("#overlay"))fechar();};
+document.onkeydown=e=>{if(e.key==="Escape")fechar();};
+</script>
