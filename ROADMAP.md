@@ -1,6 +1,6 @@
 # Roadmap — próximos passos do Logic
 
-> O MVP (6 comandos + cérebro + painel + docs) está pronto e validado na Chatuba.
+> O MVP (7 comandos + cérebro + painel + docs) está pronto e validado na Chatuba.
 > Aqui ficam as decisões e tarefas parkadas pra depois — pra não se perder nada.
 
 ## 🔒 Segurança / proteção do IP (dono)

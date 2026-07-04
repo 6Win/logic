@@ -2,7 +2,7 @@
 name: instalar
 description: >
   Prepara e apresenta o Logic quando alguém importa a pasta pela primeira vez.
-  Confirma a estrutura, explica os 5 comandos e o fluxo, e conduz o usuário ao
+  Confirma a estrutura, explica os comandos e o fluxo, e conduz o usuário ao
   primeiro cliente. Use quando o usuário disser "instalar", "/instalar", "começar",
   "acabei de importar", ou na primeira vez que abrir o projeto.
 ---
@@ -36,7 +36,7 @@ usuário — só o essencial pra ele começar a usar em 30 segundos.
    Claude, de graça, na máquina do usuário.
 2. **Confirmar a estrutura** (rápido): `_nucleo/` (cérebro), `clientes/` (memória),
    `painel/index.html` (dashboard). Não precisa listar arquivo por arquivo.
-3. **Apresentar o fluxo e os 5 comandos:**
+3. **Apresentar o fluxo e os comandos:**
    ```
    /novo_cliente → /diagnostico → /pesquisa → /plano → [executa] → /casos
    ```
