@@ -47,6 +47,7 @@ usuário — só o essencial pra ele começar a usar em 30 segundos.
    | `/pesquisa` | concorrentes, mercado, oportunidade |
    | `/plano` | vira plano de ação executável |
    | `/casos` | registra resultado e aprende |
+   | `/prospeccao` | acha clientes ideais por região e nicho |
 4. **Checar o essencial:** o Logic coleta dado público via web — confirmar que o
    ambiente do usuário tem acesso a `WebSearch`/`WebFetch`. Se não tiver, avisar que a
    coleta automática fica limitada (mas o usuário ainda pode colar dados manualmente).

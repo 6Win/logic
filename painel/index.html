@@ -219,10 +219,9 @@
         <div class="steps-how">Tema do painel.</div>
         <div class="themebtns"><button id="tl" onclick="setTheme('light')">Claro</button><button id="td" onclick="setTheme('dark')">Escuro</button></div>
         <div class="lbl" style="margin-top:22px">Google Maps (opcional)</div>
-        <p class="steps-how">Adicione sua chave da API do Google Maps pra o painel mostrar o <b>mapa</b> e o Logic enriquecer os estudos com dados de local. <b>Sem chave, tudo funciona igual</b> — é só um upgrade.</p>
-        <div class="keyrow"><input id="gkey" placeholder="cole sua API key aqui" autocomplete="off"><button onclick="saveKey()">Salvar</button></div>
-        <div id="kstatus"></div>
-        <p class="steps-how" style="margin-top:14px"><b>Como pegar:</b> console.cloud.google.com → crie um projeto → ative <b>Maps Embed API</b> → gere a key → cole acima. Grátis dentro da cota. Pra o Logic usar no diagnóstico também, diga a chave no chat e rode <code style="font-family:var(--mono)">/painel</code>.<br><br>Na <b>prospecção</b>, com a chave o Logic lista até ~<b>60 por área</b> e varre bairro por bairro pra números maiores — priorizando qualidade do lead. Volume alto usa mais da sua cota.</p>
+        <p class="steps-how"><b>Sem chave, tudo funciona igual</b> — é só um upgrade pra <b>prospecção</b> (mapa + filtro certeiro). Pra ligar: <b>diga sua chave ao Logic no chat</b> ("minha chave do Google é …") e rode <code style="font-family:var(--mono)">/painel</code>. Ele salva com segurança e ativa aqui.</p>
+        <div id="kstatus" style="margin-top:8px"></div>
+        <p class="steps-how" style="margin-top:14px"><b>Como pegar:</b> console.cloud.google.com → crie um projeto → ative <b>Places API + Geocoding + Maps Embed</b> → gere a key. Grátis dentro da cota. Na prospecção, com a chave lista até ~60 por área e varre bairro por bairro, priorizando qualidade.</p>
       </div>
       <div class="block"><div class="lbl">Mapa</div><div class="map" id="map"></div></div>
     </div>
@@ -265,6 +264,7 @@
 <script>
 /* ===== DADOS — o /painel regenera este bloco (não mexer no resto) ===== */
 const DADOS = {
+  googleKey:"",
   uso:{novo_cliente:0,diagnostico:0,pesquisa:0,plano:0,casos:0},
   clientes:[],
   timeline:[]
@@ -341,14 +341,13 @@ function renderTimeline(){const auto=DADOS.timeline.map(e=>({...e}));const user=
     const body=(e.tx||(e.det&&e.det.length))?`<div class="tevb"><div class="in">${e.tx||""}${e.det&&e.det.length?`<ul>${e.det.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}</div></div>`:"";
     return `<div class="tev" id="tev${i}"><div class="tevh" onclick="document.getElementById('tev${i}').classList.toggle('open')"><span class="tg">${e.tipo}</span><span class="ti">${e.tit}</span><span class="td">${d}</span><span class="cv">▸</span></div>${body}</div>`;}).join(""):`<div class="none">Sem atividade ainda.</div>`;}
 
-/* config google */
-function gkey(){try{return localStorage.getItem("logic_gkey")||""}catch(e){return ""}}
-function saveKey(){const v=$("#gkey").value.trim();try{v?localStorage.setItem("logic_gkey",v):localStorage.removeItem("logic_gkey")}catch(e){}renderCfg();}
-function renderCfg(){const k=gkey();$("#gkey").value=k;
+/* config google — a chave vem do _config.json via /painel (DADOS.googleKey) */
+function renderCfg(){const k=(DADOS.googleKey||"").trim();
   $("#kstatus").innerHTML=k?`<span class="pill on"><span class="d"></span>Google Maps ativo</span>`:`<span class="pill off"><span class="d"></span>Sem chave — modo padrão</span>`;
-  const m=$("#map");if(k&&DADOS.clientes.length){const c=DADOS.clientes[0],q=encodeURIComponent(c.nome+" "+c.cidade);
+  const m=$("#map");
+  if(k){const c=DADOS.clientes[0];const q=encodeURIComponent(c?(c.nome+" "+c.cidade):"Brasil");
     m.innerHTML=`<iframe loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=${encodeURIComponent(k)}&q=${q}"></iframe>`;}
-  else m.innerHTML=`<div class="mapoff">Adicione uma chave da API pra ver o mapa aqui.<br>Sem chave, o Logic segue funcionando normal.</div>`;}
+  else m.innerHTML=`<div class="mapoff">O mapa aparece aqui quando a chave do Google estiver ligada.<br>Sem chave, o Logic segue funcionando normal.</div>`;}
 
 /* tabs */
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{

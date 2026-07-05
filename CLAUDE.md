@@ -62,6 +62,10 @@ como parte do valor, não como distração.
 
 Verifique sempre se há skill em `.claude/skills/` antes de executar. Siga a skill.
 
+**Chave do Google (opcional):** se o usuário fornecer a chave, salve em `_config.json`
+(campo `google_key`) e rode `/painel` pra ativar o mapa. A `/prospeccao` usa essa chave;
+sem ela, roda no modo grátis. Nunca commitar `_config.json` (já está no `.gitignore`).
+
 **Registro de uso:** ao concluir um comando do fluxo (`/novo_cliente`, `/diagnostico`,
 `/pesquisa`, `/plano`, `/casos`), incremente em **1** o contador correspondente em
 `_uso.json`. É o dado que alimenta o dashboard de Uso e Insights do painel — mostra o
