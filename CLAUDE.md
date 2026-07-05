@@ -48,6 +48,7 @@ como parte do valor, não como distração.
 | `/pesquisa` | concorrentes, mercado, tendências | aprofundar |
 | `/plano` | transforma diagnóstico em execução (horizonte à escolha) | venda ampliada |
 | `/casos` | registra resultado pós-execução, personaliza o Logic | uso próprio |
+| `/prospeccao` | acha clientes ideais por região e nicho (lista priorizada) | encher pipeline |
 | `/painel` | atualiza o dashboard visual (painel/index.html) | organização |
 
 Verifique sempre se há skill em `.claude/skills/` antes de executar. Siga a skill.

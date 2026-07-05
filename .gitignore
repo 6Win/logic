@@ -1,6 +1,9 @@
 # Referência histórica / dados do negócio antigo — NÃO distribuir aos clientes
 _nucleo/_origem/
 
+# Chave de API do usuário — NUNCA subir
+_config.json
+
 # Lixo de sistema
 Thumbs.db
 .DS_Store
