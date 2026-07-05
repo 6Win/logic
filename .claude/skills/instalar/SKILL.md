@@ -52,7 +52,11 @@ usuário — só o essencial pra ele começar a usar em 30 segundos.
    ambiente do usuário tem acesso a `WebSearch`/`WebFetch`. Se não tiver, avisar que a
    coleta automática fica limitada (mas o usuário ainda pode colar dados manualmente).
 5. **Apontar o vídeo** (se configurado no painel) pra quem prefere ver a explicação.
-6. **Conduzir ao primeiro passo:** *"Bora começar? Me diz o nome de uma empresa e eu
-   rodo o /novo."*
+6. **Deixar os comandos no menu `/`:** se a pasta foi clonada dentro de outra, os
+   comandos não aparecem no `/`. Avisar de forma simples: *"Última coisa: abre a pasta
+   `logic` como workspace (File → Open Folder → `logic`) e recarrega — aí todos os
+   comandos aparecem quando você digita `/`."* (É o mesmo passo de reabrir do MazyOS.)
+7. **Conduzir ao primeiro passo:** *"Feito isso, é só me dizer o nome de uma empresa que
+   eu rodo o /novo."*
 
 Não pedir nada além disso. Rápido, acolhedor, e já joga o usuário pro valor.
