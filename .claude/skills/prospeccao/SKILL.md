@@ -13,11 +13,16 @@ description: >
 Resolve a dor nº1 de quem vende serviço: **achar gente boa pra abordar.** Não é volume,
 é qualidade do lead. Fala claro (regra nº1 da rubrica) e é eficiente com chamadas/tokens.
 
-## O que perguntar (curto)
-- **Nicho** (ex.: barbearia, restaurante, clínica) — obrigatório
-- **Cidade / região** (ex.: Santa Cruz, RJ) — obrigatório
-- **Quantos leads** quer na lista (padrão: 10)
-- (opcional) que serviço ele vende — pra calibrar o "ângulo de abordagem"
+## Primeiro: local ou digital? (muda as perguntas)
+Perguntar o tipo de alvo antes de tudo:
+- **Empresa local** (loja, clínica, restaurante, barbearia…) → fluxo por região.
+  Perguntar: **nicho · cidade/região · raio** (opcional) **· quantos**.
+- **Negócio digital / perfil de rede social** (prestador online, criador, infoproduto…) →
+  fluxo social. Perguntar: **nicho/segmento · plataforma** (Instagram, TikTok…) **·
+  localização** (opcional, pode ser nacional) **· faixa de seguidores** (opcional) **· quantos**.
+
+Em qualquer caso, perguntar também **que serviço o usuário vende** — calibra o "como abordar".
+Padrão de quantidade: 10.
 
 ## Detecta o modo sozinho (com ou sem chave)
 Ler `google_key` em `_config.json`. **Os dois modos funcionam** — nunca obrigar a ter chave.
@@ -49,7 +54,18 @@ com `next_page_token`.)
 Avisar de leve, sem drama: "sem a chave do Google fica um pouco menos preciso — dá pra
 ligar a chave nas Configurações quando quiser."
 
-## Depois (nos dois modos)
+## Modo Digital (redes sociais) — achar perfis
+Só quando o alvo é digital. Redes bloqueiam raspagem, então é **best-effort via o que o
+Google indexa** — acha bastante, mas espere alguns buracos (a chave do Google não ajuda
+aqui; é sempre por busca).
+1. `WebSearch`: "<nicho> <plataforma> <localização>", "melhores <nicho> no <plataforma>",
+   perfis por hashtag/termo → montar lista de **@perfis reais**.
+2. Pra cada perfil: `WebSearch`/`WebFetch` → bio (tem **link/site**? forma de contato?),
+   faixa de seguidores, se posta com frequência.
+3. Oportunidade no digital: **sem link/site na bio · sem contato claro · presença
+   parada · muitos seguidores mas sem conversão aparente**. Ativo e mal aproveitado = bom lead.
+
+## Depois (nos dois caminhos)
 
 ### Filtrar por OPORTUNIDADE (o coração)
 O lead ideal pra quem vende site/marketing = **negócio ativo, mas fraco no digital.**
