@@ -73,7 +73,11 @@ entrega a lista completa de uma vez.
 ## Depois (nos dois caminhos)
 
 ### Filtrar por OPORTUNIDADE (o coração)
-**Aplicar o filtro que o usuário pediu** (ex.: só quem NÃO tem site). E **cruzar os dois
+**Aplicar o filtro que o usuário pediu** (ex.: só quem NÃO tem site). Se ele descrever
+um **ICP em linguagem natural**, traduza pros filtros que os DADOS suportam — site
+(tem/não), nota, nº de avaliações, nicho, região, telefone — e **avise o que NÃO dá pra
+filtrar** (idade da empresa, faturamento, nº de funcionários, tipo de público: o Google
+não tem esse dado). Nunca finja que filtrou por um critério que a fonte não fornece. E **cruzar os dois
 lados pra qualificar de verdade** — as pesquisas se ajudam:
 - Empresa local → checar também se tem **rede social** (WebSearch "<nome> instagram").
 - Perfil digital → checar também se tem **site** (link na bio / busca do nome).
