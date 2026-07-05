@@ -52,13 +52,23 @@ com `next_page_token`.)
 `.../place/details/json?place_id=<PID>&fields=name,website,formatted_phone_number,rating,user_ratings_total,url&language=pt-BR&key=<KEY>`
 → tem website? telefone, link do Maps.
 
-## Modo Busca (sem chave) — também entrega
-1. `WebSearch`: "<nicho> em <cidade>", "melhores <nicho> <cidade>" e diretórios
-   (telelistas, guiamais, apontador) → montar lista de nomes reais.
-2. Pra cada nome: `WebSearch` "<nome> <cidade>" → telefone, se tem site, Instagram.
-3. Segue os mesmos sinais de oportunidade abaixo.
-Avisar de leve, sem drama: "sem a chave do Google fica um pouco menos preciso — dá pra
-ligar a chave nas Configurações quando quiser."
+## Modo Busca (sem chave) — como tirar o MÁXIMO
+Limitado, mas melhora muito com técnica:
+1. **Desambiguar o lugar** (senão o Google troca de cidade): sempre estado + zona/região,
+   e excluir homônimo. Ex.: "revenda de carros Santa Cruz, Rio de Janeiro, zona oeste".
+2. **Caçar onde o "sem site" vive** (a sacada): quem não tem site anuncia em **OLX,
+   Facebook, Instagram, Google Maps** — no orgânico do Google aparecem os que TÊM site (o
+   oposto). Então pro filtro "sem site", buscar nesses lugares: "<nicho> <bairro> facebook",
+   "<nicho> <cidade> olx", "<nicho> <cidade> instagram". Quem só aparece lá e não tem
+   domínio próprio = lead qualificado.
+3. **Cortar os portais** com `blocked_domains` (vivareal, webmotors, olx, ifood…) quando
+   quiser os negócios em si; `allowed_domains` pra mirar diretório/Maps quando quiser lista.
+4. **Varrer por sub-área e acumular:** repetir por ruas/sub-bairros diferentes, juntar os
+   nomes e remover repetidos até bater a quantidade pedida.
+5. **Conferir cada candidato:** "<nome> <cidade> site" → tem domínio? tem Instagram?
+   Aplicar o filtro (o cruzamento que qualifica).
+Avisar de leve que o grátis é melhor-esforço; a chave do Google entrega a lista completa
+de uma vez.
 
 ## Modo Digital (redes sociais) — EXPERIMENTAL
 > ⚠️ **Avisar o usuário antes de rodar:** o caminho digital tem **eficiência baixa** e é
