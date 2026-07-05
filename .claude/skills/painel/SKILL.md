@@ -22,14 +22,17 @@ sempre que algo muda. Só os dados — o design (CSS/HTML/JS) permanece intacto.
    - `insight` — o insight-âncora do diagnóstico
    - `scores` — as 6 notas do Painel /10 (Oferta&Preço, Posicionamento, Aquisição,
      Conversão, Reputação/Retenção, Presença/Conteúdo)
-2. Montar a `timeline` — histórico completo e detalhado, cada evento com
-   `{data, tipo, tit, tx}` (data ISO, tipo curto ex. "Diagnóstico", título e detalhe).
+2. Montar a `timeline` — histórico completo, cada evento com
+   `{data, tipo, tit, tx, det:[...]}` (data ISO, tipo curto ex. "Diagnóstico",
+   título, resumo e uma lista de detalhes que aparece ao expandir a sanfona).
 3. **Substituir APENAS** o objeto `const DADOS = {…}` dentro de
    `painel/index.html` (entre os marcadores de comentário). **Não alterar** o CSS,
-   o HTML, as funções JS, nem a referência da logo (`logo.png`).
+   o HTML nem as funções JS.
 
-> Os marcadores que o usuário adiciona no calendário ficam no **localStorage do
-> navegador dele** (não no arquivo) — regenerar o `DADOS` não apaga esses marcadores.
+> **Persistência do usuário (não regenerar):** os marcadores do calendário e a chave
+> do Google Maps ficam no **localStorage do navegador** — regenerar o `DADOS` não os
+> apaga. O painel detecta a chave sozinho: com chave, mostra o mapa; sem, segue normal.
+> A identidade visual é a da landing (branco/preto/vermelho #ff2020, fonte Geist).
 4. Confirmar ao usuário: *"Painel atualizado — abre `painel/index.html`."*
 
 ## Regras
