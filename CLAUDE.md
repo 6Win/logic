@@ -65,6 +65,9 @@ Verifique sempre se há skill em `.claude/skills/` antes de executar. Siga a ski
 **Chave do Google (opcional):** se o usuário fornecer a chave, salve em `_config.json`
 (campo `google_key`) e rode `/painel` pra ativar o mapa. A `/leads` usa essa chave;
 sem ela, roda no modo grátis. Nunca commitar `_config.json` (já está no `.gitignore`).
+**Segurança (importante):** ao receber a chave, **NUNCA a exiba de volta — nem os
+últimos dígitos.** Confirme só com "chave salva ✓". Muita gente compartilha tela; a
+chave não pode aparecer no chat nem no painel em momento nenhum.
 
 **Registro de uso:** ao concluir um comando do fluxo (`/novo`, `/diag`,
 `/pesquisa`, `/plano`, `/casos`), incremente em **1** o contador correspondente em
