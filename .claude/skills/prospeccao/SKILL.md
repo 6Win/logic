@@ -60,10 +60,15 @@ com `next_page_token`.)
 Avisar de leve, sem drama: "sem a chave do Google fica um pouco menos preciso — dá pra
 ligar a chave nas Configurações quando quiser."
 
-## Modo Digital (redes sociais) — achar perfis
-Só quando o alvo é digital. Redes bloqueiam raspagem, então é **best-effort via o que o
-Google indexa** — acha bastante, mas espere alguns buracos (a chave do Google não ajuda
-aqui; é sempre por busca).
+## Modo Digital (redes sociais) — EXPERIMENTAL
+> ⚠️ **Avisar o usuário antes de rodar:** o caminho digital tem **eficiência baixa** e é
+> experimental. Motivo: o Instagram/TikTok **bloqueiam raspagem** e não têm busca grátis;
+> o Google só indexa marketplaces e contas grandes — então os pequenos "sem site" que
+> interessam **quase não aparecem**. Entrega poucos leads e com buracos. O forte da
+> prospecção é o **modo local** (ainda mais com a chave do Google). Se o usuário topar o
+> limite, seguir; senão, sugerir o local.
+
+Redes bloqueiam raspagem, então é **best-effort via o que o Google indexa**.
 1. `WebSearch`: "<nicho> <plataforma> <localização>", "melhores <nicho> no <plataforma>",
    perfis por hashtag/termo → montar lista de **@perfis reais**.
 2. Pra cada perfil: `WebSearch`/`WebFetch` → bio (tem **link/site**? forma de contato?),
