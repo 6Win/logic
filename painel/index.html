@@ -184,7 +184,7 @@
   <div class="tabs">
     <button class="tab active" data-tab="inicio">Início</button>
     <button class="tab" data-tab="historico">Agenda</button>
-    <button class="tab" data-tab="metodo">Método</button>
+    <button class="tab" data-tab="metodo">Guia</button>
     <button class="tab" data-tab="config">Configurações</button>
   </div>
 
@@ -230,23 +230,31 @@
 
   <section class="panel" id="metodo">
     <div class="block" style="margin-bottom:14px">
-      <div class="lbl">O que a Logic faz</div>
-      <p class="steps-how">Um sistema que <b>estuda uma empresa, acha o que trava o crescimento e monta um plano do que fazer</b> — com método, não achismo. Serve pra chegar num cliente já entendendo o negócio dele, ou pra melhorar o seu.</p>
-      <ul class="list" style="margin-top:12px">
-        <li>Entende qualquer empresa e acha o problema real</li>
-        <li>Mostra o mercado e a concorrência</li>
-        <li>Monta o plano do que fazer primeiro</li>
-        <li>Registra o resultado e vira case</li>
-        <li>Acha clientes ideais por região e nicho — <b>local</b> é o forte (melhor com o Google Maps ligado); busca por perfil de rede social é experimental</li>
-        <li>Explica qualquer conceito que você não sabe — ICP, funil, CAC…</li>
+      <div class="lbl">O que é o LOGIC</div>
+      <p class="steps-how">Um sistema que <b>estuda uma empresa, acha o que trava o crescimento e monta o plano do que fazer</b> — com método, não achismo. Use pra chegar num cliente já entendendo o negócio dele, pra melhorar o seu, ou pra achar clientes novos. Ele também <b>ensina</b>: não sabe um termo (ICP, funil, CAC)? Pergunta que ele explica.</p>
+    </div>
+    <div class="block" style="margin-bottom:14px">
+      <div class="lbl">Como usar — cada comando</div>
+      <p class="steps-how" style="margin-bottom:12px">No chat do Claude, digite o comando. Você para em qualquer etapa.</p>
+      <ul class="list">
+        <li><b>/novo_cliente</b> — cadastra a empresa. Quanto mais completo, mais preciso o resto.</li>
+        <li><b>/diagnostico</b> — o raio-X: onde a empresa perde, o gargalo real, o que fazer primeiro. Use antes de uma reunião ou proposta.</li>
+        <li><b>/pesquisa</b> — o mercado e a concorrência: quem ganha, quem ameaça, a oportunidade aberta.</li>
+        <li><b>/plano</b> — transforma o diagnóstico em passos práticos e priorizados.</li>
+        <li><b>/casos</b> — registra o resultado depois de executar (vira seu portfólio).</li>
+        <li><b>/prospeccao</b> — acha clientes ideais por região e nicho, filtrando por oportunidade (ex.: sem site).</li>
+        <li><b>/painel</b> — atualiza este painel com o que foi feito.</li>
       </ul>
     </div>
     <div class="block" style="margin-bottom:14px">
-      <div class="lbl">Como ela pensa</div>
-      <p class="steps-how">Não é só uma IA que responde. Ela segue sempre o mesmo caminho: <b>entender a empresa › achar o problema › olhar o mercado › decidir a ação</b>. E aprende com o uso — quanto mais você usa, mais afiada fica pro seu tipo de cliente.</p>
+      <div class="lbl">Com e sem Google Maps (importante)</div>
+      <p class="steps-how"><b>Quase tudo funciona sem nada.</b> Diagnóstico, pesquisa, plano e casos só precisam do Claude, de graça. A diferença está só na <b>/prospeccao</b>:<br><br>
+      • <b>Sem a chave</b> → modo grátis (OpenStreetMap + busca). Acha leads reais, mas a cobertura no Brasil é irregular e o filtro "sem site" precisa de conferência — entrega menos, é melhor-esforço.<br>
+      • <b>Com a chave do Google</b> (Places + Geocoding, em Configurações) → lista completa e certeira, filtro instantâneo, controle de raio e o mapa aqui no painel. É a chave <b>do próprio usuário</b>, grátis dentro da cota do Google.</p>
     </div>
-    <div class="block" style="margin-bottom:14px"><div class="lbl">Os comandos</div><div class="cmds" id="cmds"></div></div>
-    <div class="block"><div class="lbl">Vídeo</div><div class="video"><div>Espaço para o vídeo (3–5 min)</div><div>cole o embed do Loom no <code>index.html</code></div></div></div>
+    <div class="block"><div class="lbl">Beta — o que esperar</div>
+      <p class="steps-how">Esta é a <b>versão 1</b>. Sólido: diagnóstico, plano, pesquisa e prospecção local. Experimental: prospecção por rede social (o Instagram bloqueia busca, então acha pouco). Tem muito mais vindo — quem acompanha fica sempre à frente. <b>Seu feedback molda o que vem.</b></p>
+    </div>
   </section>
 
   <footer>Logic — inteligência que estuda empresas · sem servidor, sem banco de dados</footer>
@@ -326,7 +334,6 @@ $("#cards").innerHTML=DADOS.clientes.length?DADOS.clientes.map(c=>`
     <div class="slabels">${ETAPAS.map(([k,t])=>`<span class="${c.etapas[k]?'on':''}">${t}</span>`).join("")}</div>
     <div class="gargalo">${c.gargalo}</div></div>`).join("")
   :`<div class="empty">Nenhum cliente ainda. Comece com <code>/novo_cliente</code> no Claude.</div>`;
-$("#cmds").innerHTML=CMDS.map(c=>`<div class="cmd"><div class="k">${c.k}</div><div class="v">${c.v}</div></div>`).join("");
 
 /* calendário */
 let calY=now.getFullYear(),calM=now.getMonth(),selDay=null;const evOf=k=>EV[k]||[];
