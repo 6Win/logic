@@ -67,8 +67,9 @@ Os comandos (`/novo`, `/diag`, `/pesquisa`, `/plano`, `/casos`, `/leads`, `/pain
 - Quando o usuário **digitar o comando** OU **descrever o que quer** em linguagem natural
   (ex.: "acha uns clientes de barbearia no Rio", "analisa essa empresa", "monta o plano",
   "quero entender o mercado"), **identifique a skill que corresponde** à intenção.
-- **Execute a skill** correspondente e **avise que está executando** ("Beleza, rodando o
-  diagnóstico…") e no fim confirme a entrega.
+- **Ative a skill** correspondente: avise que vai rodar ("Beleza, rodando o diagnóstico…"),
+  **faça as perguntas padrão da skill** (os campos que ela pede), e então **execute e
+  entregue**. Ativar a skill = seguir o roteiro dela do início ao fim.
 - Se estiver ambíguo entre duas skills, pergunte **1 coisa rápida** antes de rodar.
 - Palavras-chave → skill: cadastrar/empresa nova → `novo` · diagnóstico/analisar/gargalo →
   `diag` · mercado/concorrente → `pesquisa` · plano/passos → `plano` · resultado/case →
