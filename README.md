@@ -39,6 +39,10 @@ code .
 
 Na janela do VS Code: terminal integrado → `claude` → `/instalar`.
 
+> ⚠️ **Importante:** abra a pasta **`logic` como workspace** (File → Open Folder →
+> selecione a pasta `logic`). Se você abrir a pasta de cima, os comandos não aparecem
+> no menu `/`. A `.claude/` tem que ficar na raiz do que você abriu.
+
 O `/instalar` roda uma vez, te dá as boas-vindas e mostra o fluxo. Depois é só
 `/novo` pra estudar sua primeira empresa.
 
