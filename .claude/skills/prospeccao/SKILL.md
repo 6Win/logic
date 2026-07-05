@@ -45,8 +45,11 @@ pegar lat,lng. **Raio automático:** se o usuário não disser, escolher pelo al
 
 ### 2. Buscar por raio — Nearby Search
 `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=<LAT>,<LNG>&radius=<METROS>&keyword=<NICHO>&language=pt-BR&key=<KEY>`
-→ extrair nome, place_id, endereço, rating, nº de avaliações. (Mais resultados: repetir
-com `next_page_token`.)
+→ extrair nome, place_id, endereço, rating, nº de avaliações.
+**Limite e volume (AVISAR o usuário):** cada área devolve **até ~60** (3 páginas de 20 via
+`next_page_token`). Pra números maiores (ex.: 100 numa cidade), **varrer vários bairros/
+pontos e juntar removendo repetidos**. Deixar claro pro usuário: teto ~60 por área, e
+volume alto consome mais da cota da chave dele — priorizar **qualidade** do lead, não só bater o número.
 
 ### 3. Enriquecer — Place Details (só o shortlist, pra economizar)
 `.../place/details/json?place_id=<PID>&fields=name,website,formatted_phone_number,rating,user_ratings_total,url&language=pt-BR&key=<KEY>`
