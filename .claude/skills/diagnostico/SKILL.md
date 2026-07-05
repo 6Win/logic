@@ -17,6 +17,12 @@ conclusão estratégica que o dono não teria sozinho. **A qualidade aqui é tud
 se sair genérico, o Logic fracassou. Antes de entregar, passe SEMPRE pela
 `_nucleo/rubricas/qualidade.md`.
 
+> **FALE CLARO (regra nº1).** Este é o comando que a galera mais usa e o que mais
+> sofre com "corporativês". Escreva cada achado em linguagem de gente: nada de
+> "ataca a causa-raiz de 64%"; e sim "a maioria das reclamações é porque o cliente
+> não sabe onde está o pedido — avisar por WhatsApp resolve boa parte". Explique
+> qualquer termo técnico na hora. Se um iniciante não entenderia, reescreva.
+
 ## Antes de rodar
 - Confirmar que existe um cliente ativo (`clientes/<empresa>/cliente.md`). Se não,
   rodar `/novo_cliente` primeiro (ou coletar nome + cidade na hora).

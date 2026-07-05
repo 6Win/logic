@@ -183,25 +183,22 @@
 
   <div class="tabs">
     <button class="tab active" data-tab="inicio">Início</button>
-    <button class="tab" data-tab="clientes">Clientes</button>
-    <button class="tab" data-tab="historico">Histórico</button>
+    <button class="tab" data-tab="historico">Agenda</button>
+    <button class="tab" data-tab="metodo">Método</button>
     <button class="tab" data-tab="config">Configurações</button>
-    <button class="tab" data-tab="guia">Guia</button>
   </div>
 
   <section class="panel active" id="inicio">
     <div class="hello">Bem-vindo de volta. <span class="hi">Aqui está onde continuar.</span></div>
     <div id="resume"></div>
-    <div class="stats" id="stats"></div>
-    <div class="two-col">
-      <div class="block"><div class="lbl">Saúde da carteira</div><div id="health"></div></div>
-      <div class="block"><div class="lbl">Uso</div><div class="use" id="use"></div></div>
+    <div class="block" style="margin:16px 0">
+      <div class="lbl">O caminho</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:var(--mono);font-size:12px;color:var(--muted)">
+        <b style="color:var(--fg)">/novo_cliente</b><span>›</span><b style="color:var(--fg)">/diagnostico</b><span>›</span>/pesquisa<span>›</span><b style="color:var(--fg)">/plano</b><span>›</span>/casos
+      </div>
+      <p class="steps-how" style="margin-top:10px">Cadastre a empresa, veja o que trava, e receba o plano. <b>Quanto mais completo o cadastro, mais preciso o resultado</b> — e menos perguntas depois. Pare em qualquer passo.</p>
     </div>
-    <div class="block"><div class="lbl">Insights de uso</div><div class="ins" id="insights"></div></div>
-  </section>
-
-  <section class="panel" id="clientes">
-    <div class="lbl">Carteira</div>
+    <div class="lbl">Seus clientes</div>
     <div class="grid" id="cards"></div>
   </section>
 
@@ -231,9 +228,25 @@
     </div>
   </section>
 
-  <section class="panel" id="guia">
-    <div class="block" style="margin-bottom:16px"><div class="lbl">Como usar o Logic</div><div class="video"><div>Espaço para o vídeo (3–5 min)</div><div>cole o embed do Loom no <code>index.html</code></div></div></div>
-    <div class="cmds" id="cmds"></div>
+  <section class="panel" id="metodo">
+    <div class="block" style="margin-bottom:14px">
+      <div class="lbl">O que a Logic faz</div>
+      <p class="steps-how">Um sistema que <b>estuda uma empresa, acha o que trava o crescimento e monta um plano do que fazer</b> — com método, não achismo. Serve pra chegar num cliente já entendendo o negócio dele, ou pra melhorar o seu.</p>
+      <ul class="list" style="margin-top:12px">
+        <li>Entende qualquer empresa e acha o problema real</li>
+        <li>Mostra o mercado e a concorrência</li>
+        <li>Monta o plano do que fazer primeiro</li>
+        <li>Registra o resultado e vira case</li>
+        <li>Ajuda a achar clientes bons por região e nicho (com o Google Maps ligado)</li>
+        <li>Explica qualquer conceito que você não sabe — ICP, funil, CAC…</li>
+      </ul>
+    </div>
+    <div class="block" style="margin-bottom:14px">
+      <div class="lbl">Como ela pensa</div>
+      <p class="steps-how">Não é só uma IA que responde. Ela segue sempre o mesmo caminho: <b>entender a empresa › achar o problema › olhar o mercado › decidir a ação</b>. E aprende com o uso — quanto mais você usa, mais afiada fica pro seu tipo de cliente.</p>
+    </div>
+    <div class="block" style="margin-bottom:14px"><div class="lbl">Os comandos</div><div class="cmds" id="cmds"></div></div>
+    <div class="block"><div class="lbl">Vídeo</div><div class="video"><div>Espaço para o vídeo (3–5 min)</div><div>cole o embed do Loom no <code>index.html</code></div></div></div>
   </section>
 
   <footer>Logic — inteligência que estuda empresas · sem servidor, sem banco de dados</footer>
@@ -248,16 +261,16 @@ const DADOS = {
   clientes:[{
     slug:"chatuba", nome:"Chatuba Materiais de Construção", nicho:"Materiais de construção", cidade:"Rio de Janeiro/RJ",
     etapas:{diagnostico:true,pesquisa:true,plano:true,casos:false},
-    gargalo:"A logística de entrega derruba o cliente profissional bem quando a Obramax entra no RJ.",
-    diagnostico:{insight:"O único fosso da Chatuba contra a Leroy é a proximidade — entrega local confiável. E é justo esse fosso que está quebrado.",
-      scores:[{k:"Oferta & Preço",v:6},{k:"Posicionamento",v:6},{k:"Aquisição",v:9},{k:"Conversão",v:6},{k:"Reputação/Retenção",v:5},{k:"Presença/Conteúdo",v:9}],
-      quickwins:["Status proativo de entrega — ataca a causa-raiz de ~64% das reclamações","Reverter reputação — 94,7% resolvidos viram prova social + cortar resposta de 5d15h","Cravar posicionamento — de 'preço' para 'a rede da região que entrega certo'"],
-      arena:[{e:"Chatuba",f:"proximidade + relação local (62 anos, 224K)",fr:"logística de entrega"},{e:"Obramax",f:"preço de atacado pro profissional",fr:"presença regional"},{e:"Leroy",f:"escala nacional (R$8,97 bi)",fr:"atendimento e proximidade local"}]},
-    pesquisa:{perguntas:[{q:"O mercado cresce ou encolhe?",a:"Encolhendo em 2026 (juros, consumo fraco). Segura manutenção/reposição → reter > adquirir."},{q:"Quem está ganhando?",a:"Os atacarejos nacionais (Obramax R$400mi no RJ; Leroy R$8,97bi). Escala + preço."},{q:"Quem ameaça diretamente?",a:"Obramax (cerca o território + mira o profissional) e Asa Branca (entrega própria — ataca o ponto fraco)."},{q:"Oportunidade que ninguém explora?",a:"O cruzamento alcance digital + proximidade + entrega confiável está vago. A Chatuba é a única que teria os três."}],
-      janela:{agora:"crava 'entrega garantida' enquanto o espaço está aberto",esperar:"Obramax perto de 30 lojas, Asa Branca dona da 'entrega própria', e a Chatuba vira 'a rede grande com fama de entrega ruim'"},
-      movimento:"Transformar entrega garantida em posicionamento de marca antes que a Asa Branca ocupe esse espaço."},
-    plano:{aposta:"Transformar 'entrega confiável' na arma de retenção do profissional — blindar o fosso de proximidade antes da Obramax.",horizonte:"30 dias",
-      frentes:[{n:"Visibilidade da entrega",a:["Nomear responsável pelo OTIF","SLA com a transportadora","Rotina diária de acompanhamento","Alerta automático de atraso + status no WhatsApp"]},{n:"Retenção da Liga",a:["Lista dos ~20 maiores profissionais","Responsável de relacionamento","Ligação pessoal com roteiro","Oferta de recuperação + CRM segmentado"]},{n:"Reputação = prova social",a:["Responsável com meta <24h no Reclame Aqui","Modelos de resposta","Pedir atualização de nota","Monitorar Google Reviews semanal"]}]},
+    gargalo:"O problema não é falta de cliente — é a entrega. Quando um pedido atrasa, o profissional (que é quem mais compra) fica na mão e acaba indo pro concorrente.",
+    diagnostico:{insight:"A Chatuba tem uma vantagem que as gigantes (tipo a Leroy) não conseguem copiar: ela é da região e entrega perto. Mas é justamente a entrega dela que está falhando. Ou seja, está deixando escapar a única coisa que a protege.",
+      scores:[{k:"Oferta e preço",v:6},{k:"Posição / marca",v:6},{k:"Como atrai clientes",v:9},{k:"Fechar a venda",v:6},{k:"Reputação e fidelidade",v:5},{k:"Presença digital",v:9}],
+      quickwins:["Avisar o cliente por WhatsApp onde está o pedido. Hoje a maioria das reclamações é porque ninguém sabe onde a entrega está — um aviso automático resolve boa parte e ainda diminui ligação no atendimento.","Responder as reclamações rápido e pedir pro cliente atualizar a nota. A Chatuba já resolve quase tudo, mas demora dias — resolver na hora vira elogio no lugar de crítica.","Parar de se vender como 'a mais barata' (aí a Leroy sempre ganha) e passar a ser 'a loja da região que entrega certo'."],
+      arena:[{e:"Chatuba",f:"conhecida na região há 62 anos, entrega perto",fr:"a entrega está falhando"},{e:"Obramax",f:"preço baixo pro pedreiro e empreiteiro",fr:"não tem relação de bairro"},{e:"Leroy",f:"gigante, tem de tudo",fr:"não é perto nem pessoal"}]},
+    pesquisa:{perguntas:[{q:"O mercado está crescendo ou encolhendo?",a:"Encolhendo em 2026 — juros altos e gente comprando menos. O que segura são as reformas pequenas. Ou seja: vale mais manter quem já compra do que correr atrás de cliente novo."},{q:"Quem está ganhando?",a:"As redes gigantes de atacado (Obramax, Leroy), que ganham no preço e no tamanho — um terreno onde a Chatuba não vence."},{q:"Quem é a ameaça direta?",a:"A Obramax, que está abrindo lojas no Rio e mira o pedreiro/empreiteiro; e a Asa Branca, uma loja local já conhecida por ter entrega própria — justo o ponto fraco da Chatuba."},{q:"Que oportunidade ninguém está pegando?",a:"Ninguém junta as três coisas: presença forte na internet + ser da região + entregar certo. A Chatuba é a única que poderia ter as três — só falta consertar a entrega."}],
+      janela:{agora:"Hoje nenhum concorrente é conhecido por entregar rápido e com confiança. Se a Chatuba assumir isso primeiro, ganha uma vantagem difícil de copiar.",esperar:"Se demorar, a Obramax abre mais lojas e a Asa Branca vira 'a que entrega' — e a Chatuba fica com fama de entrega ruim."},
+      movimento:"Ser conhecida como 'a que entrega rápido e certo' antes que um concorrente ocupe esse lugar."},
+    plano:{aposta:"Fazer da entrega confiável o motivo de o profissional continuar comprando na Chatuba — e não migrar pra concorrência.",horizonte:"30 dias",
+      frentes:[{n:"Arrumar a entrega",a:["Colocar uma pessoa responsável por acompanhar as entregas todo dia","Combinar prazos claros com a transportadora","Avisar o cliente por WhatsApp quando o pedido sai e se atrasar","Medir quantas entregas chegam no prazo (hoje ninguém mede)"]},{n:"Segurar quem mais compra",a:["Listar os ~20 clientes que mais compram","Alguém ligar pessoalmente pra ouvir e cuidar deles","Dar uma condição especial pra quem teve problema de entrega","Anotar tudo num sistema simples pra não esquecer ninguém"]},{n:"Virar a reputação a favor",a:["Responder reclamação em menos de 24 horas","Ter respostas prontas pros casos mais comuns","Depois de resolver, pedir pro cliente atualizar a nota","Olhar as avaliações do Google toda semana"]}]},
     casos:null
   }],
   timeline:[
@@ -297,42 +310,11 @@ function nextAction(c){
   if(!c.etapas.casos)return{l:"Executar o plano e registrar resultado",c:"/casos"};
   return{l:"Ciclo completo — iniciar novo ciclo",c:""};
 }
-/* ===== início ===== */
-(function(){
-  const cs=DADOS.clientes;
-  // resume
+/* ===== início: só "o que fazer agora" + clientes ===== */
+(function(){const cs=DADOS.clientes;
   if(cs.length){const c=cs[cs.length-1],na=nextAction(c);
-    $("#resume").innerHTML=`<div class="resume"><div><div class="rk">Última atividade</div><div class="rc">${c.nome}</div><div class="rn">Próxima ação: ${na.l}</div></div>${na.c?`<div class="go">${na.c}</div>`:""}</div>`;}
-  else $("#resume").innerHTML=`<div class="resume"><div><div class="rk">Começe aqui</div><div class="rc">Nenhum cliente ainda</div><div class="rn">Cadastre a primeira empresa</div></div><div class="go">/novo_cliente</div></div>`;
-  // stats
-  const d=k=>cs.filter(x=>x.etapas[k]).length;
-  $("#stats").innerHTML=[["Clientes",cs.length],["Diagnósticos",d("diagnostico")],["Planos",d("plano")],["Casos",d("casos")]]
-    .map(([l,n])=>`<div class="stat"><div class="n">${String(n).padStart(2,'0')}<span class="u">.</span></div><div class="l">${l}</div></div>`).join("");
-  // saúde
-  let health="",pend={};
-  cs.forEach(c=>{const na=nextAction(c);const done=na.c==="";
-    const color=done?"var(--ok)":"var(--red)";const st=done?"Completo":na.c;
-    if(!done)pend[na.c]=(pend[na.c]||0)+1;
-    health+=`<div class="hrow"><span class="hd" style="background:${color}"></span><span class="hn">${c.nome}</span><span class="hs">${st}</span></div>`;});
-  const agg=Object.keys(pend).map(k=>`<b>${pend[k]}</b> aguardando ${k}`).join(" · ");
-  $("#health").innerHTML=(health||`<div class="none">Sem clientes.</div>`)+(agg?`<div class="agg">${agg}</div>`:"");
-  // uso
-  const u=DADOS.uso,max=Math.max(1,...Object.values(u));
-  $("#use").innerHTML=Object.keys(u).map(k=>`<div class="u"><span class="ul">${USOLBL[k]}</span><div class="track"><div class="fill" style="width:${u[k]/max*100}%"></div></div><span class="uv">${u[k]}</span></div>`).join("");
-  // insights
-  const entries=Object.entries(u).sort((a,b)=>b[1]-a[1]);
-  const mais=entries[0],menos=entries[entries.length-1];
-  // gargalo mais comum
-  const tally={};cs.forEach(c=>{if(!c.diagnostico)return;const s=[...c.diagnostico.scores].sort((a,b)=>a.v-b.v)[0];if(s)tally[s.k]=(tally[s.k]||0)+1;});
-  const garg=Object.entries(tally).sort((a,b)=>b[1]-a[1])[0];
-  const chegou=cs.filter(c=>c.etapas.plano).length,fechou=cs.filter(c=>c.etapas.casos).length;
-  const ins=[
-    {k:"Comando mais usado",v:`<b>${USOLBL[mais[0]]}</b> (${mais[1]})`},
-    {k:"Menos usado",v:`<b>${USOLBL[menos[0]]}</b> (${menos[1]})`},
-    garg?{k:"Gargalo mais comum",v:`<b>${garg[0]}</b>`}:null,
-    {k:"Funil",v:`${chegou} chegaram ao plano · ${fechou} fecharam com caso`}
-  ].filter(Boolean);
-  $("#insights").innerHTML=ins.map(i=>`<div class="inc"><div class="ik">${i.k}</div><div class="iv">${i.v}</div></div>`).join("");
+    $("#resume").innerHTML=`<div class="resume"><div><div class="rk">Onde você parou</div><div class="rc">${c.nome}</div><div class="rn">Próximo passo: ${na.l}</div></div>${na.c?`<div class="go">${na.c}</div>`:""}</div>`;}
+  else $("#resume").innerHTML=`<div class="resume"><div><div class="rk">Comece aqui</div><div class="rc">Nenhuma empresa ainda</div><div class="rn">Cadastre a primeira pra começar</div></div><div class="go">/novo_cliente</div></div>`;
 })();
 
 /* cards */

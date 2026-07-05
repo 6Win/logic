@@ -21,7 +21,8 @@ fricção (princípio facilitador).
 - CNPJ — opcional (só pra desempatar empresas de nome igual)
 
 Não interrogar o usuário. Pedir os campos de uma vez, deixar claro que só o nome é
-obrigatório.
+obrigatório — **mas avisar que quanto mais completo o cadastro, mais preciso fica o
+diagnóstico e o plano** (e menos perguntas repetidas depois).
 
 ## O que fazer
 1. Criar a pasta `clientes/<slug-da-empresa>/` (slug em minúsculas, sem acento).

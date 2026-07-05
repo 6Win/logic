@@ -30,6 +30,10 @@ Ler `clientes/<empresa>/diagnostico.md` (o gargalo + quick wins) e, se houver,
 6. **Entregáveis** claros por etapa.
 
 ## Padrão de qualidade (herda do /diagnostico)
+> **FALE CLARO (regra nº1):** cada ação escrita em linguagem de gente, como você
+> explicaria pra um amigo. Sem jargão sem explicar, sem frase de efeito. Diagnóstico
+> e Plano são o que o usuário mais usa — é aqui que a clareza mais importa.
+
 O plano sai no mesmo nível de elite do diagnóstico:
 - **Abre com a aposta-âncora** — a UMA jogada central (espelha o insight do diagnóstico).
 - **Cada ação com métrica e horizonte** (🔥 Hoje / 📅 30 / 📈 90), não lista solta.
