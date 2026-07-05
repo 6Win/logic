@@ -16,6 +16,12 @@
   Chatuba (nichos diferentes) pra confirmar que a qualidade se mantém.
 - Só depois disso considerar o produto "validado pra distribuir".
 
+## 🔎 Prospecção digital (adiado)
+- Achar perfis por rede social (Instagram/TikTok) foi **removido do beta** — não performa
+  no grátis (redes bloqueiam busca; só aparecem contas grandes). Hoje `/leads` é **só local**.
+- Retomar quando houver fonte confiável (API paga de social, ou parceria). É o próximo
+  grande upgrade da prospecção.
+
 ## 🎨 Painel v2 (HTML bonito e funcional)
 - Substituir o painel atual por um HTML **muito mais organizado e legível**.
 - **Identidade visual:** preto, branco e vermelho.

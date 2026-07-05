@@ -13,20 +13,14 @@ description: >
 Resolve a dor nº1 de quem vende serviço: **achar gente boa pra abordar.** Não é volume,
 é qualidade do lead. Fala claro (regra nº1 da rubrica) e é eficiente com chamadas/tokens.
 
-## Primeiro: local ou digital? (muda as perguntas)
-Perguntar o tipo de alvo antes de tudo:
-- **Empresa local** (loja, clínica, restaurante, barbearia…) → fluxo por região.
-  Perguntar: **nicho · cidade/região · raio** (opcional) **· quantos**.
-- **Negócio digital / perfil de rede social** (prestador online, criador, infoproduto…) →
-  fluxo social. Perguntar: **nicho/segmento · plataforma** (Instagram, TikTok…) **·
-  localização** (opcional, pode ser nacional) **· faixa de seguidores** (opcional) **· quantos**.
-
-Em qualquer caso, perguntar também:
-- **O que procurar** (o filtro de oportunidade — é o que qualifica a lista): sem site ·
-  sem rede social · site/perfil fraco ou parado · avaliação baixa · sem forma clara de
-  contato. Pode combinar ("sem site E sem Instagram"). Se não disser, usar "sem site /
-  digital fraco" como padrão.
+## O que perguntar (curto)
+Prospecção de **empresas locais** (loja, clínica, restaurante, barbearia…). Perguntar:
+- **Nicho · cidade/região · raio** (opcional) **· quantos** (padrão 10).
+- **O que procurar** (o filtro que qualifica a lista): sem site · site fraco/parado ·
+  avaliação baixa · sem contato claro. Pode combinar. Padrão: "sem site / digital fraco".
 - **Que serviço o usuário vende** — calibra o "como abordar".
+
+_(Prospecção por rede social/Instagram fica pra uma versão futura — hoje só local.)_
 
 Padrão de quantidade: 10.
 
@@ -75,22 +69,6 @@ Fonte principal grátis e estruturada: **OpenStreetMap (Overpass API)** — sem 
 5. **Varrer sub-áreas e acumular** sem repetir até a quantidade pedida.
 Avisar de leve: grátis é melhor-esforço (OSM não cobre tudo no BR); a chave do Google
 entrega a lista completa de uma vez.
-
-## Modo Digital (redes sociais) — EXPERIMENTAL
-> ⚠️ **Avisar o usuário antes de rodar:** o caminho digital tem **eficiência baixa** e é
-> experimental. Motivo: o Instagram/TikTok **bloqueiam raspagem** e não têm busca grátis;
-> o Google só indexa marketplaces e contas grandes — então os pequenos "sem site" que
-> interessam **quase não aparecem**. Entrega poucos leads e com buracos. O forte da
-> prospecção é o **modo local** (ainda mais com a chave do Google). Se o usuário topar o
-> limite, seguir; senão, sugerir o local.
-
-Redes bloqueiam raspagem, então é **best-effort via o que o Google indexa**.
-1. `WebSearch`: "<nicho> <plataforma> <localização>", "melhores <nicho> no <plataforma>",
-   perfis por hashtag/termo → montar lista de **@perfis reais**.
-2. Pra cada perfil: `WebSearch`/`WebFetch` → bio (tem **link/site**? forma de contato?),
-   faixa de seguidores, se posta com frequência.
-3. Oportunidade no digital: **sem link/site na bio · sem contato claro · presença
-   parada · muitos seguidores mas sem conversão aparente**. Ativo e mal aproveitado = bom lead.
 
 ## Depois (nos dois caminhos)
 
