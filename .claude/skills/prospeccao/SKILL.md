@@ -21,7 +21,13 @@ Perguntar o tipo de alvo antes de tudo:
   fluxo social. Perguntar: **nicho/segmento · plataforma** (Instagram, TikTok…) **·
   localização** (opcional, pode ser nacional) **· faixa de seguidores** (opcional) **· quantos**.
 
-Em qualquer caso, perguntar também **que serviço o usuário vende** — calibra o "como abordar".
+Em qualquer caso, perguntar também:
+- **O que procurar** (o filtro de oportunidade — é o que qualifica a lista): sem site ·
+  sem rede social · site/perfil fraco ou parado · avaliação baixa · sem forma clara de
+  contato. Pode combinar ("sem site E sem Instagram"). Se não disser, usar "sem site /
+  digital fraco" como padrão.
+- **Que serviço o usuário vende** — calibra o "como abordar".
+
 Padrão de quantidade: 10.
 
 ## Detecta o modo sozinho (com ou sem chave)
@@ -68,6 +74,12 @@ aqui; é sempre por busca).
 ## Depois (nos dois caminhos)
 
 ### Filtrar por OPORTUNIDADE (o coração)
+**Aplicar o filtro que o usuário pediu** (ex.: só quem NÃO tem site). E **cruzar os dois
+lados pra qualificar de verdade** — as pesquisas se ajudam:
+- Empresa local → checar também se tem **rede social** (WebSearch "<nome> instagram").
+- Perfil digital → checar também se tem **site** (link na bio / busca do nome).
+Assim o lead sai realmente qualificado, não só "apareceu na busca".
+
 O lead ideal pra quem vende site/marketing = **negócio ativo, mas fraco no digital.**
 Sinais de oportunidade (quanto mais, melhor o lead):
 - **Sem website** → oportunidade forte (é exatamente o que ele pode vender)
