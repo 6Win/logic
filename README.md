@@ -22,11 +22,11 @@ graça, na sua máquina.
 
 Dois caminhos. Escolhe o que combina contigo.
 
-**Pelo Claude (mais rápido)** — abre o Claude Code em qualquer pasta e cola:
+**Pelo Claude (mais rápido)** — crie uma **pasta vazia**, abra ela no Claude Code e cole:
 
 ```
-Clona o https://github.com/6Win/logic.git na pasta atual,
-entra nela e roda o /instalar.
+Rode: git clone https://github.com/6Win/logic.git .
+(com o ponto no final, pra clonar aqui mesmo sem criar subpasta) e depois rode o /instalar.
 ```
 
 **Pelo terminal (mais previsível):**
