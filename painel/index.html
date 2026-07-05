@@ -221,7 +221,7 @@
         <div class="lbl" style="margin-top:22px">Google Maps (opcional)</div>
         <p class="steps-how"><b>Sem chave, tudo funciona igual</b> — é só um upgrade pra <b>prospecção</b> (mapa + filtro certeiro). Pra ligar: <b>diga sua chave ao Logic no chat</b> ("minha chave do Google é …") e rode <code style="font-family:var(--mono)">/painel</code>. Ele salva com segurança e ativa aqui.</p>
         <div id="kstatus" style="margin-top:8px"></div>
-        <p class="steps-how" style="margin-top:14px"><b>Como pegar:</b> console.cloud.google.com → crie um projeto → ative <b>Places API + Geocoding + Maps Embed</b> → gere a key. Grátis dentro da cota. Na prospecção, com a chave lista até ~60 por área e varre bairro por bairro, priorizando qualidade.</p>
+        <p class="steps-how" style="margin-top:14px"><b>Como pegar:</b> console.cloud.google.com → crie um projeto → ative <b>Places API + Geocoding + Maps Embed</b> → gere a key. Grátis dentro da cota. Na prospecção, com a chave lista até ~60 por área e varre bairro por bairro, priorizando qualidade.<br><br>⚠️ Se o mapa mostrar <b>"not authorized"</b>, falta ativar a <b>Maps Embed API</b> nessa chave (ou ela tem restrição). Ative/libere no Google Cloud. Isso <b>não afeta o /leads</b> — a prospecção usa Places + Geocoding, funciona mesmo sem o mapa.</p>
       </div>
       <div class="block"><div class="lbl">Mapa</div><div class="map" id="map"></div></div>
     </div>
