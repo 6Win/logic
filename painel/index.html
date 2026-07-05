@@ -2,6 +2,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   :root{
     --bg:#fff;--fg:#0d0d0d;--muted:#6b6b6b;--muted-2:#9a9a9a;
@@ -218,12 +220,12 @@
         <div class="lbl">Aparência</div>
         <div class="steps-how">Tema do painel.</div>
         <div class="themebtns"><button id="tl" onclick="setTheme('light')">Claro</button><button id="td" onclick="setTheme('dark')">Escuro</button></div>
-        <div class="lbl" style="margin-top:22px">Google Maps (opcional)</div>
-        <p class="steps-how"><b>Sem chave, tudo funciona igual</b> — é só um upgrade pra <b>prospecção</b> (mapa + filtro certeiro). Pra ligar: <b>diga sua chave ao Logic no chat</b> ("minha chave do Google é …") e rode <code style="font-family:var(--mono)">/painel</code>. Ele salva com segurança e ativa aqui.</p>
+        <div class="lbl" style="margin-top:22px">Google (prospecção)</div>
+        <p class="steps-how"><b>Sem chave, tudo funciona igual</b> — é só um upgrade pro <b>/leads</b> (lista completa + filtro certeiro). Pra ligar: <b>diga sua chave ao Logic no chat</b> e rode <code style="font-family:var(--mono)">/painel</code>. Ele salva com segurança.</p>
         <div id="kstatus" style="margin-top:8px"></div>
-        <p class="steps-how" style="margin-top:14px"><b>Como pegar:</b> console.cloud.google.com → crie um projeto → ative <b>Places API + Geocoding + Maps Embed</b> → gere a key. Grátis dentro da cota. Na prospecção, com a chave lista até ~60 por área e varre bairro por bairro, priorizando qualidade.<br><br>⚠️ Se o mapa mostrar <b>"not authorized"</b>, falta ativar a <b>Maps Embed API</b> nessa chave (ou ela tem restrição). Ative/libere no Google Cloud. Isso <b>não afeta o /leads</b> — a prospecção usa Places + Geocoding, funciona mesmo sem o mapa.</p>
+        <p class="steps-how" style="margin-top:14px"><b>Como pegar:</b> console.cloud.google.com → ative <b>Places API + Geocoding API</b> → gere a key. Grátis dentro da cota. Volume alto (100+) varre bairro por bairro e usa mais da cota. <i>(O mapa aqui do lado é livre, não usa essa chave.)</i></p>
       </div>
-      <div class="block"><div class="lbl">Mapa</div><div class="map" id="map"></div></div>
+      <div class="block"><div class="lbl">Mapa</div><div class="map" id="map"></div><p class="steps-how" style="margin-top:8px">Mapa livre (OpenStreetMap) — não precisa de chave.</p></div>
     </div>
   </section>
 
@@ -341,19 +343,24 @@ function renderTimeline(){const auto=DADOS.timeline.map(e=>({...e}));const user=
     const body=(e.tx||(e.det&&e.det.length))?`<div class="tevb"><div class="in">${e.tx||""}${e.det&&e.det.length?`<ul>${e.det.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}</div></div>`:"";
     return `<div class="tev" id="tev${i}"><div class="tevh" onclick="document.getElementById('tev${i}').classList.toggle('open')"><span class="tg">${e.tipo}</span><span class="ti">${e.tit}</span><span class="td">${d}</span><span class="cv">▸</span></div>${body}</div>`;}).join(""):`<div class="none">Sem atividade ainda.</div>`;}
 
-/* config google — a chave vem do _config.json via /painel (DADOS.googleKey) */
+/* config: status da chave (prospecção) + mapa Leaflet (sem chave nenhuma) */
 function renderCfg(){const k=(DADOS.googleKey||"").trim();
-  $("#kstatus").innerHTML=k?`<span class="pill on"><span class="d"></span>Google Maps ativo</span>`:`<span class="pill off"><span class="d"></span>Sem chave — modo padrão</span>`;
-  const m=$("#map");
-  if(k){const c=DADOS.clientes[0];const q=encodeURIComponent(c?(c.nome+" "+c.cidade):"Brasil");
-    m.innerHTML=`<iframe loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=${encodeURIComponent(k)}&q=${q}"></iframe>`;}
-  else m.innerHTML=`<div class="mapoff">O mapa aparece aqui quando a chave do Google estiver ligada.<br>Sem chave, o Logic segue funcionando normal.</div>`;}
+  $("#kstatus").innerHTML=k?`<span class="pill on"><span class="d"></span>Chave do Google ativa (prospecção)</span>`:`<span class="pill off"><span class="d"></span>Sem chave — prospecção no modo grátis</span>`;}
+let LMAP=null;
+function initMap(){
+  if(LMAP||!window.L)return;
+  LMAP=L.map('map').setView([-14.2,-51.9],4);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(LMAP);
+  const c=DADOS.clientes[0];
+  if(c&&c.cidade){fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&q='+encodeURIComponent(c.cidade)).then(r=>r.json()).then(d=>{if(d&&d[0]){const ll=[+d[0].lat,+d[0].lon];LMAP.setView(ll,12);L.marker(ll).addTo(LMAP).bindPopup(c.nome);}}).catch(()=>{});}
+  setTimeout(()=>LMAP.invalidateSize(),150);
+}
 
 /* tabs */
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));
   t.classList.add("active");$("#"+t.dataset.tab).classList.add("active");
-  if(t.dataset.tab==="historico")renderCal();if(t.dataset.tab==="config")renderCfg();});
+  if(t.dataset.tab==="historico")renderCal();if(t.dataset.tab==="config"){renderCfg();initMap();if(LMAP)setTimeout(()=>LMAP.invalidateSize(),120);}});
 renderCal();renderTimeline();
 
 /* dossiê */
