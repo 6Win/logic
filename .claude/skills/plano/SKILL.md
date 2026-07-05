@@ -3,7 +3,7 @@ name: plano
 description: >
   Transforma o diagnóstico em execução — um plano estratégico/tático/operacional
   no horizonte que o usuário escolher (10/30/60/90/180 dias, 12 meses). Prioriza
-  por impacto × esforço, define métrica pra cada ação. Use depois do /diagnostico,
+  por impacto × esforço, define métrica pra cada ação. Use depois do /diag,
   quando o usuário disser "plano", "/plano", "monta o plano de ação".
 ---
 
@@ -29,7 +29,7 @@ Ler `clientes/<empresa>/diagnostico.md` (o gargalo + quick wins) e, se houver,
 5. **Métrica por ação** — como saber se funcionou (a rubrica exige número).
 6. **Entregáveis** claros por etapa.
 
-## Padrão de qualidade (herda do /diagnostico)
+## Padrão de qualidade (herda do /diag)
 > **FALE CLARO (regra nº1):** cada ação escrita em linguagem de gente, como você
 > explicaria pra um amigo. Sem jargão sem explicar, sem frase de efeito. Diagnóstico
 > e Plano são o que o usuário mais usa — é aqui que a clareza mais importa.

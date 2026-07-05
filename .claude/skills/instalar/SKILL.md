@@ -23,7 +23,7 @@ configuração — só orienta e ativa o fluxo.
 > diagnóstico que faz o dono pensar *"eu não teria chegado nisso sozinho"*.
 >
 > Funciona em 5 passos, e você **para onde quiser**:
-> `/novo_cliente → /diagnostico → /pesquisa → /plano → /casos`
+> `/novo → /diag → /pesquisa → /plano → /casos`
 >
 > Bora? Me diz o **nome de uma empresa** (a sua ou a de um cliente) que eu já começo. 🚀
 
@@ -38,21 +38,21 @@ usuário — só o essencial pra ele começar a usar em 30 segundos.
    `painel/index.html` (dashboard). Não precisa listar arquivo por arquivo.
 3. **Apresentar o fluxo e os comandos:**
    ```
-   /novo_cliente → /diagnostico → /pesquisa → /plano → [executa] → /casos
+   /novo → /diag → /pesquisa → /plano → [executa] → /casos
    ```
    | Comando | O que faz |
    |---|---|
-   | `/novo_cliente` | cadastra a empresa (só o nome é obrigatório) |
-   | `/diagnostico` | raio-X em 3 etapas — pare em qualquer uma |
+   | `/novo` | cadastra a empresa (só o nome é obrigatório) |
+   | `/diag` | raio-X em 3 etapas — pare em qualquer uma |
    | `/pesquisa` | concorrentes, mercado, oportunidade |
    | `/plano` | vira plano de ação executável |
    | `/casos` | registra resultado e aprende |
-   | `/prospeccao` | acha clientes ideais por região e nicho |
+   | `/leads` | acha clientes ideais por região e nicho |
 4. **Checar o essencial:** o Logic coleta dado público via web — confirmar que o
    ambiente do usuário tem acesso a `WebSearch`/`WebFetch`. Se não tiver, avisar que a
    coleta automática fica limitada (mas o usuário ainda pode colar dados manualmente).
 5. **Apontar o vídeo** (se configurado no painel) pra quem prefere ver a explicação.
 6. **Conduzir ao primeiro passo:** *"Bora começar? Me diz o nome de uma empresa e eu
-   rodo o /novo_cliente."*
+   rodo o /novo."*
 
 Não pedir nada além disso. Rápido, acolhedor, e já joga o usuário pro valor.

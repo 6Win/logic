@@ -82,7 +82,7 @@ Passar nos 6 testes não basta; a apresentação multiplica a confiança do usu�
     Fechar com o que dá pra **vender/oferecer** pra essa empresa, **priorizado e
     justificado pelo gargalo** — nunca um checklist genérico. E um gancho de
     abordagem ("como eu entraria na reunião"). Isso é o que transforma o
-    diagnóstico em dinheiro pra quem usa o Logic. (Detalhe no skill /diagnostico.)
+    diagnóstico em dinheiro pra quem usa o Logic. (Detalhe no skill /diag.)
 
 11. **Um insight-âncora.** Todo diagnóstico tem UM insight principal (o "caramba")
     que abre a entrega; o resto existe pra sustentá-lo. Se você não consegue apontar

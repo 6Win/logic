@@ -52,21 +52,21 @@ como parte do valor, não como distração.
 | Comando | O que faz | Serve o uso |
 |---------|-----------|-------------|
 | `/instalar` | boas-vindas + apresenta o fluxo (primeira vez) | onboarding |
-| `/novo_cliente` | cria o contexto da empresa (form mínimo) | todos |
-| `/diagnostico` | raio-X em 3 etapas (pública → perguntas → arquivos) | pré-venda / todos |
+| `/novo` | cria o contexto da empresa (form mínimo) | todos |
+| `/diag` | raio-X em 3 etapas (pública → perguntas → arquivos) | pré-venda / todos |
 | `/pesquisa` | concorrentes, mercado, tendências | aprofundar |
 | `/plano` | transforma diagnóstico em execução (horizonte à escolha) | venda ampliada |
 | `/casos` | registra resultado pós-execução, personaliza o Logic | uso próprio |
-| `/prospeccao` | acha clientes ideais por região e nicho (lista priorizada) | encher pipeline |
+| `/leads` | acha clientes ideais por região e nicho (lista priorizada) | encher pipeline |
 | `/painel` | atualiza o dashboard visual (painel/index.html) | organização |
 
 Verifique sempre se há skill em `.claude/skills/` antes de executar. Siga a skill.
 
 **Chave do Google (opcional):** se o usuário fornecer a chave, salve em `_config.json`
-(campo `google_key`) e rode `/painel` pra ativar o mapa. A `/prospeccao` usa essa chave;
+(campo `google_key`) e rode `/painel` pra ativar o mapa. A `/leads` usa essa chave;
 sem ela, roda no modo grátis. Nunca commitar `_config.json` (já está no `.gitignore`).
 
-**Registro de uso:** ao concluir um comando do fluxo (`/novo_cliente`, `/diagnostico`,
+**Registro de uso:** ao concluir um comando do fluxo (`/novo`, `/diag`,
 `/pesquisa`, `/plano`, `/casos`), incremente em **1** o contador correspondente em
 `_uso.json`. É o dado que alimenta o dashboard de Uso e Insights do painel — mostra o
 que é realmente usado. Não exibir isso ao usuário; só manter o arquivo atualizado.

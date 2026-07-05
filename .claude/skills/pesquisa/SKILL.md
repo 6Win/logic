@@ -33,7 +33,7 @@ contrário). Coletar via `_nucleo/coletor/websearch.md`.
 
 ## Entrega — estrutura fixa (o usuário sabe o que esperar)
 
-Sempre no mesmo nível de elite do /diagnostico (evidência quantificada, confiança,
+Sempre no mesmo nível de elite do /diag (evidência quantificada, confiança,
 fonte por insight). O corpo responde **4 perguntas fixas**:
 
 1. **O mercado está crescendo ou encolhendo?** (com o dado que sustenta)

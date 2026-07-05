@@ -1,13 +1,13 @@
 ---
-name: novo-cliente
+name: novo
 description: >
   Cria o contexto de uma empresa nova no Logic — o primeiro comando de qualquer
   fluxo. Form mínimo (só o nome é obrigatório), cria a pasta clientes/<empresa>/ e
-  o cliente.md. Use quando o usuário disser "novo cliente", "/novo_cliente",
+  o cliente.md. Use quando o usuário disser "novo cliente", "/novo",
   "quero analisar a empresa X", ou no começo de qualquer estudo.
 ---
 
-# /novo_cliente — cria o contexto
+# /novo — cria o contexto
 
 Primeiro comando do fluxo. Serve só pra criar o contexto correto — leve, sem
 fricção (princípio facilitador).
@@ -32,6 +32,6 @@ diagnóstico e o plano** (e menos perguntas repetidas depois).
 4. (Opcional) Confirmar rapidamente com uma busca de identidade se a empresa foi
    achada — `WebSearch` "<nome> <cidade>" — e perguntar *"é esta?"* se houver
    dúvida. Sem transformar isso em diagnóstico ainda.
-5. Fechar oferecendo o próximo passo: *"Contexto criado. Rodo o /diagnostico?"*
+5. Fechar oferecendo o próximo passo: *"Contexto criado. Rodo o /diag?"*
 
 Não perguntar sobre memória nem nada além disso. Rápido e direto.

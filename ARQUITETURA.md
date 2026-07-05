@@ -46,7 +46,7 @@ são a mesma esteira, interrompida em pontos diferentes:
 
 | # | Uso | Quem | Entrega | Para em |
 |---|-----|------|---------|---------|
-| 1 | **Pré-venda** | freelancer/agência abordando prospect | diagnóstico externo → chega já entendendo o negócio → **mais conversão** | `/diagnostico` etapa 1 |
+| 1 | **Pré-venda** | freelancer/agência abordando prospect | diagnóstico externo → chega já entendendo o negócio → **mais conversão** | `/diag` etapa 1 |
 | 2 | **Venda ampliada** | quem já vende serviço (site, tráfego, CRM…) | serviço **+ estratégia + plano** → cobra mais → **mais margem** | `/plano` |
 | 3 | **Uso próprio** | o dono do próprio negócio | diagnóstico + plano pra escalar ou se manter | ciclo completo + `/casos` |
 
@@ -119,12 +119,12 @@ fisicamente — atualizar o produto nunca toca dados do cliente, e vice-versa.
 
 ## 6. O fluxo de comandos
 
-### `/novo_cliente` — cria o contexto
+### `/novo` — cria o contexto
 Form mínimo (facilitador): **Nome da empresa** (obrigatório) · Cidade · Estado ·
 Site · Instagram · Nicho · CNPJ (opcional, só pra desempatar homônimos).
 Preenche só o que tiver. Cria a pasta `clientes/<empresa>/` com `cliente.md`.
 
-### `/diagnostico` — 3 etapas independentes
+### `/diag` — 3 etapas independentes
 - **Etapa 1 — Pesquisa Pública** (a camada NOVA, outside-in). O Logic coleta tudo
   que der publicamente e entrega um raio-X inicial. **Já gera valor sozinha** →
   serve o Uso 1 (pré-venda).
@@ -213,10 +213,10 @@ Lista: clientes, histórico, diagnósticos, pesquisas, planos, casos, progresso.
 
 1. **Fundação** ✅ (este documento + estrutura + cérebro reaproveitado)
 2. **Adaptar o cérebro** — troca de sujeito + melhorias (seção 7)
-3. **Construir `/diagnostico` etapa 1 até o fim, com qualidade máxima** — a lente
+3. **Construir `/diag` etapa 1 até o fim, com qualidade máxima** — a lente
    outside-in + rubrica. **Testar em 3 empresas reais.** Refinar até dar o "caramba".
 4. Replicar o padrão: etapas 2/3, depois `/pesquisa`, `/plano`, `/casos`.
-5. `/novo_cliente` + painel + `/instalar`.
+5. `/novo` + painel + `/instalar`.
 6. README + vídeo Loom.
 
 > Regra: não adicionar função nova enquanto a entrega anterior não passar a rubrica

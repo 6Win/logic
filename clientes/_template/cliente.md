@@ -1,6 +1,6 @@
 # _template
 
-Esta pasta é o molde de um cliente. O /novo_cliente cria uma cópia com o nome real
+Esta pasta é o molde de um cliente. O /novo cria uma cópia com o nome real
 da empresa. Não editar aqui — cada empresa vira sua própria pasta em `clientes/`.
 
 Estrutura de cada cliente:

@@ -194,7 +194,7 @@
     <div class="block" style="margin:16px 0">
       <div class="lbl">O caminho</div>
       <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:var(--mono);font-size:12px;color:var(--muted)">
-        <b style="color:var(--fg)">/novo_cliente</b><span>›</span><b style="color:var(--fg)">/diagnostico</b><span>›</span>/pesquisa<span>›</span><b style="color:var(--fg)">/plano</b><span>›</span>/casos
+        <b style="color:var(--fg)">/novo</b><span>›</span><b style="color:var(--fg)">/diag</b><span>›</span>/pesquisa<span>›</span><b style="color:var(--fg)">/plano</b><span>›</span>/casos
       </div>
       <p class="steps-how" style="margin-top:10px">Cadastre a empresa, veja o que trava, e receba o plano. <b>Quanto mais completo o cadastro, mais preciso o resultado</b> — e menos perguntas depois. Pare em qualquer passo.</p>
     </div>
@@ -236,18 +236,18 @@
       <div class="lbl">Como usar — cada comando</div>
       <p class="steps-how" style="margin-bottom:12px">No chat do Claude, digite o comando. Você para em qualquer etapa.</p>
       <ul class="list">
-        <li><b>/novo_cliente</b> — cadastra a empresa. Quanto mais completo, mais preciso o resto.</li>
-        <li><b>/diagnostico</b> — o raio-X: onde a empresa perde, o gargalo real, o que fazer primeiro. Use antes de uma reunião ou proposta.</li>
+        <li><b>/novo</b> — cadastra a empresa. Quanto mais completo, mais preciso o resto.</li>
+        <li><b>/diag</b> — o raio-X: onde a empresa perde, o gargalo real, o que fazer primeiro. Use antes de uma reunião ou proposta.</li>
         <li><b>/pesquisa</b> — o mercado e a concorrência: quem ganha, quem ameaça, a oportunidade aberta.</li>
         <li><b>/plano</b> — transforma o diagnóstico em passos práticos e priorizados.</li>
         <li><b>/casos</b> — registra o resultado depois de executar (vira seu portfólio).</li>
-        <li><b>/prospeccao</b> — acha clientes ideais por região e nicho, filtrando por oportunidade (ex.: sem site).</li>
+        <li><b>/leads</b> — acha clientes ideais por região e nicho, filtrando por oportunidade (ex.: sem site).</li>
         <li><b>/painel</b> — atualiza este painel com o que foi feito.</li>
       </ul>
     </div>
     <div class="block" style="margin-bottom:14px">
       <div class="lbl">Com e sem Google Maps (importante)</div>
-      <p class="steps-how"><b>Quase tudo funciona sem nada.</b> Diagnóstico, pesquisa, plano e casos só precisam do Claude, de graça. A diferença está só na <b>/prospeccao</b>:<br><br>
+      <p class="steps-how"><b>Quase tudo funciona sem nada.</b> Diagnóstico, pesquisa, plano e casos só precisam do Claude, de graça. A diferença está só na <b>/leads</b>:<br><br>
       • <b>Sem a chave</b> → modo grátis (OpenStreetMap + busca). Acha leads reais, mas a cobertura no Brasil é irregular e o filtro "sem site" precisa de conferência — entrega menos, é melhor-esforço.<br>
       • <b>Com a chave do Google</b> (Places + Geocoding, em Configurações) → lista completa e certeira, filtro instantâneo, controle de raio e o mapa aqui no painel. É a chave <b>do próprio usuário</b>, grátis dentro da cota do Google.</p>
     </div>
@@ -269,7 +269,7 @@ const DADOS = {
   clientes:[],
   timeline:[]
 };
-const CMDS=[{k:"/novo_cliente",v:"cadastra a empresa"},{k:"/diagnostico",v:"raio-X em 3 etapas"},{k:"/pesquisa",v:"concorrentes, mercado, oportunidade"},{k:"/plano",v:"plano de ação executável"},{k:"/casos",v:"registra resultado e aprende"},{k:"/prospeccao",v:"acha clientes ideais por região e nicho"},{k:"/painel",v:"atualiza este dashboard"}];
+const CMDS=[{k:"/novo",v:"cadastra a empresa"},{k:"/diag",v:"raio-X em 3 etapas"},{k:"/pesquisa",v:"concorrentes, mercado, oportunidade"},{k:"/plano",v:"plano de ação executável"},{k:"/casos",v:"registra resultado e aprende"},{k:"/leads",v:"acha clientes ideais por região e nicho"},{k:"/painel",v:"atualiza este dashboard"}];
 const ETAPAS=[["diagnostico","Diag"],["pesquisa","Pesq"],["plano","Plano"],["casos","Casos"]];
 const TIPOS=["Atendimento","Reunião","Entrega","Nota"];
 const USOLBL={novo_cliente:"Novo Cliente",diagnostico:"Diagnóstico",pesquisa:"Pesquisa",plano:"Plano",casos:"Casos"};
@@ -284,7 +284,7 @@ const isof=(y,m,d)=>`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,
 /* tema */
 function setTheme(t){document.documentElement.setAttribute("data-theme",t);try{localStorage.setItem("logic_theme",t)}catch(e){}
   $("#tl").classList.toggle("on",t==="light");$("#td").classList.toggle("on",t==="dark");}
-(function(){let t="light";try{t=localStorage.getItem("logic_theme")||"light"}catch(e){}setTheme(t);})();
+(function(){let t="dark";try{t=localStorage.getItem("logic_theme")||"dark"}catch(e){}setTheme(t);})();
 
 /* eventos usuário */
 function loadEv(){try{return JSON.parse(localStorage.getItem("logic_eventos")||"{}")}catch(e){return {}}}
@@ -293,7 +293,7 @@ let EV=loadEv();
 
 /* próxima ação */
 function nextAction(c){
-  if(!c.etapas.diagnostico)return{l:"Rodar o diagnóstico",c:"/diagnostico"};
+  if(!c.etapas.diagnostico)return{l:"Rodar o diagnóstico",c:"/diag"};
   if(!c.etapas.pesquisa)return{l:"Aprofundar com pesquisa",c:"/pesquisa"};
   if(!c.etapas.plano)return{l:"Montar o plano",c:"/plano"};
   if(!c.etapas.casos)return{l:"Executar o plano e registrar resultado",c:"/casos"};
@@ -303,7 +303,7 @@ function nextAction(c){
 (function(){const cs=DADOS.clientes;
   if(cs.length){const c=cs[cs.length-1],na=nextAction(c);
     $("#resume").innerHTML=`<div class="resume"><div><div class="rk">Onde você parou</div><div class="rc">${c.nome}</div><div class="rn">Próximo passo: ${na.l}</div></div>${na.c?`<div class="go">${na.c}</div>`:""}</div>`;}
-  else $("#resume").innerHTML=`<div class="resume"><div><div class="rk">Comece aqui</div><div class="rc">Nenhuma empresa ainda</div><div class="rn">Cadastre a primeira pra começar</div></div><div class="go">/novo_cliente</div></div>`;
+  else $("#resume").innerHTML=`<div class="resume"><div><div class="rk">Comece aqui</div><div class="rc">Nenhuma empresa ainda</div><div class="rn">Cadastre a primeira pra começar</div></div><div class="go">/novo</div></div>`;
 })();
 
 /* cards */
@@ -314,7 +314,7 @@ $("#cards").innerHTML=DADOS.clientes.length?DADOS.clientes.map(c=>`
     <div class="steps">${ETAPAS.map(([k])=>`<div class="step ${c.etapas[k]?'done':''}"></div>`).join("")}</div>
     <div class="slabels">${ETAPAS.map(([k,t])=>`<span class="${c.etapas[k]?'on':''}">${t}</span>`).join("")}</div>
     <div class="gargalo">${c.gargalo}</div></div>`).join("")
-  :`<div class="empty">Nenhum cliente ainda. Comece com <code>/novo_cliente</code> no Claude.</div>`;
+  :`<div class="empty">Nenhum cliente ainda. Comece com <code>/novo</code> no Claude.</div>`;
 
 /* calendário */
 let calY=now.getFullYear(),calM=now.getMonth(),selDay=null;const evOf=k=>EV[k]||[];

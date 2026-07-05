@@ -12,7 +12,7 @@
 - Rever antes de qualquer distribuição pública.
 
 ## 🧪 Mais testes de qualidade
-- Rodar o `/diagnostico` + `/pesquisa` + `/plano` em **2–3 empresas reais** além da
+- Rodar o `/diag` + `/pesquisa` + `/plano` em **2–3 empresas reais** além da
   Chatuba (nichos diferentes) pra confirmar que a qualidade se mantém.
 - Só depois disso considerar o produto "validado pra distribuir".
 

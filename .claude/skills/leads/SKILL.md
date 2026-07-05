@@ -1,14 +1,14 @@
 ---
-name: prospeccao
+name: leads
 description: >
   Acha clientes ideais no mercado — empresas reais por cidade/região e nicho, filtra as
   que têm oportunidade (sem site, digital fraco) e devolve uma lista priorizada de leads
   qualificados, na quantidade que o usuário pedir. Como o Kaptar, sem o disparo. Use
-  quando o usuário disser "prospecção", "/prospeccao", "acha clientes pra mim", "quero
+  quando o usuário disser "prospecção", "/leads", "acha clientes pra mim", "quero
   leads de [nicho] em [cidade]".
 ---
 
-# /prospeccao — encontrar clientes qualificados
+# /leads — encontrar clientes qualificados
 
 Resolve a dor nº1 de quem vende serviço: **achar gente boa pra abordar.** Não é volume,
 é qualidade do lead. Fala claro (regra nº1 da rubrica) e é eficiente com chamadas/tokens.
@@ -127,7 +127,7 @@ Formato por lead (linguagem clara, direto ao ponto):
    cliente na mesa pra quem pesquisa no Google."
 ```
 Fechar com um resumo: quantos sem site, quantos com digital fraco.
-Salvar em `prospeccao/[nicho]-[cidade]-[data].md`.
+Salvar em `leads/[nicho]-[cidade]-[data].md`.
 
 ## Regras
 - **Eficiência:** limite os campos do Details, não faça WebFetch do site de todos —

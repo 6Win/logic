@@ -1,6 +1,6 @@
 # {{NOME_DA_EMPRESA}}
 
-> Ficha de contexto. Criada pelo /novo_cliente. A memória deste negócio dentro do Logic.
+> Ficha de contexto. Criada pelo /novo. A memória deste negócio dentro do Logic.
 
 ## Identificação
 - **Empresa:** {{NOME_DA_EMPRESA}}

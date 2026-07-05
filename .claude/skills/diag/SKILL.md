@@ -1,16 +1,16 @@
 ---
-name: diagnostico
+name: diag
 description: >
   O motor de diagnóstico do Logic — o raio-X estratégico de uma empresa. Roda em 3
   etapas independentes que o usuário pode parar a qualquer momento: (1) Pesquisa
   Pública, análise outside-in só com dado público via WebSearch — já gera valor
   sozinha, serve pra pré-venda; (2) Perguntas Inteligentes, só o que faltou; (3)
   Arquivos, pra diagnóstico completo. Acha o GARGALO e entrega Painel /10 + quick
-  wins. Use quando o usuário disser "diagnóstico", "/diagnostico", "analisa a
+  wins. Use quando o usuário disser "diagnóstico", "/diag", "analisa a
   empresa X", ou trouxer uma empresa pra estudar.
 ---
 
-# /diagnostico — o raio-X estratégico
+# /diag — o raio-X estratégico
 
 O comando que decide o produto. Transforma dado público (e depois interno) numa
 conclusão estratégica que o dono não teria sozinho. **A qualidade aqui é tudo** —
@@ -25,7 +25,7 @@ se sair genérico, o Logic fracassou. Antes de entregar, passe SEMPRE pela
 
 ## Antes de rodar
 - Confirmar que existe um cliente ativo (`clientes/<empresa>/cliente.md`). Se não,
-  rodar `/novo_cliente` primeiro (ou coletar nome + cidade na hora).
+  rodar `/novo` primeiro (ou coletar nome + cidade na hora).
 - Ler: `_nucleo/metodo/lente-outside-in.md`, `_nucleo/coletor/websearch.md`,
   `_nucleo/rubricas/qualidade.md`.
 
