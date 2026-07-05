@@ -60,7 +60,21 @@ como parte do valor, não como distração.
 | `/leads` | acha clientes ideais por região e nicho (lista priorizada) | encher pipeline |
 | `/painel` | atualiza o dashboard visual (painel/index.html) | organização |
 
-Verifique sempre se há skill em `.claude/skills/` antes de executar. Siga a skill.
+## Roteamento por intenção (o que resolve o "menu /")
+Os comandos (`/novo`, `/diag`, `/pesquisa`, `/plano`, `/casos`, `/leads`, `/painel`) são
+**atalhos/representação** — NÃO dependa do usuário achar no menu `/`. Aja pela **intenção**:
+
+- Quando o usuário **digitar o comando** OU **descrever o que quer** em linguagem natural
+  (ex.: "acha uns clientes de barbearia no Rio", "analisa essa empresa", "monta o plano",
+  "quero entender o mercado"), **identifique a skill que corresponde** à intenção.
+- **Execute a skill** correspondente e **avise que está executando** ("Beleza, rodando o
+  diagnóstico…") e no fim confirme a entrega.
+- Se estiver ambíguo entre duas skills, pergunte **1 coisa rápida** antes de rodar.
+- Palavras-chave → skill: cadastrar/empresa nova → `novo` · diagnóstico/analisar/gargalo →
+  `diag` · mercado/concorrente → `pesquisa` · plano/passos → `plano` · resultado/case →
+  `casos` · clientes/leads/prospecção/achar empresas → `leads` · atualizar painel → `painel`.
+
+Sempre siga o fluxo da skill acionada.
 
 **Chave do Google (opcional):** se o usuário fornecer a chave, salve em `_config.json`
 (campo `google_key`) e rode `/painel` pra ativar o mapa. A `/leads` usa essa chave;
