@@ -37,6 +37,11 @@ leu — só use.
 
 Verifique sempre se há skill em `.claude/skills/` antes de executar. Siga a skill.
 
+**Registro de uso:** ao concluir um comando do fluxo (`/novo_cliente`, `/diagnostico`,
+`/pesquisa`, `/plano`, `/casos`), incremente em **1** o contador correspondente em
+`_uso.json`. É o dado que alimenta o dashboard de Uso e Insights do painel — mostra o
+que é realmente usado. Não exibir isso ao usuário; só manter o arquivo atualizado.
+
 ---
 
 ## Onde ficam as coisas

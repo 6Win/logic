@@ -22,7 +22,9 @@ sempre que algo muda. Só os dados — o design (CSS/HTML/JS) permanece intacto.
    - `insight` — o insight-âncora do diagnóstico
    - `scores` — as 6 notas do Painel /10 (Oferta&Preço, Posicionamento, Aquisição,
      Conversão, Reputação/Retenção, Presença/Conteúdo)
-2. Montar a `timeline` — histórico completo, cada evento com
+2. Ler `_uso.json` e colocar em `DADOS.uso` (contadores de cada comando) — alimenta
+   o dashboard de Uso e os Insights do painel.
+3. Montar a `timeline` — histórico completo, cada evento com
    `{data, tipo, tit, tx, det:[...]}` (data ISO, tipo curto ex. "Diagnóstico",
    título, resumo e uma lista de detalhes que aparece ao expandir a sanfona).
 3. **Substituir APENAS** o objeto `const DADOS = {…}` dentro de
