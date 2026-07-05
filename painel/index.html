@@ -265,28 +265,9 @@
 <script>
 /* ===== DADOS — o /painel regenera este bloco (não mexer no resto) ===== */
 const DADOS = {
-  uso:{novo_cliente:1,diagnostico:1,pesquisa:1,plano:1,casos:0},
-  clientes:[{
-    slug:"chatuba", nome:"Chatuba Materiais de Construção", nicho:"Materiais de construção", cidade:"Rio de Janeiro/RJ",
-    etapas:{diagnostico:true,pesquisa:true,plano:true,casos:false},
-    gargalo:"O problema não é falta de cliente — é a entrega. Quando um pedido atrasa, o profissional (que é quem mais compra) fica na mão e acaba indo pro concorrente.",
-    diagnostico:{insight:"A Chatuba tem uma vantagem que as gigantes (tipo a Leroy) não conseguem copiar: ela é da região e entrega perto. Mas é justamente a entrega dela que está falhando. Ou seja, está deixando escapar a única coisa que a protege.",
-      scores:[{k:"Oferta e preço",v:6},{k:"Posição / marca",v:6},{k:"Como atrai clientes",v:9},{k:"Fechar a venda",v:6},{k:"Reputação e fidelidade",v:5},{k:"Presença digital",v:9}],
-      quickwins:["Avisar o cliente por WhatsApp onde está o pedido. Hoje a maioria das reclamações é porque ninguém sabe onde a entrega está — um aviso automático resolve boa parte e ainda diminui ligação no atendimento.","Responder as reclamações rápido e pedir pro cliente atualizar a nota. A Chatuba já resolve quase tudo, mas demora dias — resolver na hora vira elogio no lugar de crítica.","Parar de se vender como 'a mais barata' (aí a Leroy sempre ganha) e passar a ser 'a loja da região que entrega certo'."],
-      arena:[{e:"Chatuba",f:"conhecida na região há 62 anos, entrega perto",fr:"a entrega está falhando"},{e:"Obramax",f:"preço baixo pro pedreiro e empreiteiro",fr:"não tem relação de bairro"},{e:"Leroy",f:"gigante, tem de tudo",fr:"não é perto nem pessoal"}]},
-    pesquisa:{perguntas:[{q:"O mercado está crescendo ou encolhendo?",a:"Encolhendo em 2026 — juros altos e gente comprando menos. O que segura são as reformas pequenas. Ou seja: vale mais manter quem já compra do que correr atrás de cliente novo."},{q:"Quem está ganhando?",a:"As redes gigantes de atacado (Obramax, Leroy), que ganham no preço e no tamanho — um terreno onde a Chatuba não vence."},{q:"Quem é a ameaça direta?",a:"A Obramax, que está abrindo lojas no Rio e mira o pedreiro/empreiteiro; e a Asa Branca, uma loja local já conhecida por ter entrega própria — justo o ponto fraco da Chatuba."},{q:"Que oportunidade ninguém está pegando?",a:"Ninguém junta as três coisas: presença forte na internet + ser da região + entregar certo. A Chatuba é a única que poderia ter as três — só falta consertar a entrega."}],
-      janela:{agora:"Hoje nenhum concorrente é conhecido por entregar rápido e com confiança. Se a Chatuba assumir isso primeiro, ganha uma vantagem difícil de copiar.",esperar:"Se demorar, a Obramax abre mais lojas e a Asa Branca vira 'a que entrega' — e a Chatuba fica com fama de entrega ruim."},
-      movimento:"Ser conhecida como 'a que entrega rápido e certo' antes que um concorrente ocupe esse lugar."},
-    plano:{aposta:"Fazer da entrega confiável o motivo de o profissional continuar comprando na Chatuba — e não migrar pra concorrência.",horizonte:"30 dias",
-      frentes:[{n:"Arrumar a entrega",a:["Colocar uma pessoa responsável por acompanhar as entregas todo dia","Combinar prazos claros com a transportadora","Avisar o cliente por WhatsApp quando o pedido sai e se atrasar","Medir quantas entregas chegam no prazo (hoje ninguém mede)"]},{n:"Segurar quem mais compra",a:["Listar os ~20 clientes que mais compram","Alguém ligar pessoalmente pra ouvir e cuidar deles","Dar uma condição especial pra quem teve problema de entrega","Anotar tudo num sistema simples pra não esquecer ninguém"]},{n:"Virar a reputação a favor",a:["Responder reclamação em menos de 24 horas","Ter respostas prontas pros casos mais comuns","Depois de resolver, pedir pro cliente atualizar a nota","Olhar as avaliações do Google toda semana"]}]},
-    casos:null
-  }],
-  timeline:[
-    {data:"2026-07-04",tipo:"Sistema",tit:"Cliente criado",tx:"Chatuba Materiais de Construção — Rio de Janeiro/RJ.",det:["Nicho: materiais de construção","Rede regional, 10+ lojas + e-commerce"]},
-    {data:"2026-07-04",tipo:"Diagnóstico",tit:"Raio-X etapa 1 (pública)",tx:"Gargalo: logística de entrega corrói o cliente profissional.",det:["Insight: proximidade é o único fosso — e está quebrado","Reputação/Retenção 5/10 (menor nota)","~64% das reclamações são logística","Quick win: status proativo de entrega"]},
-    {data:"2026-07-04",tipo:"Pesquisa",tit:"Concorrência + mercado",tx:"A Chatuba está sendo cercada por dois lados.",det:["Obramax (R$400mi no RJ) cerca o território","Asa Branca ganha no ponto fraco: entrega própria","Mercado 2026 encolhe → reter > adquirir","Movimento: entrega garantida como posicionamento"]},
-    {data:"2026-07-04",tipo:"Plano",tit:"Plano de 30 dias",tx:"3 frentes, ancoradas no gargalo.",det:["Frente 1: visibilidade da entrega (OTIF)","Frente 2: retenção da Liga dos Profissionais","Frente 3: reputação como prova social"]}
-  ]
+  uso:{novo_cliente:0,diagnostico:0,pesquisa:0,plano:0,casos:0},
+  clientes:[],
+  timeline:[]
 };
 const CMDS=[{k:"/novo_cliente",v:"cadastra a empresa"},{k:"/diagnostico",v:"raio-X em 3 etapas"},{k:"/pesquisa",v:"concorrentes, mercado, oportunidade"},{k:"/plano",v:"plano de ação executável"},{k:"/casos",v:"registra resultado e aprende"},{k:"/prospeccao",v:"acha clientes ideais por região e nicho"},{k:"/painel",v:"atualiza este dashboard"}];
 const ETAPAS=[["diagnostico","Diag"],["pesquisa","Pesq"],["plano","Plano"],["casos","Casos"]];

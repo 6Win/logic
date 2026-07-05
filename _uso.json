@@ -1,7 +1,7 @@
 {
-  "novo_cliente": 1,
-  "diagnostico": 1,
-  "pesquisa": 1,
-  "plano": 1,
+  "novo_cliente": 0,
+  "diagnostico": 0,
+  "pesquisa": 0,
+  "plano": 0,
   "casos": 0
 }
