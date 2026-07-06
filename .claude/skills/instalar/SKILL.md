@@ -64,12 +64,13 @@ usuário — só o essencial pra ele começar a usar em 30 segundos.
    ambiente do usuário tem acesso a `WebSearch`/`WebFetch`. Se não tiver, avisar que a
    coleta automática fica limitada (mas o usuário ainda pode colar dados manualmente).
 5. **Apontar o vídeo** (se configurado no painel) pra quem prefere ver a explicação.
-6. **Comandos no menu `/`:** se foram clonados direto na pasta atual (com o `.`), os
-   comandos já estão na raiz. Se não aparecerem no `/` na hora, é só **recarregar a
-   janela**: *"Se os comandos não aparecerem quando você digitar `/`, aperta
-   `Ctrl+Shift+P` → 'Reload Window' que eles aparecem."* (Sem reabrir pasta.)
-   → Se por acaso clonou dentro de uma subpasta `logic/`, aí sim abra essa pasta como
-   workspace (File → Open Folder → `logic`).
+6. **Comandos no menu `/`:** o clone normal cria uma pasta `logic/` com tudo dentro
+   (a `.claude/` fica na raiz dela). Pra os comandos aparecerem no `/`, essa pasta
+   `logic/` precisa ser o workspace aberto. **Não é motivo de alarme — só oriente:**
+   *"Abre a pasta `logic` como workspace (File → Open Folder → seleciona `logic`) que
+   os comandos aparecem no `/`."* Se você já estiver dentro dela e mesmo assim não
+   aparecerem na hora, é só recarregar a janela: *"aperta `Ctrl+Shift+P` → 'Reload
+   Window'."* Nunca trate isso como erro do sistema — é só onde a janela está apontando.
 7. **Conduzir ao primeiro passo:** *"É só me dizer o nome de uma empresa que eu rodo o /novo."*
 
 Não pedir nada além disso. Rápido, acolhedor, e já joga o usuário pro valor.
