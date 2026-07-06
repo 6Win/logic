@@ -22,7 +22,12 @@ precisa deploy** pra usar no dia a dia.
      extrair de `cliente.md`/`diagnostico.md`/`pesquisa.md`/`plano.md`/`casos.md`:
      `slug`, `nome`, `sobre` (1 linha), `criado_em`, `etapas` (bool: novo,
      diagnostico, pesquisa, plano, casos), `resumo` (1-2 frases do estado atual),
-     `artefatos` (arquivos relevantes gerados, ex. briefing, imagem de post).
+     `etapas_conteudo` (objeto: pra CADA etapa **já feita**, um resumo de 2-4 frases
+     do que aquela etapa entregou — ex.: `diagnostico` = o gargalo achado + a nota
+     geral; `plano` = a aposta central + horizonte; `casos` = o resultado registrado.
+     Etapa não feita **não entra** no objeto — o painel já mostra o aviso de "ainda
+     não feito" sozinho), `artefatos` (arquivos relevantes gerados, ex. briefing,
+     imagem de post).
    - `leads.json` — ler a prospecção mais recente salva (se houver pasta `leads/`
      ou resultado salvo em `clientes/<empresa>/`): `{nicho, lugar, data, total,
      itens:[...]}`.

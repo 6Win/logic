@@ -120,7 +120,15 @@
   .detail .back:hover{color:var(--ink)}
   .detail h2{font-size:22px;font-weight:800;margin-bottom:6px}
   .detail .sub{font-size:13px;color:var(--muted);margin-bottom:24px}
-  .etapas{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+  .etapas{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .etapas .flag{cursor:pointer;transition:.15s}
+  .etapas .flag:hover{border-color:var(--ink);color:var(--ink)}
+  .etapas .flag.sel{background:var(--panel-2);border-color:var(--ink);color:var(--ink)}
+  .stage-box{border:1px solid var(--line);background:var(--panel-2);border-radius:12px;padding:22px 24px;margin-bottom:24px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+  .stage-box h4{font-size:14px;color:var(--ink);font-weight:700;margin-bottom:8px}
+  .stage-box .pending{color:var(--faint)}
+  .stage-box .pending b{color:var(--muted)}
+  .stage-box .ask{display:inline-block;margin-top:10px;font-size:12.5px;color:var(--ink);border:1px solid var(--line-2);border-radius:8px;padding:6px 12px}
   .art{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--panel-2);border-radius:10px;margin-bottom:10px;font-size:13px}
   .art .k{color:var(--faint);font-size:11px;text-transform:uppercase;letter-spacing:.08em;flex:0 0 80px}
   .shot{margin-top:16px;max-width:280px;border-radius:12px;border:1px solid var(--line-2);display:block}
@@ -217,7 +225,7 @@
     <div class="section-lbl">Logic + MazyOS — como usar os dois</div>
     <div class="band">
       <h3>A Logic é a cabeça. O MazyOS é a mão. Juntos, viram máquina.</h3>
-      <p>O <b>MazyOS</b> é o "sistema operacional do negócio no Claude" — a mão que <b>executa o funil inteiro</b>: cria o conteúdo (carrosséis, bio, stories), roda o <b>tráfego pago</b> (campanhas de Meta Ads, do topo ao fundo do funil), monta a <b>automação</b> de atendimento no Direct e faz a <b>reativação</b> de quem já engajou com você. Ele é forte e completo na execução. A Logic <b>não faz nada disso</b> — ela <b>decide o quê, por quê e onde mirar</b>, e entrega o briefing pronto pra ele rodar.</p>
+      <p>O <b>MazyOS</b> é o "sistema operacional do negócio no Claude" — a mão que <b>opera a empresa inteira</b>: organiza a operação (memória do negócio, estratégia, identidade, rotina) e executa o funil — cria o conteúdo (carrosséis, bio, stories), roda o <b>tráfego pago</b> (campanhas de Meta Ads, do topo ao fundo do funil), monta a <b>automação</b> de atendimento no Direct e faz a <b>reativação</b> de quem já engajou. Não é só marketing: é o negócio rodando. A Logic <b>não executa</b> — ela <b>decide o quê, por quê e onde mirar</b>, e entrega o briefing pronto pra ele rodar.</p>
       <p style="margin-top:16px">Onde a Logic entra — o que fica antes ou em volta da execução do Mazy:</p>
       <div class="lac">
         <div class="li"><b>Prospecção fria (cliente novo)</b><span>O Mazy trabalha quem <b>já</b> te conhece: atrai gente pro seu perfil e reativa quem já interagiu com você (o "lead quente"). A Logic vai atrás de <b>empresa nova que nunca te viu</b>, por região e nicho. São etapas diferentes, não competem.</span></div>
@@ -324,11 +332,41 @@ tabs.forEach(t => t.addEventListener('click', () => {
 }));
 
 const ETAPA_LABEL = { novo:'Novo', diagnostico:'Diagnóstico', pesquisa:'Pesquisa', plano:'Plano', casos:'Casos' };
+// como o usuário pede cada etapa que ainda falta, em linguagem natural
+const ETAPA_PEDIR = {
+  novo:'cadastra a <emp>',
+  diagnostico:'roda o diagnóstico da <emp>',
+  pesquisa:'pesquisa o mercado e os concorrentes da <emp>',
+  plano:'monta o plano de ação da <emp>',
+  casos:'registra o resultado da <emp>'
+};
 
 function flagsHtml(etapas){
   return Object.entries(etapas).map(([k,v]) =>
     `<span class="flag ${v?'on':''}">${ETAPA_LABEL[k]||k}${v?' ✓':''}</span>`
   ).join('');
+}
+
+// etapas clicáveis no detalhe da empresa (feitas ou não)
+function etapasClicaveis(etapas){
+  return Object.entries(etapas).map(([k,v]) =>
+    `<span class="flag ${v?'on':''}" data-etapa="${k}">${ETAPA_LABEL[k]||k}${v?' ✓':''}</span>`
+  ).join('');
+}
+
+function stageBoxHtml(e, etapa){
+  const feita = e.etapas[etapa];
+  const label = ETAPA_LABEL[etapa] || etapa;
+  if(feita){
+    const conteudo = (e.etapas_conteudo && e.etapas_conteudo[etapa]) || e.resumo || 'Feito. O detalhe completo está no chat e no arquivo da empresa.';
+    return `<div class="stage-box"><h4>${label} ✓</h4><div>${conteudo}</div></div>`;
+  }
+  const pedir = (ETAPA_PEDIR[etapa]||'').replace('<emp>', e.nome);
+  return `<div class="stage-box">
+    <h4>${label}</h4>
+    <div class="pending">Essa etapa <b>ainda não foi feita</b> pra ${e.nome}. Nada trava aqui — é só pedir no chat que a Logic faz na hora.</div>
+    ${pedir ? `<span class="ask">No chat: "${pedir}"</span>` : ''}
+  </div>`;
 }
 
 async function initEmpresas(){
@@ -355,13 +393,28 @@ async function initEmpresas(){
       <span class="back">&larr; Voltar</span>
       <h2>${e.nome}</h2>
       <div class="sub">${e.sobre} · desde ${e.criado_em}</div>
-      <div class="etapas">${flagsHtml(e.etapas)}</div>
-      <p style="font-size:13.5px;color:var(--muted);margin-bottom:18px">${e.resumo}</p>
-      ${e.artefatos.map(a => `
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px">${e.resumo}</p>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--faint);margin-bottom:10px">Etapas — clica pra ver</div>
+      <div class="etapas">${etapasClicaveis(e.etapas)}</div>
+      <div id="stage-content"></div>
+      ${e.artefatos && e.artefatos.length ? `<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--faint);margin:24px 0 10px">Arquivos gerados</div>` : ''}
+      ${(e.artefatos||[]).map(a => `
         <div class="art"><span class="k">${a.tipo}</span><span>${a.label}</span></div>
         ${a.tipo==='imagem' ? `<img class="shot" src="${a.arquivo}">` : ''}
       `).join('')}
     `;
+    // etapas clicáveis: mostra o conteúdo (feita) ou o aviso de "ainda não feito" (pendente)
+    const stageBox = detail.querySelector('#stage-content');
+    const chips = detail.querySelectorAll('.etapas .flag');
+    function selecionar(chip){
+      chips.forEach(c=>c.classList.remove('sel'));
+      chip.classList.add('sel');
+      stageBox.innerHTML = stageBoxHtml(e, chip.dataset.etapa);
+    }
+    chips.forEach(c => c.addEventListener('click', () => selecionar(c)));
+    // abre já na primeira etapa feita (ou na primeira, se nenhuma)
+    const inicial = [...chips].find(c => e.etapas[c.dataset.etapa]) || chips[0];
+    if(inicial) selecionar(inicial);
     detail.querySelector('.back').addEventListener('click', () => {
       detail.style.display='none'; list.style.display='grid';
     });

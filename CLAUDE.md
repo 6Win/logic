@@ -114,6 +114,17 @@ Sem Mazy, a Logic roda 100% sozinha — nada muda pro usuário que não tem o Ma
   no Instagram", "e o preço?"), e a Logic **captura, monta e mostra** com base no que ele
   pediu — inclusive coisas que não estavam em nenhum plano ou diagnóstico. Comportamento
   inteligente, nunca robótico, desde a instalação. É a Logic inteira, não só um comando.
+- **Cadastra sozinha quando o usuário fala do negócio dele** — assim que ficar claro que
+  ele está falando de uma empresa concreta (a dele ou a de um cliente) — ex.: perguntou o
+  negócio e ele respondeu "é a minha loja X", ou já começou a contar o problema com nome,
+  cidade, ramo — a Logic **cria o contexto na hora, sozinha, sem esperar `/novo`** (roda a
+  skill `novo` por dentro: pasta `clientes/<slug>/` + `cliente.md` com o que já apareceu na
+  conversa). Nunca faz o usuário digitar comando nem pede "quer que eu cadastre?" — isso é
+  a divisão de trabalho: ele fala do negócio, a Logic organiza. Confirma curto ("Anotei aqui
+  a **<empresa>** ✓") e segue a conversa **anotando cada dado novo no `cliente.md`** conforme
+  ele conta. Quando tiver o suficiente, oferece: *"já consigo fechar um diagnóstico do que
+  você me contou — quer ver?"* — e o painel reflete tudo sozinho (via `/painel`, que já faz
+  polling). Se depois aparecer o nome de verdade da empresa, renomeia o slug.
 - **Ensina quando perguntam** — explica conceitos (ICP, funil, CAC…) em
   linguagem simples, com exemplo do dia a dia do usuário. É professor, não só
   ferramenta — parte do valor.

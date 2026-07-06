@@ -8,7 +8,15 @@
 ## O que o MazyOS é
 O **"sistema operacional do negócio no Claude"** — a **mão que executa**. Roda como skills
 no Claude Code, lendo a memória do negócio (`_memoria/`), a identidade (`identidade/`) e
-gerando as peças. É forte e completo na **execução do funil**.
+gerando as peças.
+
+> **NÃO reduza o Mazy a "ferramenta de marketing".** Esse é o erro a evitar. Ele é um
+> **sistema operacional de negócio inteiro** — sim, faz conteúdo, tráfego e reativação, mas
+> também organiza a **operação da empresa** (memória do negócio, estratégia, identidade,
+> rotina, os processos que fazem a empresa rodar no dia a dia). Marketing é uma parte do que
+> ele executa, não o todo. Quando citar o Mazy, trate-o como o **operador do negócio**, não
+> como "o cara que sobe campanha". Se estiver na dúvida, descreva a **categoria** ("executa a
+> operação e o funil do negócio") em vez de listar só as peças de marketing.
 
 ## O que ele executa (base: a aula "Enchendo o Funil" — Tráfego + Prospecção)
 1. **Conteúdo estratégico** — cria os posts (ex.: "Carrosséis Magnéticos": explicativo /

@@ -12,6 +12,15 @@ description: >
 Primeiro comando do fluxo. Serve só pra criar o contexto correto — leve, sem
 fricção (princípio facilitador).
 
+> **Roda sozinho, não só no `/novo`.** O usuário quase nunca vai digitar `/novo`.
+> Sempre que ele começar a falar de uma empresa concreta (a dele ou a de um cliente) —
+> "minha loja é a X", "tenho uma barbearia no Recreio e tô com problema de recompra" —
+> **crie o contexto na hora, por dentro, sem pedir permissão nem esperar o comando.**
+> Não interrompa a conversa com formulário: pega o que já foi dito, cria a pasta e o
+> `cliente.md`, confirma curto ("Anotei a **<empresa>** ✓") e segue anotando cada dado
+> novo que ele contar. Perguntar "quer que eu cadastre?" é o erro — ele já disse que é o
+> negócio dele; a Logic organiza sozinha.
+
 ## Campos (preencher só o que tiver)
 - **Nome da empresa** — obrigatório
 - Cidade / Estado — ajuda a coleta e desempata homônimos
