@@ -43,9 +43,9 @@ precisa deploy** pra usar no dia a dia.
    - **Funil visual** (sempre que a etapa falar de funil): `<div class="lg-funil">
      <div class="fstep" style="width:100%"><span class="fl">Visitantes</span><span
      class="fn">1.000</span><div class="fd">quem chega no perfil</div></div>
-     <div class="fdrop">↓ 8% viram lead</div><div class="fstep" style="width:80%">…</div>…
+     <div class="fdrop">8% viram lead</div><div class="fstep" style="width:80%">…</div>…
      </div>` — cada `fstep` mais estreito que o de cima (afunila), com o `fdrop` da
-     perda entre eles. Bonito e claro.
+     perda entre eles (só o texto da perda; o conector visual é do CSS). Bonito e claro.
    - **Tiles de número** (projeção de faturamento, métricas): `<div class="lg-kpi">
      <div class="t"><div class="n">R$ 18k</div><div class="l">faturamento projetado</div>
      </div>…</div>`.
@@ -84,6 +84,9 @@ precisa deploy** pra usar no dia a dia.
 5. Confirmar ao usuário: *"Painel aberto — http://localhost:3000"*.
 
 ## Regras
+- **Sem emoji e sem símbolo decorativo** (nada de ✓, ↓, →, 🚀…) em nenhum lugar do
+  painel nem no `etapas_conteudo`. Estado e hierarquia se mostram pelos **componentes**
+  (as classes CSS: barras, quadradinho de status, conector do funil), nunca por caractere.
 - Preto/cinza/branco, sem outra cor de destaque — segue a identidade em
   `IDENTIDADE.md` (símbolo modular, Satoshi, paleta preta/branca). No header do
   painel, só o símbolo — sem o wordmark "Logic".
