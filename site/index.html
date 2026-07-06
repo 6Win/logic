@@ -124,11 +124,58 @@
   .etapas .flag{cursor:pointer;transition:.15s}
   .etapas .flag:hover{border-color:var(--ink);color:var(--ink)}
   .etapas .flag.sel{background:var(--panel-2);border-color:var(--ink);color:var(--ink)}
-  .stage-box{border:1px solid var(--line);background:var(--panel-2);border-radius:12px;padding:22px 24px;margin-bottom:24px;font-size:13.5px;line-height:1.7;color:var(--muted)}
-  .stage-box h4{font-size:14px;color:var(--ink);font-weight:700;margin-bottom:8px}
+  .stage-box{border:1px solid var(--line);background:var(--panel-2);border-radius:12px;padding:26px 28px;margin-bottom:24px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+  .stage-box>h4:first-child{font-size:15px;color:var(--ink);font-weight:800;margin-bottom:14px}
   .stage-box .pending{color:var(--faint)}
   .stage-box .pending b{color:var(--muted)}
   .stage-box .ask{display:inline-block;margin-top:10px;font-size:12.5px;color:var(--ink);border:1px solid var(--line-2);border-radius:8px;padding:6px 12px}
+
+  /* ---- biblioteca de componentes do conteúdo completo da etapa ----
+     o chat preenche etapas_conteudo com HTML usando estas classes.
+     É o que deixa o painel mostrar o COMPLETO, e bonito — nunca resumo. */
+  .lg h4{font-size:14px;color:var(--ink);font-weight:800;margin:24px 0 10px;letter-spacing:-.01em}
+  .lg h4:first-child{margin-top:2px}
+  .lg p{font-size:13.5px;color:var(--muted);line-height:1.72;margin-bottom:12px}
+  .lg p b{color:var(--ink);font-weight:600}
+  .lg ul{list-style:none;margin:0 0 14px}
+  .lg li{font-size:13.5px;color:var(--muted);line-height:1.6;padding-left:18px;position:relative;margin-bottom:8px}
+  .lg li:before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--faint)}
+  .lg li b{color:var(--ink);font-weight:600}
+
+  /* painel de notas /10 */
+  .lg-nota{display:flex;flex-direction:column;gap:13px;margin:8px 0 20px}
+  .lg-nota .row{display:grid;grid-template-columns:150px 1fr 40px;align-items:center;gap:14px}
+  @media(max-width:560px){.lg-nota .row{grid-template-columns:110px 1fr 34px}}
+  .lg-nota .k{font-size:12.5px;color:var(--muted)}
+  .lg-nota .bar{height:8px;border-radius:999px;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+  .lg-nota .bar i{display:block;height:100%;background:var(--ink)}
+  .lg-nota .v{font-size:13px;font-weight:800;text-align:right}
+
+  /* funil visual (afunila de cima pra baixo) */
+  .lg-funil{display:flex;flex-direction:column;align-items:center;gap:7px;margin:12px 0 22px}
+  .lg-funil .fstep{width:90%;background:var(--panel);border:1px solid var(--line-2);border-radius:9px;padding:14px 20px;text-align:center}
+  .lg-funil .fstep .fl{font-size:13px;font-weight:700;color:var(--ink)}
+  .lg-funil .fstep .fn{font-size:12.5px;font-weight:800;color:var(--ink);margin-left:8px}
+  .lg-funil .fstep .fd{font-size:11.5px;color:var(--faint);margin-top:3px}
+  .lg-funil .fdrop{font-size:11px;color:var(--faint);letter-spacing:.02em}
+
+  /* tiles de número (KPI) */
+  .lg-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:8px 0 20px}
+  .lg-kpi .t{border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:var(--panel)}
+  .lg-kpi .t .n{font-size:22px;font-weight:800;letter-spacing:-.02em}
+  .lg-kpi .t .l{font-size:11.5px;color:var(--faint);margin-top:4px;line-height:1.4}
+
+  /* callout — o gargalo, a aposta central, o alerta */
+  .lg-flag{border:1px solid var(--line-2);border-left:3px solid var(--ink);border-radius:9px;padding:16px 20px;margin:8px 0 20px;background:var(--panel)}
+  .lg-flag .t{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--faint);margin-bottom:7px}
+  .lg-flag p{margin:0;color:var(--ink);font-size:14px;line-height:1.65}
+
+  /* passos numerados (plano) */
+  .lg-steps{display:flex;flex-direction:column;gap:10px;margin:8px 0 20px}
+  .lg-steps .s{display:flex;gap:16px;border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:var(--panel)}
+  .lg-steps .s .num{flex:0 0 26px;height:26px;border-radius:50%;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--ink)}
+  .lg-steps .s .body{font-size:13px;color:var(--muted);line-height:1.6}
+  .lg-steps .s .body b{color:var(--ink);font-weight:700;display:block;margin-bottom:2px}
   .art{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--panel-2);border-radius:10px;margin-bottom:10px;font-size:13px}
   .art .k{color:var(--faint);font-size:11px;text-transform:uppercase;letter-spacing:.08em;flex:0 0 80px}
   .shot{margin-top:16px;max-width:280px;border-radius:12px;border:1px solid var(--line-2);display:block}
@@ -331,27 +378,28 @@ tabs.forEach(t => t.addEventListener('click', () => {
   document.getElementById('v-'+t.dataset.view).classList.add('active');
 }));
 
-const ETAPA_LABEL = { novo:'Novo', diagnostico:'Diagnóstico', pesquisa:'Pesquisa', plano:'Plano', casos:'Casos' };
+// pesquisa NÃO é etapa separada — ela vive dentro do diagnóstico
+const ETAPA_LABEL = { novo:'Novo', diagnostico:'Diagnóstico', plano:'Plano', casos:'Casos' };
 // como o usuário pede cada etapa que ainda falta, em linguagem natural
 const ETAPA_PEDIR = {
   novo:'cadastra a <emp>',
   diagnostico:'roda o diagnóstico da <emp>',
-  pesquisa:'pesquisa o mercado e os concorrentes da <emp>',
   plano:'monta o plano de ação da <emp>',
   casos:'registra o resultado da <emp>'
 };
 
+// itera só as etapas conhecidas (na ordem certa; pesquisa fica de fora)
 function flagsHtml(etapas){
-  return Object.entries(etapas).map(([k,v]) =>
-    `<span class="flag ${v?'on':''}">${ETAPA_LABEL[k]||k}${v?' ✓':''}</span>`
-  ).join('');
+  return Object.keys(ETAPA_LABEL).map(k => { const v = etapas[k];
+    return `<span class="flag ${v?'on':''}">${ETAPA_LABEL[k]}${v?' ✓':''}</span>`;
+  }).join('');
 }
 
 // etapas clicáveis no detalhe da empresa (feitas ou não)
 function etapasClicaveis(etapas){
-  return Object.entries(etapas).map(([k,v]) =>
-    `<span class="flag ${v?'on':''}" data-etapa="${k}">${ETAPA_LABEL[k]||k}${v?' ✓':''}</span>`
-  ).join('');
+  return Object.keys(ETAPA_LABEL).map(k => { const v = etapas[k];
+    return `<span class="flag ${v?'on':''}" data-etapa="${k}">${ETAPA_LABEL[k]}${v?' ✓':''}</span>`;
+  }).join('');
 }
 
 function stageBoxHtml(e, etapa){
@@ -359,7 +407,7 @@ function stageBoxHtml(e, etapa){
   const label = ETAPA_LABEL[etapa] || etapa;
   if(feita){
     const conteudo = (e.etapas_conteudo && e.etapas_conteudo[etapa]) || e.resumo || 'Feito. O detalhe completo está no chat e no arquivo da empresa.';
-    return `<div class="stage-box"><h4>${label} ✓</h4><div>${conteudo}</div></div>`;
+    return `<div class="stage-box lg">${conteudo}</div>`;
   }
   const pedir = (ETAPA_PEDIR[etapa]||'').replace('<emp>', e.nome);
   return `<div class="stage-box">

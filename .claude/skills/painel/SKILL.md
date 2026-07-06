@@ -19,15 +19,44 @@ precisa deploy** pra usar no dia a dia.
 
 1. **Regenerar os dados** em `site/data/`:
    - `empresas.json` — ler `clientes/*/` (pular `_template`). Pra cada empresa,
-     extrair de `cliente.md`/`diagnostico.md`/`pesquisa.md`/`plano.md`/`casos.md`:
+     extrair de `cliente.md`/`diagnostico.md`/`plano.md`/`casos.md`:
      `slug`, `nome`, `sobre` (1 linha), `criado_em`, `etapas` (bool: novo,
-     diagnostico, pesquisa, plano, casos), `resumo` (1-2 frases do estado atual),
-     `etapas_conteudo` (objeto: pra CADA etapa **já feita**, um resumo de 2-4 frases
-     do que aquela etapa entregou — ex.: `diagnostico` = o gargalo achado + a nota
-     geral; `plano` = a aposta central + horizonte; `casos` = o resultado registrado.
-     Etapa não feita **não entra** no objeto — o painel já mostra o aviso de "ainda
-     não feito" sozinho), `artefatos` (arquivos relevantes gerados, ex. briefing,
-     imagem de post).
+     diagnostico, plano, casos — **não existe etapa `pesquisa`**: a pesquisa de
+     mercado/concorrência vive DENTRO do diagnóstico, então entra como uma seção do
+     conteúdo do `diagnostico`, nunca como etapa à parte), `resumo` (1-2 frases do
+     estado atual, só pro cabeçalho do cartão), `etapas_conteudo` (ver abaixo — o
+     coração do painel), `artefatos` (arquivos relevantes gerados).
+
+   **`etapas_conteudo` — mostrar o COMPLETO, bonito, nunca resumo.** A regra é:
+   *o painel mostra a mesma entrega que foi pro chat, na íntegra.* Nada de "2-4
+   frases". Pra CADA etapa já feita, gere o conteúdo **completo** daquele arquivo
+   (`diagnostico.md`, `plano.md`, `casos.md`) como **HTML** usando a biblioteca de
+   componentes do painel (as classes já existem no `index.html`, dentro de
+   `.stage-box.lg`). Etapa não feita **não entra** no objeto — o painel já mostra o
+   aviso de "ainda não feito" sozinho.
+
+   Componentes disponíveis (use os que o conteúdo pedir, nunca force todos):
+   - Texto: `<h4>`, `<p>`, `<ul><li>` — já estilizados.
+   - **Painel de notas /10** (`diag`): `<div class="lg-nota"><div class="row"><span
+     class="k">Aquisição</span><span class="bar"><i style="width:40%"></i></span><span
+     class="v">4</span></div>…</div>` (a largura da barra = nota×10%).
+   - **Funil visual** (sempre que a etapa falar de funil): `<div class="lg-funil">
+     <div class="fstep" style="width:100%"><span class="fl">Visitantes</span><span
+     class="fn">1.000</span><div class="fd">quem chega no perfil</div></div>
+     <div class="fdrop">↓ 8% viram lead</div><div class="fstep" style="width:80%">…</div>…
+     </div>` — cada `fstep` mais estreito que o de cima (afunila), com o `fdrop` da
+     perda entre eles. Bonito e claro.
+   - **Tiles de número** (projeção de faturamento, métricas): `<div class="lg-kpi">
+     <div class="t"><div class="n">R$ 18k</div><div class="l">faturamento projetado</div>
+     </div>…</div>`.
+   - **Callout** (o gargalo, a aposta central): `<div class="lg-flag"><div class="t">O
+     gargalo</div><p>…</p></div>`.
+   - **Passos numerados** (`plano`): `<div class="lg-steps"><div class="s"><div
+     class="num">1</div><div class="body"><b>Título do passo</b>detalhe + a métrica</div>
+     </div>…</div>`.
+   Cada etapa começa com um `<h4>` de título (ex.: "Diagnóstico completo"). Escreva
+   o HTML já preenchido com o dado real da empresa — nunca placeholder. Aspas dentro
+   do HTML: use `\"` no JSON. **Se o chat entregou fundo, o painel mostra fundo.**
    - `leads.json` — ler a prospecção mais recente salva (se houver pasta `leads/`
      ou resultado salvo em `clientes/<empresa>/`): `{nicho, lugar, data, total,
      itens:[...]}`.

@@ -159,17 +159,17 @@ coisa. Ative a skill correspondente e rode do início ao fim.
 |---------|-----------|
 | `/instalar` | boas-vindas + apresenta a Logic (primeira vez) |
 | `/novo` | cria o contexto da empresa (form mínimo) |
-| `/diag` | **o Motor** — raio-X estratégico profundo; acha o gargalo e entrega o caminho |
-| `/pesquisa` | concorrentes, mercado, tendências |
+| `/diag` | **o Motor** — raio-X estratégico profundo; acha o gargalo e entrega o caminho. **Já inclui a pesquisa de mercado/concorrência dentro** (não é etapa separada) |
 | `/plano` | vira execução; com Mazy, entrega briefing pronto pras skills dele |
 | `/casos` | registra resultado pós-execução e **ensina a Logic** (auto-estudo) |
 | `/leads` | prospecção qualificada por região e nicho, com filtros que o Kaptar não tem |
 | `/painel` | abre o painel local (`site/`) — empresas, leads e config organizados, atualiza sozinho |
 
 Palavras-chave → skill: empresa nova → `novo` · diagnóstico/analisar/gargalo →
-`diag` · mercado/concorrente → `pesquisa` · plano/passos/execução → `plano` ·
-resultado/case → `casos` · clientes/leads/prospecção → `leads`. Se ficar ambíguo
-entre duas, pergunte **1 coisa rápida** e siga.
+`diag` · mercado/concorrente → `diag` (a pesquisa roda dentro dele, não separada) ·
+plano/passos/execução → `plano` · resultado/case → `casos` ·
+clientes/leads/prospecção → `leads`. Se ficar ambíguo entre duas, pergunte **1 coisa
+rápida** e siga.
 
 **`/leads` — o que bate o Kaptar:** o Kaptar dispara em massa num raio do Google
 Maps, sem filtro. A Logic filtra por **oportunidade real** (sem site, sem
