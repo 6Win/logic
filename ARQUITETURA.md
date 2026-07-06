@@ -1,223 +1,201 @@
-# Logic — Documento de Fundação
+# Logic System — Documento de Fundação
 
-> Este é o documento-mãe do produto. Define **o que é**, **como se organiza** e
-> **qual a barra de qualidade** antes de qualquer linha de código. Tudo o que for
-> construído (skills, painel, método) responde a este arquivo.
-
----
-
-## 1. O que é o Logic
-
-Uma **camada de inteligência especializada** que roda dentro do Claude para
-**estudar empresas a fundo, gerar estratégia e organizar a execução**.
-
-Não é uma plataforma. Não tem servidor, nem banco de dados central. O Claude é o
-motor; os arquivos são a memória; o painel só organiza. Cada usuário roda na
-própria máquina, e cada instalação aprende localmente.
-
-**O diferencial não é encontrar a empresa nem coletar dado.** É transformar dado
-público em **conclusão estratégica não-óbvia** — a ponto do usuário pensar
-*"caramba, eu não teria chegado nisso sozinho."* Se a primeira entrega for
-genérica, o produto morre. Qualidade é o produto.
+> O documento-mãe do produto. Define **o que é**, **os dois produtos**, **como se
+> orquestra com o Mazy** e **a barra de qualidade**. Tudo que for construído
+> (skills, agentes, método) responde a este arquivo. A Logic lê ele no início de
+> toda sessão.
 
 ---
 
-## 2. Princípio que manda em tudo: somos FACILITADOR
+## 1. O que é a Logic
 
-Toda decisão de produto passa por este filtro:
+A **inteligência estratégica** que roda dentro do Claude e mostra onde está o
+dinheiro num negócio. Ela estuda a empresa a fundo e entrega, em linguagem de
+gente: o ponto forte pra explorar, o gargalo que trava (o ponto fraco), **quanto
+dá pra faturar a mais** arrumando, e clientes qualificados pra abordar.
 
-> **Isso adiciona atrito pro usuário? Se sim, o valor compensa o atrito?**
+Não é plataforma, não tem servidor nem banco central. O Claude é o motor; os
+arquivos são a memória; cada usuário roda na própria máquina e cada instalação
+aprende localmente. Roda de graça, sem cartão, sem setup.
 
-- Nada de exigir cartão de crédito, conta em serviço externo ou configuração
-  técnica no MVP.
-- A coleta de dados usa o que o Claude já tem de graça (`WebSearch` / `WebFetch`).
-- Se em algum momento algo precisar de setup (ex.: Google Maps para busca por
-  raio), entra como **opcional**, nunca como obrigatório pra usar o produto.
-
-O usuário tem que agregar valor em **todos** os aspectos possíveis, sem nunca
-esbarrar em complexidade que a gente poderia ter absorvido por ele.
-
----
-
-## 3. Os 3 usos que o produto atende (um fluxo só)
-
-O Logic é **um fluxo único** que para onde o usuário quiser. Os três casos de uso
-são a mesma esteira, interrompida em pontos diferentes:
-
-| # | Uso | Quem | Entrega | Para em |
-|---|-----|------|---------|---------|
-| 1 | **Pré-venda** | freelancer/agência abordando prospect | diagnóstico externo → chega já entendendo o negócio → **mais conversão** | `/diag` etapa 1 |
-| 2 | **Venda ampliada** | quem já vende serviço (site, tráfego, CRM…) | serviço **+ estratégia + plano** → cobra mais → **mais margem** | `/plano` |
-| 3 | **Uso próprio** | o dono do próprio negócio | diagnóstico + plano pra escalar ou se manter | ciclo completo + `/casos` |
-
-Consequência de design: **cada etapa entrega valor sozinha.** Ninguém é obrigado
-a ir até o fim. "Pare quando quiser" é regra, não gentileza.
+**O diferencial não é achar a empresa nem coletar dado — é virar dado em conclusão
+que faz o dono pensar *"eu não teria chegado nisso sozinho"*.** Genérico = o
+produto morre. Qualidade é o produto, e **comunicação é metade dela** (o conteúdo
+mais fundo do mundo não vale nada se o cara não entende).
 
 ---
 
-## 4. Arquitetura técnica
+## 2. Os DOIS produtos
+
+A Logic entrega valor por dois caminhos independentes — cada um vale sozinho:
+
+### Produto 1 — Leads (prospecção qualificada)
+Acha clientes reais por **nicho + lugar + filtro + quantidade**, e entrega cada
+lead **pronto pra abordar**: contato, se tem site/Instagram, e o **gancho**
+(entende o negócio do lead o suficiente pra chegar com diferencial). É o *outbound*
+que o Mazy não tem. Bate o Kaptar porque **filtra por oportunidade** (sem site,
+sem Instagram, digital fraco) em vez de disparar no escuro.
+
+> **Não roda diagnóstico completo em cada lead** — se o cara pede 50 leads, seria
+> pesado e inútil. A lista sai enxuta (contato + gancho). O diagnóstico entra
+> **quando ele escolhe um lead** pra ir mais fundo (antes de uma reunião, ou pra
+> entregar como isca).
+
+### Produto 2 — Diagnóstico → Estratégia → Briefing
+Estuda uma empresa a fundo, acha o gargalo, projeta o faturamento (previsibilidade)
+e **decide o rumo**. Se o usuário quiser, vira plano e **briefing pronto pra
+execução**. O diagnóstico roda em **qualquer empresa**: a do próprio usuário **ou**
+um lead que ele está prospectando.
+
+---
+
+## 3. Princípio que manda em tudo: FACILITADOR
+
+> **Isso adiciona atrito pro usuário? Se sim, o valor compensa?**
+
+- Nada de cartão, conta externa ou setup técnico obrigatório.
+- Coleta usa o que o Claude já tem de graça (`WebSearch`/`WebFetch`, OpenStreetMap).
+- Se algo precisa de chave (ex.: Google Maps pra busca por raio), é **opcional** e
+  **auto-detectado** — o usuário cola a chave no chat e a Logic passa a usar; sem
+  ela, roda no modo grátis.
+- A Logic **não faz encanamento** (não conecta conta, não monta dashboard ao vivo).
+  Ela lê o que já existe e vira inteligência.
+
+---
+
+## 4. Logic + Mazy — a orquestração (o coração do produto)
+
+A Logic roda **sozinha**. Mas o Mazy é "o SO do negócio no Claude Code" — ele
+**executa** (conteúdo, SEO, ads, orgânico, operação). Juntos: a Logic é a **cabeça**
+(decide o quê e por quê), o Mazy é a **mão** (executa). **Nunca competem.**
+
+**A chave que resolve tudo:** Logic e Mazy são **o mesmo Claude, lendo os mesmos
+arquivos, na mesma máquina.** Não existe API entre eles. O handoff é **arquivo + o
+mesmo assistente trocando de chapéu.**
+
+Como funciona, na prática:
+1. **Detecção.** A Logic acha a pasta do Mazy (no diretório atual, pai ou irmã) e
+   entra no modo integrado.
+2. **Lê o dado real.** Em vez de pedir print, a Logic lê a memória do negócio que
+   já está no Mazy (`_memoria/empresa.md`, `estrategia.md`), os relatórios de ads
+   que o Mazy gerou e os cases. **Com Mazy, o diagnóstico já começa quase pronto** —
+   a Logic só complementa o que falta.
+3. **Decide o rumo (antes do tático).** A Logic responde o que o Mazy nunca pergunta:
+   *"ad faz sentido agora, ou o dinheiro tá vazando antes?"*.
+4. **Escreve o briefing** — um arquivo: *"executa isso e isso, com esse ângulo,
+   nessa ordem; NÃO gasta em ad ainda porque o furo é a página."*
+5. **O Mazy executa.** O usuário roda o comando do Mazy (`/seo`, `/carrossel`,
+   `/anuncio-google`); ele **lê o briefing do arquivo** e executa a tática em cima.
+6. **Aprende.** O resultado volta, `/casos` registra, a Logic aprende o padrão.
+
+> Não existe "fazer o Mazy responder". É o mesmo Claude: a Logic deixa o briefing
+> escrito, o comando do Mazy o encontra. A ponte é um **arquivo**, não uma API.
+
+---
+
+## 5. O fluxo na prática (a ordem perfeita)
 
 ```
-GitHub  →  usuário importa no Claude  →  /instalar  →  painel local criado
-                                                              │
-        toda a inteligência acontece dentro do Claude  ───────┘
-                    (o painel apenas organiza)
+/leads            → acha clientes (nicho+lugar+filtro+quantidade)  [Produto 1]
+   ↓ (escolhe um lead, ou usa o próprio negócio)
+/diag             → raio-X completo: gargalo + previsibilidade      [Produto 2]
+   ↓ (com Mazy: já lê o dado real e complementa; sem Mazy: público + o que o cara colar)
+Logic decide o rumo e ENTREGA
+   ↓ (se o usuário quiser execução)
+/plano + briefing → tráfego pago e/ou orgânico, sob demanda
+   ↓
+Mazy executa a tática
+   ↓
+/casos            → registra e a Logic aprende o mercado
 ```
 
-- **Sem servidor. Sem banco central. Sem infra pesada.**
-- **Coleta (MVP):** `WebSearch` + `WebFetch` nativos do Claude. Grátis, zero setup.
-- **Coleta (fase 2, opcional):** adaptador Google Places/Geocoding atrás de API
-  key opcional — só pra busca por raio / mapa / concorrente local.
-- **Camada de coletor abstrata desde já:** as skills chamam "o coletor", não o
-  Google direto. Trocar a fonte no futuro não quebra nada.
-
-### Limite honesto da coleta (documentado, não escondido)
-Instagram/Facebook bloqueiam scraping — o `WebFetch` nem sempre lê o feed
-completo. Na etapa 1 (pública) a análise de rede social é "o que dá pra ver de
-fora". Isso já basta pra abordagem comercial. O detalhe fino vem quando o próprio
-dono manda print do Insights (etapa 3).
+**Diagnóstico e plano andam juntos e fluidos:** a Logic lê tudo, decide e entrega.
+O briefing se molda ao que o usuário pede — *"quero tráfego pago"*, *"só o meu
+orgânico"*, ou os dois. Se ele não pedir execução, para no diagnóstico (que já vale
+sozinho). A Logic **lidera** — entrega o completo, não fica pedindo licença a cada
+passo.
 
 ---
 
-## 5. Estrutura de pastas
+## 6. Os agentes (encanamento invisível — não é bicho de sete cabeças)
+
+Pro usuário, é simples: pede lead, pede diagnóstico, pede plano. Por baixo, poucos
+**subagentes** fazem o trabalho pesado e voltam só com o resultado limpo — isso
+economiza token e mantém o contexto principal leve:
+
+| Agente | Faz | Dispara |
+|---|---|---|
+| **Coletor de prospecção** | varre bairros, confere site/Instagram, monta a lista | `/leads` |
+| **Coletor de pesquisa** | busca pesada de concorrentes/mercado | `/diag`, `/pesquisa` |
+| **Analista de tráfego pago** | lê o dado real + o diagnóstico e decide se/como investir; escreve o briefing pago | sob demanda |
+| **Analista de orgânico** | mesmo, pro orgânico (SEO/conteúdo/social); escreve o briefing orgânico | sob demanda |
+| **Auto-estudo (padrão Hermes)** | destila o padrão do nicho a cada `/casos`; a Logic fica mais fina com o uso | após `/casos` |
+
+Os analistas **não mexem em campanha** (isso é do Mazy) — eles decidem o **rumo** e
+entregam o briefing. Cada um é opcional: o cara chama o que quer.
+
+---
+
+## 7. O método — o Motor (fundo, não raso)
+
+O diagnóstico não é "4 caixinhas + nota /10". É um motor com **camadas de
+profundidade** que puxa só o que o caso pede:
+
+- **Dimensões:** aquisição, ativação, retenção, receita, indicação, posicionamento,
+  oferta, funil, economia (LTV/CAC), operação, e demanda de busca/GEO.
+- **Biblioteca grande, entrega enxuta:** `_nucleo/base-conhecimento/` guarda os
+  frameworks; a Logic consulta só o que a empresa pede.
+- **Previsibilidade:** projeta o cenário com o gargalo resolvido, com número
+  (*"arruma X → +R$Y/mês, sem gastar mais em tráfego"*). Estimativa é rotulada.
+- **Auto-estudo:** cada diagnóstico e caso ensina o padrão do nicho; o próximo
+  diagnóstico daquele nicho começa mais fundo. Com trava (backup + reversão).
+
+---
+
+## 8. Comunicação — metade do valor (a falha nº1 do MVP antigo)
+
+- **Fale claro:** linguagem de gente. Termo técnico só com explicação na hora, de
+  preferência entre parênteses ao lado (*CAC = quanto custa ganhar 1 cliente*). Sem
+  abusar: nada de mar de parênteses.
+- **Organizado e nítido:** a entrega bate o olho e se entende em 30 segundos — o que
+  está forte, o que está fraco, onde está o dinheiro. Padrão "painel", não "textão".
+- O cara tem que **sentir** que recebeu algo fundo e bem entregue.
+
+---
+
+## 9. Rubrica anti-genérico (a peça mais importante — herdada, não muda)
+
+Toda entrega passa por `_nucleo/rubricas/qualidade.md` antes de sair. Se falhar,
+reescreve. Em resumo: evidência com fonte · específico > genérico · número sempre
+que der · fato vs. hipótese marcados · coleta em camadas · **conclusão não-óbvia**
+(o "caramba", obrigatório).
+
+---
+
+## 10. Arquitetura técnica e pastas
 
 ```
 Logic-Produto/
-├── ARQUITETURA.md         → este documento (a fundação)
-├── README.md              → pitch + instalação
-├── CLAUDE.md              → regras de comportamento do sistema Logic
-├── .claude/skills/
-│   ├── novo-cliente/      → cria o contexto (form mínimo)
-│   ├── diagnostico/       → as 3 etapas independentes
-│   ├── pesquisa/          → concorrentes / mercado
-│   ├── plano/             → horizonte + execução
-│   └── casos/             → resultados pós-execução
-├── _nucleo/               → O CÉREBRO (verdade do PRODUTO — você evolui)
-│   ├── metodo/            → frameworks de análise (o diferencial)
-│   ├── base-conhecimento/ → notas atômicas (reaproveitado do SYS Scan)
-│   ├── rubricas/          → as barras de qualidade / anti-genérico
-│   ├── coletor/           → regras de coleta (hoje WebSearch; amanhã Google)
-│   └── templates/         → formato dos entregáveis
-├── clientes/              → A MEMÓRIA (verdade de CADA negócio — o user evolui)
-│   ├── _template/
-│   └── <empresa>/
-│       ├── cliente.md
-│       ├── diagnostico.md
-│       ├── pesquisa.md
-│       ├── plano.md
-│       ├── casos.md
-│       └── fontes/        → prints, PDFs, exports que o user subir
-└── painel/
-    └── index.html         → dashboard regenerado a cada mudança
+├── ARQUITETURA.md   → este documento (a fundação)
+├── CLAUDE.md        → regras de comportamento da Logic
+├── .claude/skills/  → instalar · novo · leads · diag · pesquisa · plano · casos · painel
+├── _nucleo/         → O CÉREBRO (verdade do PRODUTO; a Logic evolui)
+│   ├── metodo/ · base-conhecimento/ · rubricas/ · coletor/ · templates/
+├── clientes/<empresa>/ → A MEMÓRIA (verdade de CADA negócio; o usuário evolui)
+│   └── cliente.md · diagnostico.md · pesquisa.md · plano.md · casos.md · fontes/
+└── painel/          → dashboard (em revisão; não é foco agora)
 ```
 
-**Separação-chave:** `_nucleo` = verdade do produto (o Logic evolui). `clientes` =
-verdade de cada negócio (o usuário evolui). São as suas "duas evoluções", separadas
-fisicamente — atualizar o produto nunca toca dados do cliente, e vice-versa.
+- **Sem servidor, sem banco central, sem infra pesada.**
+- **Separação-chave:** `_nucleo` = verdade do produto · `clientes` = verdade de cada
+  negócio. Atualizar o produto nunca toca dados do cliente, e vice-versa.
+- Quando o Mazy está presente, a Logic também lê a pasta dele (memória, relatórios,
+  cases) — mas nunca escreve por cima; entrega briefing, não invade.
 
 ---
 
-## 6. O fluxo de comandos
+## 11. Regra de construção
 
-### `/novo` — cria o contexto
-Form mínimo (facilitador): **Nome da empresa** (obrigatório) · Cidade · Estado ·
-Site · Instagram · Nicho · CNPJ (opcional, só pra desempatar homônimos).
-Preenche só o que tiver. Cria a pasta `clientes/<empresa>/` com `cliente.md`.
-
-### `/diag` — 3 etapas independentes
-- **Etapa 1 — Pesquisa Pública** (a camada NOVA, outside-in). O Logic coleta tudo
-  que der publicamente e entrega um raio-X inicial. **Já gera valor sozinha** →
-  serve o Uso 1 (pré-venda).
-- **Etapa 2 — Perguntas Inteligentes.** Só o que ainda falta, não questionário
-  gigante. Aprofunda com dado de dentro.
-- **Etapa 3 — Arquivos.** Pede só o necessário (Insights, Ads, CRM, planilhas).
-  Diagnóstico completo.
-
-Cada etapa é opcional e para onde o usuário quiser.
-
-### `/pesquisa` — concorrentes e mercado
-Empresa local: concorrentes na região, presença/posicionamento local.
-Empresa digital: concorrentes nacionais/internacionais, referências, tendências.
-Foco em **qualidade, não quantidade**. (Busca por raio geográfico = fase 2, Google.)
-
-### `/plano` — vira execução
-Usuário escolhe horizonte (10/30/60/90/180 dias, 12 meses). Entrega plano
-estratégico + tático + operacional, cronograma, prioridades, métricas,
-entregáveis. Tudo ancorado no diagnóstico. → serve o Uso 2.
-
-### `/casos` — registra resultado
-Pós-execução: resultados, ROI, métricas, aprendizados, erros, melhorias.
-Personaliza o Logic pra aquele negócio ao longo do tempo. → serve o Uso 3.
-
----
-
-## 7. O método — HÍBRIDO (reaproveitar + melhorar significativamente)
-
-O cérebro do SYS Scan já é maduro e foi **reaproveitado** (`_nucleo/`): 4 Fits,
-funil matemático, 4 pilares, LTV/CAC, níveis de consciência, painel /10, formato
-de saída. Nada disso se joga fora.
-
-**O que muda / melhora:**
-
-1. **Camada nova "outside-in" (etapa 1).** O SYS Scan atual assume dados de dentro
-   ("sem número vira achismo"). O Logic precisa tirar conclusão estratégica só com
-   dado público. É uma lente nova: como ler oferta, posicionamento, presença e
-   gargalos prováveis **de fora**, marcando o que é evidência vs. hipótese.
-2. **Troca de sujeito.** Hoje o método fala "cliente da LOGIC" (o seu negócio). No
-   produto, fala "qualquer empresa que o usuário está estudando". Adaptação de
-   linguagem em todo o cérebro.
-3. **Melhoria de profundidade.** Reforçar cada framework com exemplos, gatilhos de
-   conclusão não-óbvia e conexão explícita entre etapas (público → perguntas →
-   arquivos afunila pro método completo).
-4. **Rigor de coleta embutido** (ver seção 8): a skill força busca em camadas, não
-   uma busca só.
-
-**Como as etapas se encaixam no método:**
-Etapa 1 (público) → lente outside-in nova. Etapas 2 e 3 (perguntas + arquivos) →
-alimentam o SYS Scan completo já existente (funil, 4 Fits, LTV/CAC). O usuário
-sobe as etapas e vai entrando cada vez mais fundo no método testado.
-
----
-
-## 8. Rubrica de qualidade — o anti-genérico (a peça mais importante)
-
-Toda entrega passa por esta barra **antes** de ser mostrada. Se falhar, reescreve.
-
-1. **Evidência obrigatória.** Toda afirmação cita a fonte ("3 posts em 60 dias no
-   Instagram → frequência morta"). Sem fonte, é achismo — corta.
-2. **Específico > genérico.** Teste: "isso serviria pra qualquer empresa do nicho?"
-   Se sim, não presta. Tem que ser desta empresa.
-3. **Número sempre que possível.** Taxa, frequência, contagem — mede, não chuta.
-4. **Evidência vs. hipótese marcadas.** Na etapa 1 (pública) muita coisa é
-   inferência. Marcar honestamente o que é fato observado e o que é suposição a
-   confirmar. Isso constrói confiança e serve de gancho pra etapa 2.
-5. **Coleta em camadas.** Nunca uma busca só: site + rede social + avaliações +
-   reclamações + concorrentes. Ler as fontes (`WebFetch`), não só o snippet.
-6. **Conclusão não-óbvia.** A entrega tem que ter pelo menos um insight que o dono
-   não veria sozinho. É o "caramba". Sem isso, a entrega não sai.
-
----
-
-## 9. Painel
-
-`painel/index.html` — arquivo **autossuficiente** (dados embutidos) que o Claude
-regenera a cada mudança. Abre com duplo-clique, sem `localhost`, sem instalação.
-Lista: clientes, histórico, diagnósticos, pesquisas, planos, casos, progresso.
-
-**Vídeo Loom** (3–5 min: instalar, usar, fluxo, comandos): embed via `<iframe>` no
-`index.html`. Zero custo, reduz curva de aprendizado. Recomendado.
-
----
-
-## 10. Roadmap de construção (qualidade antes de quantidade)
-
-1. **Fundação** ✅ (este documento + estrutura + cérebro reaproveitado)
-2. **Adaptar o cérebro** — troca de sujeito + melhorias (seção 7)
-3. **Construir `/diag` etapa 1 até o fim, com qualidade máxima** — a lente
-   outside-in + rubrica. **Testar em 3 empresas reais.** Refinar até dar o "caramba".
-4. Replicar o padrão: etapas 2/3, depois `/pesquisa`, `/plano`, `/casos`.
-5. `/novo` + painel + `/instalar`.
-6. README + vídeo Loom.
-
-> Regra: não adicionar função nova enquanto a entrega anterior não passar a rubrica
-> da seção 8. O maior risco é qualidade, não quantidade de comandos.
+Não adicionar função nova enquanto a anterior não passar a rubrica da seção 9. O
+maior risco é qualidade e clareza, não quantidade de comandos. Poucos agentes
+afiados > muitos agentes fracos.

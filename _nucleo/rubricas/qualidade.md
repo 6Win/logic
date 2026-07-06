@@ -25,6 +25,12 @@ O conteúdo pode ser genial, mas se a pessoa não entende, não vale nada. Escre
 > Teste final de clareza: *"um freelancer de 20 anos que nunca ouviu falar de ICP
 > entenderia isso de primeira?"* Se não, reescreve. Isto vem ANTES de qualquer outra regra.
 
+**O COMO (os segredos de comunicação):** clareza não é só evitar jargão — é o jeito de
+escrever. Antes de entregar qualquer texto, passe por `_nucleo/rubricas/comunicacao.md`:
+frase inteira em vez de fragmento com traço, no máximo um "—" por parágrafo, sigla sempre
+traduzida, teste da voz alta. É o que separa "informação certa" de "informação bem
+entregue".
+
 ## Os 6 testes
 
 1. **Evidência obrigatória.**
@@ -88,6 +94,30 @@ Passar nos 6 testes não basta; a apresentação multiplica a confiança do usu�
     que abre a entrega; o resto existe pra sustentá-lo. Se você não consegue apontar
     qual é a frase-âncora, o diagnóstico ainda não está pronto. E traduza o problema
     em **dinheiro** (impacto econômico, sem inventar cifra) — empresário decide assim.
+
+12. **Comece pela resposta (método Minto/BLUF) — vale pra TODA entrega.**
+    Abra com A conclusão principal em UMA frase de gente; depois o porquê; depois a
+    prova. Guie o leitor como uma metodologia — onde está o problema → o que está bom →
+    o que fazer → quanto vale — cada bloco se explicando sozinho. Regras que não podem
+    faltar:
+    - **Zero frase vaga.** Se o leitor pode perguntar "como assim?", reescreve concreto.
+      ❌ "um exemplo impecável que você mostra sem susto" → ✅ "um exemplo do primeiro
+      lead até o plano pronto, rodado num negócio real, que você mostra do começo ao fim".
+    - **Nomes de seção em português simples e humano** — sem jargão ("quick wins",
+      "insight", "arena") **e sem apelido forçado**. Natural, como você falaria.
+    - **Prazo curto por padrão:** fale do que dá pra fazer JÁ (hoje + essa semana). Plano
+      de 30/60/90 dias **só quando o usuário pedir** — e aí é o `/plano`, não o diagnóstico
+      (senão viram dois planos e confunde).
+
+13. **Toda recomendação vem com o PORQUÊ.** Nunca só "faça um reels". Sempre a lógica da
+    escolha: *"faça um reels mostrando a automação rodando PORQUE alcança dono que ainda
+    não te conhece e prova que funciona sem você explicar"*. O cara tem que entender por
+    que aquilo foi escolhido, o que resolve e o que gera. Vale no diagnóstico, no plano e
+    no briefing — sem porquê, é ordem solta, não metodologia.
+
+14. **Ancore na PERSONA.** Antes de estratégia, deixe claro PRA QUEM (a pessoa concreta e
+    as dores específicas dela). Toda ação ataca UMA dor dessa persona. Sem persona, não há
+    direção. É a base — no orgânico, no pago, na oferta.
 
 ## Checagem final (o usuário imaginário)
 Antes de entregar, pergunte-se: *"se eu fosse o dono dessa empresa e recebesse

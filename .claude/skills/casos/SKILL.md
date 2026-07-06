@@ -53,7 +53,11 @@ Mais três seções fixas:
 5. Se o aprendizado vale pra outros negócios (um padrão, não um caso isolado), sugerir
    registrá-lo como **nota nova em `_nucleo/base-conhecimento/`** — assim o **produto**
    evolui, não só o cliente. É o mecanismo que faz o Logic ficar mais inteligente com o uso.
-6. Regenerar `painel/index.html`.
+6. **Feedback loop da própria Logic:** se o caso revelou que uma recomendação/entrega da
+   Logic **funcionou ou furou** na prática, registrar uma linha em
+   `_nucleo/aprendizados-do-sistema.md` (padrão de entrega, não do negócio). A cada ~15–20
+   registros, esse arquivo dispara o refino das skills. Ver o arquivo pro formato e a trava.
+7. Regenerar o painel (`site/`).
 
 ## Estrutura de cada entrada (modelo)
 ```

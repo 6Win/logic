@@ -24,8 +24,10 @@ que está sendo estudada no momento.
 | `06-aprendizados/` | o que funcionou por cliente (a base viva, alimentada pelo /casos) |
 
 ## Como cresce
-O `/pesquisa` e o `/casos` alimentam esta base: pesquisa nova vira nota; aprendizado
-generalizável de um cliente (via `/casos`, pergunta 5) vira nota nova aqui — assim o
-Logic fica mais inteligente com o uso, sem misturar dados de empresas diferentes.
+O `/diag` (que já inclui a pesquisa de mercado/concorrência) e o `/casos` alimentam esta
+base: pesquisa nova vira nota; aprendizado generalizável de um cliente (via `/casos`,
+pergunta 5) vira nota nova aqui — assim o Logic fica mais inteligente com o uso, sem
+misturar dados de empresas diferentes.
 
-O `_inbox/` é onde você despeja material bruto pro `/pesquisa` processar e curar.
+Além disso, a Logic aprende sobre a **própria entrega** (não sobre o cliente) em
+`_nucleo/aprendizados-do-sistema.md` — o feedback loop que refina as skills com o uso.

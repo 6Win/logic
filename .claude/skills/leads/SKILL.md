@@ -13,14 +13,32 @@ description: >
 Resolve a dor nº1 de quem vende serviço: **achar gente boa pra abordar.** Não é volume,
 é qualidade do lead. Fala claro (regra nº1 da rubrica) e é eficiente com chamadas/tokens.
 
+**É o carro-chefe da Logic** — a lacuna que o Mazy não cobre (ele é todo inbound; a
+Logic faz o outbound qualificado). O que bate o Kaptar: o Kaptar dispara em massa num
+raio, sem filtro. A Logic **filtra por oportunidade real** (sem site, sem Instagram /
+Instagram parado, digital fraco) e entrega **gancho de abordagem** por lead.
+
+**Coleta pesada → subagente `coletor-prospeccao`.** Varrer vários bairros, enriquecer
+dezenas de lugares e conferir site/Instagram um a um é trabalho pesado. Dispare o
+subagente **`coletor-prospeccao`** (passando nicho + lugar + filtro + quantidade) — ele
+volta só com a lista limpa e qualificada, mantendo o contexto principal leve e
+economizando token. Você (agente principal) recebe a lista e escreve, pra cada lead, uma
+**mini-leitura do negócio** (o que é, como parece funcionar, o furo digital pra explorar)
+— **não um script de mensagem pronto** (isso é cara de spam). A ideia é o cara bater o
+olho e já entender com quem vai falar e por onde entrar; ele aborda do jeito dele. A
+leitura e a apresentação são suas, não do coletor.
+
 ## O que perguntar (curto)
 Prospecção de **empresas locais** (loja, clínica, restaurante, barbearia…). Perguntar:
 - **Nicho · cidade/região · raio** (opcional) **· quantos** (padrão 10).
 - **O que procurar** (o filtro que qualifica a lista): sem site · site fraco/parado ·
-  avaliação baixa · sem contato claro. Pode combinar. Padrão: "sem site / digital fraco".
+  **sem Instagram / Instagram parado** · avaliação baixa · sem contato claro. Pode
+  combinar. Padrão: "sem site / digital fraco".
 - **Que serviço o usuário vende** — calibra o "como abordar".
 
-_(Prospecção por rede social/Instagram fica pra uma versão futura — hoje só local.)_
+_(Foco em negócio local. O filtro de Instagram — sem perfil ou perfil parado — é
+first-class: é sinal forte de oportunidade pra quem vende marketing, e é exatamente o
+que o Kaptar não deixa filtrar.)_
 
 Padrão de quantidade: 10.
 
@@ -103,13 +121,24 @@ Formato por lead (linguagem clara, direto ao ponto):
 
 1. [Nome]
    Endereço · Telefone · [Google Maps: link]
-   Site: NÃO TEM  ·  ⭐ 4.6 (312 avaliações)
-   Por que é bom lead: negócio movimentado (312 avaliações) mas sem site nenhum.
-   Como abordar: "vi que vocês têm ótima reputação mas não achei site — tá deixando
-   cliente na mesa pra quem pesquisa no Google."
+   Site: NÃO TEM  ·  Instagram: parado (últ. post há ~8 meses)  ·  ⭐ 4.6 (312 avaliações)
+   Leitura do negócio: negócio movimentado (312 avaliações = tem cliente e caixa), mas
+   sem site e com Instagram abandonado — invisível pra quem pesquisa "estética no bairro"
+   no Google. Vive de quem já conhece; some pra quem procura. É aí que dá pra entrar.
 ```
-Fechar com um resumo: quantos sem site, quantos com digital fraco.
+A leitura é curta (2–3 linhas): o que é, como parece funcionar, e o furo digital. Nada
+de raio-X (isso é o `/diag`) nem de script de abordagem pronto.
+Fechar com um resumo: quantos sem site, quantos sem/parado no Instagram, quantos com
+digital fraco. Se o usuário usa o Mazy, terminar com a ponte: *"esses leads sem
+Instagram são material pronto pro `/carrossel` e `/seo` do teu Mazy."*
 Salvar em `leads/[nicho]-[cidade]-[data].md`.
+
+**Enxuto (não é diagnóstico):** o `/leads` é pra **contato rápido** — por lead: nome,
+contato, tem site?, nota, e **UMA linha** sobre o negócio (o suficiente pra chegar já
+entendendo). Nada de raio-X. Isso também economiza token.
+**Eficiência:** só faça `Place Details` do shortlist que vai pra lista (não de todos), não
+repita busca, não leia o site de cada um — o mínimo pra qualificar. O `/painel` monta a
+aba Leads a partir dessa lista.
 
 ## Regras
 - **Eficiência:** limite os campos do Details, não faça WebFetch do site de todos —

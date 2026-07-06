@@ -1,45 +1,57 @@
 ---
 name: painel
 description: >
-  Atualiza o painel visual do Logic (painel/index.html) com os dados atuais dos
-  clientes. Regenera só o bloco de dados embutido, sem tocar no design. Use quando o
-  usuário disser "atualiza o painel", "/painel", ou depois de qualquer comando que
-  mudou o estado de um cliente (diagnóstico, pesquisa, plano, casos, novo cliente).
+  Abre e atualiza o painel local da Logic (site/) — organiza empresas, leads e
+  config num painel visual. Regenera os dados em site/data/*.json a partir dos
+  arquivos reais e sobe o servidor local. Use quando o usuário disser "painel",
+  "/painel", "abre o painel", ou depois de /novo, /diag, /pesquisa, /plano,
+  /casos, /leads (pra refletir o que mudou).
 ---
 
-# /painel — mantém o dashboard atualizado
+# /painel — o painel visual da Logic
 
-O painel é um HTML **self-contained** (sem servidor). Como o navegador não lê os
-arquivos da pasta sozinho, é o Claude que **regenera o bloco de dados** embutido
-sempre que algo muda. Só os dados — o design (CSS/HTML/JS) permanece intacto.
+Painel administrativo local (`site/index.html`) — não é site de divulgação. Mostra
+o que já foi feito (empresas, leads, config) pra quem usa a Logic enxergar tudo
+organizado num lugar só, ajudando o fluxo. Fica em `site/`, servido local — **não
+precisa deploy** pra usar no dia a dia.
 
 ## O que fazer
-1. Ler os clientes em `clientes/*/` (pular `_template`). Para cada um, extrair de
-   `cliente.md`, `diagnostico.md`, `pesquisa.md`, `plano.md`, `casos.md`:
-   - `nome`, `nicho`, `cidade`
-   - `etapas` — quais estão prontas (diagnostico/pesquisa/plano/casos)
-   - `gargalo` — a frase do gargalo (curta)
-   - `insight` — o insight-âncora do diagnóstico
-   - `scores` — as 6 notas do Painel /10 (Oferta&Preço, Posicionamento, Aquisição,
-     Conversão, Reputação/Retenção, Presença/Conteúdo)
-2. Ler `_uso.json` → `DADOS.uso` (contadores) **e** `_config.json` → `DADOS.googleKey`
-   (a chave do Google; ativa o mapa e o status no painel).
-3. Montar a `timeline` — histórico completo, cada evento com
-   `{data, tipo, tit, tx, det:[...]}` (data ISO, tipo curto ex. "Diagnóstico",
-   título, resumo e uma lista de detalhes que aparece ao expandir a sanfona).
-3. **Substituir APENAS** o objeto `const DADOS = {…}` dentro de
-   `painel/index.html` (entre os marcadores de comentário). **Não alterar** o CSS,
-   o HTML nem as funções JS.
 
-> **Persistência do usuário (não regenerar):** os marcadores do calendário e a chave
-> do Google Maps ficam no **localStorage do navegador** — regenerar o `DADOS` não os
-> apaga. O painel detecta a chave sozinho: com chave, mostra o mapa; sem, segue normal.
-> A identidade visual é a da landing (branco/preto/vermelho #ff2020, fonte Geist).
-4. Confirmar ao usuário: *"Painel atualizado — abre `painel/index.html`."*
+1. **Regenerar os dados** em `site/data/`:
+   - `empresas.json` — ler `clientes/*/` (pular `_template`). Pra cada empresa,
+     extrair de `cliente.md`/`diagnostico.md`/`pesquisa.md`/`plano.md`/`casos.md`:
+     `slug`, `nome`, `sobre` (1 linha), `criado_em`, `etapas` (bool: novo,
+     diagnostico, pesquisa, plano, casos), `resumo` (1-2 frases do estado atual),
+     `artefatos` (arquivos relevantes gerados, ex. briefing, imagem de post).
+   - `leads.json` — ler a prospecção mais recente salva (se houver pasta `leads/`
+     ou resultado salvo em `clientes/<empresa>/`): `{nicho, lugar, data, total,
+     itens:[...]}`.
+   - `config.json` — ler `_config.json`: `google_key_conectada` = `true` se o
+     campo `google_key` não estiver vazio.
+   - **Nunca inventar dado.** Empresa sem diagnóstico = `etapas.diagnostico:
+     false`, sem enfeite. Se não achar nada, `empresas.json` e `leads.json`
+     ficam `[]` — o painel já mostra o estado vazio certo.
+
+2. **Subir o servidor local** (se não estiver rodando):
+   ```bash
+   cd site && npm start
+   ```
+   Roda em `http://localhost:3000`. Se a porta já estiver ocupada (servidor
+   anterior ainda de pé), não precisa subir de novo — só abrir o navegador.
+
+3. **Abrir no navegador** — `http://localhost:3000`.
+
+4. O painel **se atualiza sozinho**: ele faz polling dos JSONs a cada poucos
+   segundos, então depois de aberto uma vez, qualquer novo `/diag`, `/leads`
+   etc. aparece ali sem precisar rodar `/painel` de novo. Rodar `/painel` outra
+   vez só garante que o servidor está de pé e os dados foram regenerados — não
+   precisa fechar nada.
+
+5. Confirmar ao usuário: *"Painel aberto — http://localhost:3000"*.
 
 ## Regras
-- Frases curtas (gargalo/insight cabem num card/modal).
-- Só dado REAL dos arquivos. Se um cliente não tem diagnóstico, `etapas.diagnostico=false`
-  e sem scores.
-- Nunca inventar. Sem dado = campo vazio, não preenchimento fictício.
-- Manter o padrão preto/branco/vermelho, sem emoji (o design já cuida disso).
+- Preto/cinza/branco, sem outra cor de destaque — segue a identidade em
+  `IDENTIDADE.md` (símbolo modular, Satoshi, paleta preta/branca). No header do
+  painel, só o símbolo — sem o wordmark "Logic".
+- Nunca empresa/lead de exemplo. Só dado real do que a Logic já processou.
+- O painel só lê — nunca escreve de volta no `clientes/` (a via é sempre chat → arquivo → painel).

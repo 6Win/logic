@@ -32,6 +32,9 @@ diagnóstico e o plano** (e menos perguntas repetidas depois).
 4. (Opcional) Confirmar rapidamente com uma busca de identidade se a empresa foi
    achada — `WebSearch` "<nome> <cidade>" — e perguntar *"é esta?"* se houver
    dúvida. Sem transformar isso em diagnóstico ainda.
-5. Fechar oferecendo o próximo passo: *"Contexto criado. Rodo o /diag?"*
+5. **Emendar direto no diagnóstico (etapa 1):** criado o contexto, **já rodar a etapa 1
+   do `/diag`** (pesquisa pública) — sem perguntar, é o que o usuário quer ver. Avisar
+   curto ("Contexto criado, já vou fazer o diagnóstico inicial…") e seguir o fluxo do
+   `/diag` etapa 1. No fim, oferecer aprofundar (etapa 2/3).
 
 Não perguntar sobre memória nem nada além disso. Rápido e direto.

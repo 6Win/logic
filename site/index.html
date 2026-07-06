@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logic — Painel</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000; --panel:#111111; --panel-2:#1A1A1A;
+    --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.18);
+    --ink:#FFFFFF; --muted:rgba(255,255,255,.58); --faint:rgba(255,255,255,.36);
+    --ok:#FFFFFF; --off:rgba(255,255,255,.30);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Satoshi',system-ui,sans-serif;line-height:1.5}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 40px}
+  @media(max-width:700px){.wrap{padding:0 20px}}
+
+  header{position:sticky;top:0;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+
+  /* SÍMBOLO — a marca da Logic (estrutura · organização · clareza) */
+  .brand{display:flex;align-items:center;gap:12px}
+  .symbol{width:22px;display:flex;flex-direction:column;gap:3px}
+  .symbol i{display:block;background:var(--ink);border-radius:3.5px;height:7px}
+  .symbol i:nth-child(1),.symbol i:nth-child(2){width:9px}
+  .symbol i:nth-child(3){width:22px}
+  .brand .tag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line-2);border-radius:999px;padding:3px 9px}
+
+  .tabs{display:flex;gap:6px}
+  .tab{font-size:13.5px;font-weight:600;color:var(--muted);padding:9px 16px;border-radius:8px;cursor:pointer;transition:.15s}
+  .tab:hover{color:var(--ink)}
+  .tab.active{background:var(--panel-2);color:var(--ink)}
+
+  main{padding:56px 0 90px}
+  .view{display:none}
+  .view.active{display:block}
+
+  .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--faint);margin-bottom:22px}
+  h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin-bottom:14px;line-height:1.15}
+  .desc{font-size:14.5px;color:var(--muted);max-width:66ch;margin-bottom:44px;line-height:1.7}
+  .desc b{color:var(--ink);font-weight:600}
+
+  .section-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--faint);margin:52px 0 20px}
+
+  /* stat row */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--panel)}
+  .stat .n{font-size:28px;font-weight:800;letter-spacing:-.02em}
+  .stat .l{font-size:12px;color:var(--faint);margin-top:6px}
+
+  /* o que ela faz — capacidades */
+  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:900px){.caps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.caps{grid-template-columns:1fr}}
+  .cap{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:24px}
+  .cap .cmdtag{font-size:11px;font-weight:800;letter-spacing:.02em;color:var(--faint);margin-bottom:12px}
+  .cap h3{font-size:16px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
+  .cap p{font-size:13px;color:var(--muted);line-height:1.6}
+  .cap p b{color:var(--ink);font-weight:600}
+
+  /* como se usa — faixa fina */
+  .how{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:22px 26px;display:flex;gap:18px;align-items:flex-start}
+  .how .k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);flex:0 0 96px;padding-top:2px}
+  .how p{font-size:13.5px;color:var(--muted);line-height:1.7}
+  .how p b{color:var(--ink);font-weight:600}
+  @media(max-width:640px){.how{flex-direction:column;gap:10px}.how .k{flex:none}}
+
+  /* as duas frentes — blocos grandes */
+  .frentes{display:flex;flex-direction:column;gap:16px}
+  .frente{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:30px 32px}
+  .frente .fhead{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+  .frente .fnum{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--faint)}
+  .frente h3{font-size:20px;font-weight:800;letter-spacing:-.02em}
+  .frente .lead{font-size:14px;color:var(--muted);line-height:1.75;max-width:84ch;margin-bottom:20px}
+  .frente .lead b{color:var(--ink);font-weight:600}
+  .frente .flist{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}
+  @media(max-width:720px){.frente .flist{grid-template-columns:1fr}}
+  .frente .fitem{font-size:12.5px;color:var(--muted);line-height:1.6}
+  .frente .fitem b{color:var(--ink);font-weight:700;display:block;margin-bottom:3px;font-size:13px}
+
+  /* fluxo steps */
+  .steps{display:flex;flex-direction:column;gap:8px}
+  .stepr{display:flex;gap:22px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 24px}
+  .stepr .cmd{flex:0 0 96px;font-size:13.5px;font-weight:800;color:var(--ink)}
+  .stepr .tx{font-size:13.5px;color:var(--muted);line-height:1.6}
+  .stepr .tx b{color:var(--ink);font-weight:600}
+
+  /* faixa de destaque (potencial / integração) */
+  .band{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:30px 32px}
+  .band h3{font-size:18px;font-weight:800;letter-spacing:-.015em;margin-bottom:12px}
+  .band p{font-size:13.5px;color:var(--muted);line-height:1.75;max-width:84ch}
+  .band p b{color:var(--ink);font-weight:600}
+  .band p + p{margin-top:12px}
+  .lac{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  @media(max-width:760px){.lac{grid-template-columns:1fr}}
+  .lac .li{border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--panel-2)}
+  .lac .li b{color:var(--ink);font-size:13px;display:block;margin-bottom:5px}
+  .lac .li span{font-size:12.5px;color:var(--muted);line-height:1.55}
+
+  /* cards genericos */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .card{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:24px;cursor:pointer;transition:.15s}
+  .card:hover{border-color:var(--line-2)}
+  .card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+  .card .sub{font-size:12.5px;color:var(--faint);margin-bottom:18px;line-height:1.5}
+  .flags{display:flex;flex-wrap:wrap;gap:8px}
+  .flag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid var(--line-2);color:var(--faint)}
+  .flag.on{color:var(--ink);border-color:var(--ok)}
+
+  .empty{border:1px dashed var(--line-2);border-radius:14px;padding:40px 24px;text-align:center;color:var(--faint);font-size:13.5px}
+  .empty b{color:var(--muted)}
+
+  /* detail panel */
+  .detail{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:32px 36px;margin-top:20px}
+  .detail .back{font-size:12.5px;color:var(--faint);cursor:pointer;margin-bottom:20px;display:inline-block}
+  .detail .back:hover{color:var(--ink)}
+  .detail h2{font-size:22px;font-weight:800;margin-bottom:6px}
+  .detail .sub{font-size:13px;color:var(--muted);margin-bottom:24px}
+  .etapas{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+  .art{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--panel-2);border-radius:10px;margin-bottom:10px;font-size:13px}
+  .art .k{color:var(--faint);font-size:11px;text-transform:uppercase;letter-spacing:.08em;flex:0 0 80px}
+  .shot{margin-top:16px;max-width:280px;border-radius:12px;border:1px solid var(--line-2);display:block}
+
+  /* config */
+  .cfg-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:700px){.cfg-row{grid-template-columns:1fr}}
+  .cfg-card{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:26px}
+  .status{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .dot.off{background:var(--off)}
+  .dot.on{background:var(--ok)}
+  .status b{font-size:14.5px}
+  .cfg-card p{font-size:13px;color:var(--muted)}
+  .map{border-radius:10px;overflow:hidden;border:1px solid var(--line-2);height:220px;filter:grayscale(1) invert(.92) contrast(.9)}
+  .map iframe{width:100%;height:100%;border:0}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;margin-top:60px}
+  .foot-in{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .foot-sig{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+  .foot-note{font-size:12px;color:var(--faint)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="symbol" title="Logic"><i></i><i></i><i></i></div>
+      <span class="tag">Painel</span>
+    </div>
+    <div class="tabs">
+      <div class="tab active" data-view="geral">Visão geral</div>
+      <div class="tab" data-view="empresas">Empresas</div>
+      <div class="tab" data-view="leads">Leads</div>
+      <div class="tab" data-view="config">Config</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- VISÃO GERAL -->
+  <section class="view active" id="v-geral">
+    <div class="lbl">Logic · Painel</div>
+    <h1>A inteligência estratégica do seu negócio</h1>
+    <p class="desc">A Logic não é uma IA que só responde o que você pergunta. Ela é um <b>estrategista de negócio</b>: estuda a sua empresa (ou a de um cliente) a fundo, acha o dinheiro que está parado na mesa e te mostra onde mirar e por quê. Pensa como o braço direito do dono, cuidando da estratégia e do dia a dia pra te liberar pra crescer. Roda dentro do Claude, de graça, sem cadastro nem cartão. Este painel é só o lugar onde tudo que ela já fez no chat fica organizado pra você ver.</p>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="section-lbl">Como se usa</div>
+    <div class="how">
+      <div class="k">Sem comando</div>
+      <p>Você <b>não precisa decorar barra nenhuma</b>. Fale como falaria com uma pessoa — <i>"analisa essa empresa", "acha clientes de barbearia no Recreio", "monta o plano de 90 dias"</i> — que a Logic entende a intenção, pega o contexto e faz. Os comandos com barra (<b>/diag</b>, <b>/plano</b>, <b>/leads</b>…) são só atalhos pra mesma coisa, pra quem prefere.</p>
+    </div>
+
+    <div class="section-lbl">As duas frentes da Logic</div>
+    <div class="frentes">
+
+      <div class="frente">
+        <div class="fhead"><span class="fnum">FRENTE 1</span><h3>Prospecção inteligente</h3></div>
+        <p class="lead">Acha <b>clientes novos pra abordar</b> — empresas que ainda não te conhecem. Você diz o nicho, o lugar, o filtro e a quantidade, e a Logic devolve uma lista já qualificada, com contato e uma leitura rápida de cada negócio (o que é, o furo digital, por onde entrar). O que ela tem que o disparo em massa não tem: <b>filtra por oportunidade de verdade</b> (sem site, sem Instagram, digital fraco) em vez de jogar no escuro.</p>
+        <div class="flist">
+          <div class="fitem"><b>Com a chave do Google — o jeito recomendado</b>É a forma certa de rodar: lista completa e precisa, controle de raio e o mapa no painel. E <b>gasta bem menos</b> — vem dado estruturado direto da fonte, sem ficar vasculhando. É a sua própria chave, grátis dentro da cota do Google. Você cola no chat uma vez e pronto.</div>
+          <div class="fitem"><b>Sem chave, funciona — mas com limite</b>Roda no modo grátis (busca pública e OpenStreetMap), sem custo nenhum. Só que a cobertura no Brasil é irregular e cada lead precisa ser conferido na mão. Isso dá mais trabalho e acha menos empresas. Pra experimentar, serve; pra usar de verdade, a chave do Google vale muito a pena.</div>
+          <div class="fitem"><b>O limite do volume</b>Cada busca traz até ~60 por área. Pra números grandes ela varre bairro por bairro e junta sem repetir. Por isso prioriza a <b>qualidade</b> do lead, não bater um número.</div>
+          <div class="fitem"><b>Feita pra não desperdiçar</b>O trabalho pesado roda num assistente separado que volta só com a lista limpa — a conversa fica leve. E ela só aprofunda o lead que <b>você</b> escolher, não faz raio-X de 50 de uma vez.</div>
+        </div>
+      </div>
+
+      <div class="frente">
+        <div class="fhead"><span class="fnum">FRENTE 2</span><h3>Diagnóstico, estratégia e execução</h3></div>
+        <p class="lead">Estuda uma empresa a fundo — a sua ou a de um lead — e acha o <b>gargalo</b>: o que mais trava o dinheiro (a oferta? o funil? a recompra?). Não para no problema: <b>projeta quanto dá pra faturar a mais</b> arrumando (previsibilidade) e decide o rumo. Se você quiser, vira plano e briefing pronto pra execução.</p>
+        <div class="flist">
+          <div class="fitem"><b>/diag — o raio-X</b>Já inclui a leitura de mercado e concorrência (não é mais um comando à parte). Entrega o painel de notas, o gargalo real e o que dá pra fazer já — tudo em linguagem de gente, com fonte em cada conclusão.</div>
+          <div class="fitem"><b>/plano — vira execução</b>No horizonte que você escolher (10, 30, 60, 90, 180 dias ou 12 meses), priorizado por impacto × esforço, com uma métrica em cada passo. Nada de plano vago.</div>
+          <div class="fitem"><b>/casos — aprende</b>Registra o resultado depois de executado e destila o padrão do nicho. O próximo diagnóstico daquele tipo de negócio já começa mais fundo.</div>
+          <div class="fitem"><b>Integrada ao MazyOS</b>Com o Mazy por perto, a Logic lê o dado real do negócio e entrega o briefing pronto — inclusive apontando se vale tráfego pago ou orgânico primeiro. Ela decide o rumo; o Mazy roda a campanha.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-lbl">O fluxo, na ordem</div>
+    <div class="steps">
+      <div class="stepr"><div class="cmd">/novo</div><div class="tx">Cria o contexto da empresa — <b>nome, o que faz, pra quem vende.</b> É a base: sem isso, o resto não tem em cima do que trabalhar. Quanto mais completo, mais preciso o diagnóstico.</div></div>
+      <div class="stepr"><div class="cmd">/diag</div><div class="tx">O motor. Estuda em camadas, já com mercado e concorrência dentro, e acha <b>o gargalo</b> — com painel de notas, projeção de faturamento e os primeiros passos. Roda na sua empresa ou num lead.</div></div>
+      <div class="stepr"><div class="cmd">/plano</div><div class="tx">Vira execução — <b>a aposta central + os passos</b>, no horizonte que você escolher. Com o Mazy, sai como briefing pronto pra ele rodar.</div></div>
+      <div class="stepr"><div class="cmd">/casos</div><div class="tx">Depois de executar, registra o resultado (o que funcionou, o que não). É o que faz a Logic <b>aprender</b> e ficar melhor a cada ciclo.</div></div>
+      <div class="stepr"><div class="cmd">/leads</div><div class="tx">Independente do fluxo acima — sempre que precisar encher o pipeline, diz <b>nicho + lugar + filtro + quantidade</b> e recebe a lista qualificada.</div></div>
+      <div class="stepr"><div class="cmd">/painel</div><div class="tx">Atualiza este painel com o que foi feito. (Lembrando: você pode fazer tudo só conversando — a barra é atalho.)</div></div>
+    </div>
+
+    <div class="section-lbl">Logic + MazyOS — como usar os dois</div>
+    <div class="band">
+      <h3>A Logic é a cabeça. O MazyOS é a mão. Juntos, viram máquina.</h3>
+      <p>O <b>MazyOS</b> é o "sistema operacional do negócio no Claude" — a mão que <b>executa o funil inteiro</b>: cria o conteúdo (carrosséis, bio, stories), roda o <b>tráfego pago</b> (campanhas de Meta Ads, do topo ao fundo do funil), monta a <b>automação</b> de atendimento no Direct e faz a <b>reativação</b> de quem já engajou com você. Ele é forte e completo na execução. A Logic <b>não faz nada disso</b> — ela <b>decide o quê, por quê e onde mirar</b>, e entrega o briefing pronto pra ele rodar.</p>
+      <p style="margin-top:16px">Onde a Logic entra — o que fica antes ou em volta da execução do Mazy:</p>
+      <div class="lac">
+        <div class="li"><b>Prospecção fria (cliente novo)</b><span>O Mazy trabalha quem <b>já</b> te conhece: atrai gente pro seu perfil e reativa quem já interagiu com você (o "lead quente"). A Logic vai atrás de <b>empresa nova que nunca te viu</b>, por região e nicho. São etapas diferentes, não competem.</span></div>
+        <div class="li"><b>O diagnóstico antes do gasto</b><span>O Mazy executa o funil muito bem. A Logic responde o que vem <b>antes</b>: o problema é mesmo o funil? Ou a oferta, o preço, a recompra? Acha o gargalo pra não jogar dinheiro no lugar errado.</span></div>
+        <div class="li"><b>A previsibilidade</b><span>O Mazy roda e reporta o que aconteceu. A Logic <b>projeta o futuro</b> — "arruma isso → tanto de faturamento a mais" — e explica o porquê de cada número.</span></div>
+      </div>
+      <p style="margin-top:16px">Na prática é o <b>mesmo Claude</b>, lendo os mesmos arquivos, na mesma máquina — <b>sem API, sem integração pra configurar</b>. A Logic detecta o Mazy sozinha, deixa o briefing escrito num arquivo (persona, ângulo, o que priorizar), e o comando do Mazy executa em cima. Não usa o Mazy ainda? A Logic <b>roda 100% sozinha</b> — mas com ele o ciclo fecha: <i>decidir</i> e <i>fazer</i> no mesmo lugar, com o resultado voltando pra ela aprender.</p>
+    </div>
+
+    <div class="section-lbl">O que faz a Logic diferente</div>
+    <p class="desc" style="margin-bottom:24px">Uma IA comum responde a pergunta que você faz e para por aí. A Logic vai além: estuda o caso, decide onde está o dinheiro e te entrega a conclusão que você não teria chegado sozinho. E tudo que ela faz passa por uma pergunta só: <b>isso ajuda a ganhar mais dinheiro?</b> Se a resposta é não, ela corta.</p>
+    <div class="caps">
+      <div class="cap">
+        <div class="cmdtag">Decide, não só responde</div>
+        <h3>Conclusão, não resposta</h3>
+        <p>Toda entrega abre com <b>o ponto principal</b>: a conclusão mais importante, aquela que não é óbvia. E ela vem apoiada num porquê, num número e na fonte. É a análise que faz o dono parar e pensar <b>"eu não teria chegado nisso sozinho"</b>.</p>
+      </div>
+      <div class="cap">
+        <div class="cmdtag">Mede, não chuta</div>
+        <h3>Método, não achismo</h3>
+        <p>Cada afirmação diz <b>de onde veio</b> (a fonte). O que é só suposição vem marcado como suposição. E número sempre que dá. Faltou um dado? Ela avisa que faltou. Nunca inventa pra preencher.</p>
+      </div>
+      <div class="cap">
+        <div class="cmdtag">Fala a sua língua</div>
+        <h3>Sem enrolação técnica</h3>
+        <p>Todo termo difícil vem explicado ali do lado, na hora. Porque comunicar bem é <b>metade do valor</b>: análise profunda que o dono não entende não serve pra nada. Você bate o olho e entende em 30 segundos.</p>
+      </div>
+      <div class="cap">
+        <div class="cmdtag">Aprende com você</div>
+        <h3>Fica mais afiada</h3>
+        <p>Cada diagnóstico e cada caso registram o <b>que funcionou e o que não</b>, e destilam o padrão do nicho. O próximo caso daquele tipo começa mais fundo. Roda local — seus dados são seus.</p>
+      </div>
+      <div class="cap">
+        <div class="cmdtag">Puxa pra dinheiro</div>
+        <h3>Sempre o bolso</h3>
+        <p>Toda entrega aponta <b>onde está o dinheiro na mesa</b> e como pegar. Pode ser direto (mais cliente, mais venda) ou indireto (uma posição melhor, uma campanha melhor). Se não ajuda a ganhar dinheiro, não entra.</p>
+      </div>
+      <div class="cap">
+        <div class="cmdtag">Lidera o processo</div>
+        <h3>Entrega o completo</h3>
+        <p>Ela não fica pedindo licença a cada passo. Conduz do raio-X até o caminho de uma vez, e você só lê e decide. Se quiser parar em algum ponto, é só falar, que ela para na hora, sem insistir.</p>
+      </div>
+    </div>
+
+    <div class="section-lbl">O potencial</div>
+    <div class="band">
+      <h3>Sozinha já dá dinheiro. Com execução por trás, vira máquina.</h3>
+      <p>A Logic já se paga de dois jeitos, cada um por conta própria. Como <b>prospecção</b>, ela enche o seu funil de clientes novos. E como <b>diagnóstico com estratégia</b>, ela vira um serviço que você entrega pra um cliente e cobra por isso. E quando o MazyOS entra executando junto, o ciclo se completa: você decide com a Logic, executa com o Mazy no mesmo lugar, e depois o resultado volta pra Logic aprender.</p>
+      <p>Esta é a <b>versão 1</b>, já firme em diagnóstico (com pesquisa de mercado dentro), plano e prospecção de empresas locais. Tem muito mais por vir — e é o <b>seu uso e o seu feedback que moldam o que vem a seguir.</b></p>
+    </div>
+  </section>
+
+  <!-- EMPRESAS -->
+  <section class="view" id="v-empresas">
+    <div class="lbl">Empresas</div>
+    <h1>Negócios estudados</h1>
+    <p class="desc">Cada empresa que passou pelo <b>/novo</b> vira um cartão aqui. Clica pra ver o que já foi feito e o que falta.</p>
+    <div class="cards" id="empresas-list"></div>
+    <div class="detail" id="empresa-detail" style="display:none"></div>
+  </section>
+
+  <!-- LEADS -->
+  <section class="view" id="v-leads">
+    <div class="lbl">Leads</div>
+    <h1>Prospecções salvas</h1>
+    <p class="desc">Toda vez que você roda <b>/leads</b>, a lista qualificada entra aqui — nicho, lugar e os negócios encontrados com a leitura de cada um.</p>
+    <div id="leads-list"></div>
+  </section>
+
+  <!-- CONFIG -->
+  <section class="view" id="v-config">
+    <div class="lbl">Configuração</div>
+    <h1>Chave do Google</h1>
+    <p class="desc"><b>Recomendada pra prospecção.</b> Sem ela, o <b>/leads</b> roda no modo grátis (busca pública) — funciona, mas com cobertura irregular e mais esforço. Com a chave, a lista sai completa e precisa, com dado direto da API do Google Maps, gastando bem menos. É a sua própria chave, grátis dentro da cota.</p>
+    <div class="cfg-row">
+      <div class="cfg-card">
+        <div class="status"><span class="dot" id="cfg-dot"></span><b id="cfg-text">verificando…</b></div>
+        <p>Pra conectar, é só colar a chave no chat quando pedir — ela fica salva local, nunca é exibida de volta nem sobe pro git.</p>
+      </div>
+      <div class="cfg-card">
+        <div class="map"><iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-43.35%2C-23.05%2C-43.05%2C-22.85&layer=mapnik" title="mapa"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="foot-in">
+    <span class="foot-sig">System · Structure · Decision · Clarity</span>
+    <span class="foot-note">Logic · painel local · atualizado direto pelo chat</span>
+  </div>
+</footer>
+
+<script>
+async function j(path){ const r = await fetch(path); return r.json(); }
+
+const tabs = document.querySelectorAll('.tab');
+tabs.forEach(t => t.addEventListener('click', () => {
+  tabs.forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('v-'+t.dataset.view).classList.add('active');
+}));
+
+const ETAPA_LABEL = { novo:'Novo', diagnostico:'Diagnóstico', pesquisa:'Pesquisa', plano:'Plano', casos:'Casos' };
+
+function flagsHtml(etapas){
+  return Object.entries(etapas).map(([k,v]) =>
+    `<span class="flag ${v?'on':''}">${ETAPA_LABEL[k]||k}${v?' ✓':''}</span>`
+  ).join('');
+}
+
+async function initEmpresas(){
+  const empresas = await j('data/empresas.json');
+  const list = document.getElementById('empresas-list');
+  const detail = document.getElementById('empresa-detail');
+
+  if(!empresas.length){
+    list.innerHTML = `<div class="empty">Nenhuma empresa ainda. Roda <b>/novo</b> no chat que ela aparece aqui.</div>`;
+  } else {
+    list.innerHTML = empresas.map(e => `
+      <div class="card" data-slug="${e.slug}">
+        <h3>${e.nome}</h3>
+        <div class="sub">${e.sobre}</div>
+        <div class="flags">${flagsHtml(e.etapas)}</div>
+      </div>`).join('');
+  }
+
+  list.querySelectorAll('.card').forEach(c => c.addEventListener('click', () => {
+    const e = empresas.find(x => x.slug === c.dataset.slug);
+    list.style.display = 'none';
+    detail.style.display = 'block';
+    detail.innerHTML = `
+      <span class="back">&larr; Voltar</span>
+      <h2>${e.nome}</h2>
+      <div class="sub">${e.sobre} · desde ${e.criado_em}</div>
+      <div class="etapas">${flagsHtml(e.etapas)}</div>
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:18px">${e.resumo}</p>
+      ${e.artefatos.map(a => `
+        <div class="art"><span class="k">${a.tipo}</span><span>${a.label}</span></div>
+        ${a.tipo==='imagem' ? `<img class="shot" src="${a.arquivo}">` : ''}
+      `).join('')}
+    `;
+    detail.querySelector('.back').addEventListener('click', () => {
+      detail.style.display='none'; list.style.display='grid';
+    });
+  }));
+}
+
+async function initLeads(){
+  const leads = await j('data/leads.json');
+  const el = document.getElementById('leads-list');
+  if(!leads.length){
+    el.innerHTML = `<div class="empty">Nenhuma prospecção salva ainda. Roda <b>/leads</b> no chat (ex.: "leads de barbearia no Recreio") que a lista aparece aqui.</div>`;
+    return;
+  }
+  el.innerHTML = leads.map(l => `
+    <div class="card" style="cursor:default;margin-bottom:12px">
+      <h3>${l.nicho} — ${l.lugar}</h3>
+      <div class="sub">${l.total} encontrados · ${l.data}</div>
+    </div>`).join('');
+}
+
+async function initConfig(){
+  const cfg = await j('data/config.json');
+  const dot = document.getElementById('cfg-dot');
+  const txt = document.getElementById('cfg-text');
+  if(cfg.google_key_conectada){ dot.classList.add('on'); txt.textContent = 'Chave conectada'; }
+  else { dot.classList.add('off'); txt.textContent = 'Chave não conectada — modo grátis'; }
+}
+
+async function initStats(){
+  const [empresas, leads] = await Promise.all([j('data/empresas.json'), j('data/leads.json')]);
+  const diag = empresas.filter(e=>e.etapas.diagnostico).length;
+  const planos = empresas.filter(e=>e.etapas.plano).length;
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="n">${empresas.length}</div><div class="l">empresas</div></div>
+    <div class="stat"><div class="n">${diag}</div><div class="l">diagnósticos</div></div>
+    <div class="stat"><div class="n">${planos}</div><div class="l">planos</div></div>
+    <div class="stat"><div class="n">${leads.reduce((a,l)=>a+l.total,0)}</div><div class="l">leads coletados</div></div>
+  `;
+}
+
+function refreshAll(){
+  const detailOpen = document.getElementById('empresa-detail').style.display === 'block';
+  if(!detailOpen) initEmpresas();
+  initLeads(); initConfig(); initStats();
+}
+refreshAll();
+setInterval(refreshAll, 4000); // pega mudança que o chat salvar sem precisar recarregar a página
+</script>
+
+</body>
+</html>

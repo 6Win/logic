@@ -1,0 +1,12 @@
+{
+  "name": "logic-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine da Logic — os dois produtos + fluxo + prova.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

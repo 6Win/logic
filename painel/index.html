@@ -186,6 +186,7 @@
   <div class="tabs">
     <button class="tab active" data-tab="inicio">Início</button>
     <button class="tab" data-tab="historico">Agenda</button>
+    <button class="tab" data-tab="leadsview">Leads</button>
     <button class="tab" data-tab="metodo">Guia</button>
     <button class="tab" data-tab="config">Configurações</button>
   </div>
@@ -212,6 +213,11 @@
       </div>
       <div class="block"><div class="lbl">Histórico completo</div><div class="tl" id="timeline"></div></div>
     </div>
+  </section>
+
+  <section class="panel" id="leadsview">
+    <div id="leadshead"></div>
+    <div id="leadslist"></div>
   </section>
 
   <section class="panel" id="config">
@@ -268,6 +274,7 @@
 const DADOS = {
   googleKey:"",
   uso:{novo_cliente:0,diagnostico:0,pesquisa:0,plano:0,casos:0},
+  leads:{nicho:"",cidade:"",filtro:"",total:0,itens:[]},
   clientes:[],
   timeline:[]
 };
@@ -319,6 +326,13 @@ $("#cards").innerHTML=DADOS.clientes.length?DADOS.clientes.map(c=>`
   :`<div class="empty">Nenhum cliente ainda. Comece com <code>/novo</code> no Claude.</div>`;
 
 /* calendário */
+/* leads — lista rápida pra contato (não é diagnóstico) */
+(function(){const L=DADOS.leads;
+  if(!L||!L.itens||!L.itens.length){$("#leadshead").innerHTML="";$("#leadslist").innerHTML=`<div class="empty">Nenhuma lista de leads ainda. Peça no chat: "acha 15 barbearias sem site em Copacabana".</div>`;return;}
+  $("#leadshead").innerHTML=`<div class="lbl">${L.nicho} · ${L.cidade}</div><p class="steps-how" style="margin:-6px 0 16px">Filtro: <b>${L.filtro||"—"}</b> · <b>${L.total}</b> leads qualificados</p>`;
+  $("#leadslist").innerHTML=`<div class="grid">`+L.itens.map(x=>`<div class="card" style="cursor:default"><div class="cname" style="font-size:16px">${x.nome}</div><div class="cmeta">${x.contato||"sem telefone"} · ${x.site?"tem site":"SEM SITE"}${x.nota?` · nota ${x.nota}`:""}${x.avaliacoes?` (${x.avaliacoes} aval.)`:""}</div>${x.sobre?`<div class="gargalo" style="margin-top:12px">${x.sobre}</div>`:""}</div>`).join("")+`</div>`;
+})();
+
 let calY=now.getFullYear(),calM=now.getMonth(),selDay=null;const evOf=k=>EV[k]||[];
 function renderCal(){$("#calM").textContent=meses[calM];$("#calY").textContent=calY;
   const first=new Date(calY,calM,1).getDay(),days=new Date(calY,calM+1,0).getDate();

@@ -1,57 +1,91 @@
-# Identidade visual — LOGIC
+# Identidade visual — Logic
 
-> Como a marca aparece em tudo que a LOGIC gera.
-> As skills de conteúdo, carrossel e post leem esse arquivo antes de criar qualquer visual.
+> A identidade oficial da marca Logic. Qualquer peça visual que a Logic gerar
+> (painel, post, proposta, slide) segue este guia. **Substitui qualquer versão
+> anterior** (a versão com vermelho/Anton foi descartada — não usar mais).
 
 ---
 
-## Cores
-- **Fundo principal:** Preto `#000000`
-- **Cor de destaque / CTA:** Vermelho `#ff2020` *(tom exato usado no site e no logo)*
-- **Texto principal:** Branco `#FFFFFF` (sobre preto) / Preto `#000000` (sobre branco)
-- **Fundo alternativo / cards:** Branco `#FFFFFF` ou Vermelho `#ED1C24`
-- **Cor proibida:** gradientes suaves/pastéis, tons "fofos". A marca é alto contraste.
+## Símbolo
+Três blocos formando um **"L"**: dois quadrados arredondados empilhados (o
+"corpo") + uma barra larga arredondada embaixo (o "pé"). Representa **estrutura,
+organização e clareza** — a construção modular expressa o sistema e a lógica por
+trás de cada decisão.
+
+Arquivo: `identidade/simbolo.svg`.
+
+## Logotipo
+A palavra **"LOGIC"**, sempre em caixa alta, peso **Black (900)**, letter-spacing
+levemente negativo. Construído com formas limpas e proporções geométricas —
+transmite precisão, força e sofisticação. Nunca escrever "Logic Studio" ou
+variações — o nome é só **LOGIC** (no símbolo+wordmark) ou **Logic** (em texto
+corrido).
+
+Arquivos: `identidade/logotipo.svg` (só a palavra) e `identidade/logo-lockup.svg`
+(símbolo + palavra, uso mais comum — é o que aparece no header do painel).
+
+---
+
+## Paleta de cores
+Só **preto, cinza e branco** — sem cor de destaque. Alto contraste, sem enfeite.
+
+| Cor | Hex | Uso |
+|---|---|---|
+| Branco | `#FFFFFF` | símbolo, texto principal, cards em destaque |
+| Cinza escuro 1 | `#111111` | fundo de card/painel |
+| Cinza escuro 2 | `#1A1A1A` | fundo de card ativo/hover |
+| Preto | `#000000` | fundo base |
+
+**Proibido:** qualquer cor de destaque (roxo, vermelho, azul etc.), gradiente,
+tom pastel. A marca é monocromática — o contraste é o único recurso visual.
 
 ---
 
 ## Tipografia
-- **Títulos e destaques:** sans-serif **pesada e condensada** (grotesca), estilo do logo LOGIC. Web: **Anton**, **Archivo Black** ou **Druk** (se disponível). Tudo em CAIXA ALTA nos destaques.
-- **Corpo, subtítulos e botões:** **Inter** (limpa, neutra, legível).
-- **Peso do título:** black / extra-bold.
+- **Principal (única família): Satoshi.** Peso **Black (900)** pra título e
+  wordmark; peso **Medium/Regular (400–500)** pro corpo de texto.
+- Web: `https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap`
+  (já carregado em `site/index.html`).
+- Fallback: `system-ui, sans-serif`.
 
 ---
 
-## Estilo geral
-Editorial, bold, **alto contraste** (preto + branco + acento vermelho). Minimalista mas forte —
-tipografia grande usada como elemento gráfico. Cara de "sistema / tech / no-nonsense", não de
-"agência fofa". Muito espaço em branco (ou preto). Sério, confiante, direto.
+## Aplicações
+- **Ícone/símbolo sozinho:** avatar, favicon, app icon — fundo preto, símbolo branco.
+- **Assinatura (símbolo + wordmark):** header, rodapé, qualquer peça que precise
+  se identificar rápido. É o `logo-lockup.svg`.
+- **Card/UI:** fundo `#111111` ou `#1A1A1A`, borda 1px branca a 10-18% de opacidade,
+  cantos arredondados (12-14px).
+- **Hero/landing:** símbolo pequeno no canto + título grande em Satoshi Black.
 
 ---
 
-## Elementos-chave
-- **Bordas:** retas ou levemente arredondadas (nada de cantos muito arredondados).
-- **Border-radius dos cards:** 0 a 8px (discreto).
-- **Botões:** sólidos, vermelho ou preto, texto em caixa alta, sem sombra exagerada.
-- **Sombras:** mínimas ou nenhuma. Contraste faz o trabalho, não sombra.
+## Espaçamento e proporções
+- **Unidade base = x.** Todo espaçamento (gaps, paddings, margens) é múltiplo de `x`.
+- **Área de proteção mínima:** `2x` livre ao redor do símbolo — nunca encostar
+  outro elemento mais perto que isso.
+- Cantos arredondados em tudo (símbolo, cards, botões) — nunca esquadro vivo.
 
 ---
 
-## O que NUNCA fazer
-- Gradiente colorido brega, muitas cores ao mesmo tempo.
-- Emoji em excesso em peça formal.
-- Visual "fofo"/arredondado que contradiz a pegada bold.
-- Usar o "STUDIO" no logo (o nome é só **LOGIC**).
+## Versões
+1. **Símbolo** — sozinho, quando o espaço é pequeno (favicon, avatar).
+2. **Logotipo** — só a palavra "LOGIC", quando o símbolo não cabe ou já apareceu antes.
+3. **Lockup** — símbolo + "Logic" lado a lado (o padrão, usado no painel).
+
+## Usos incorretos
+- ❌ Não distorcer (esticar largura/altura fora de proporção).
+- ❌ Não alterar as cores (nada de símbolo azul, roxo etc. — sempre branco/preto).
+- ❌ Não rotacionar o símbolo.
+- ❌ Não adicionar contorno/stroke nos blocos — eles são sólidos, sem borda.
 
 ---
 
-## Logo
-- **Arquivos:** `LOGO/1.png` (fundo preto, logo branco), `LOGO/2.png` (fundo branco, logo preto), `LOGO/3.png` (fundo vermelho, logo branco).
-- **Pendência:** remover o "STUDIO" vertical de todas as versões.
-- **Onde usar:** slide final do carrossel (CTA), header de propostas, bio, favicon, site.
-- **Tamanho sugerido:** largura entre 120-200px nos HTMLs.
+**Assinatura da marca:** *System · Structure · Decision · Clarity.*
 
 ---
 
-## Observações adicionais
-- Marca **faceless** (sem rosto). Voz de IA no conteúdo; voz real do CEO nas calls.
-- O vermelho é o acento — usar com parcimônia (destaque, CTA), não como fundo dominante o tempo todo.
+## Nota sobre arquivos antigos
+`logo-branco.png`, `logo-preto.png` e `logo-vermelho.png` (wordmark em grotesca
+bold, sem o símbolo) são de uma versão **anterior e descartada** da marca — não
+usar em peça nova. Os arquivos oficiais agora são os `.svg` listados acima.

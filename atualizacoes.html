@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logic 2.0 — O que mudou</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000; --panel:#111111; --panel-2:#1A1A1A;
+    --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.18);
+    --ink:#FFFFFF; --muted:rgba(255,255,255,.60); --faint:rgba(255,255,255,.38);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Satoshi',system-ui,sans-serif;line-height:1.65}
+  .wrap{max-width:900px;margin:0 auto;padding:0 32px}
+  @media(max-width:640px){.wrap{padding:0 20px}}
+
+  header{border-bottom:1px solid var(--line);padding:72px 0 48px}
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:52px}
+  /* símbolo com respiro entre os blocos */
+  .symbol{width:22px;display:flex;flex-direction:column;gap:4px}
+  .symbol i{display:block;background:var(--ink);border-radius:3px;height:6px}
+  .symbol i:nth-child(1),.symbol i:nth-child(2){width:9px}
+  .symbol i:nth-child(3){width:22px}
+  .brand .tag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line-2);border-radius:999px;padding:3px 10px}
+  h1{font-size:35px;font-weight:800;letter-spacing:-.025em;line-height:1.12;margin-bottom:18px}
+  header p{font-size:15.5px;color:var(--muted);max-width:66ch;line-height:1.75}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+  .chip{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:5px 12px}
+
+  main{padding:8px 0 40px}
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--faint);margin-bottom:10px}
+  h2{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:22px;line-height:1.2}
+
+  .item{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:22px 24px;margin-bottom:12px}
+  .item h3{font-size:16px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+  .item p{font-size:14px;color:var(--muted);line-height:1.72}
+  .item p b{color:var(--ink);font-weight:600}
+  .item p + p{margin-top:10px}
+  .tag2{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-right:8px}
+  .antes{color:var(--faint)}
+
+  .closing{padding:48px 0 12px}
+  .closing h2{margin-bottom:14px}
+  .closing p{font-size:15px;color:var(--muted);line-height:1.75;max-width:70ch}
+  .closing p b{color:var(--ink);font-weight:600}
+
+  footer{padding:40px 0;text-align:center;border-top:1px solid var(--line)}
+  .sig{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand">
+    <div class="symbol"><i></i><i></i><i></i></div>
+    <span class="tag">Versão 2.0</span>
+  </div>
+  <h1>O que mudou na Logic 2.0</h1>
+  <p>Você testou uma versão anterior da Logic. Esta é a 2.0: uma reformulação grande, que arruma o que travava e deixa as entregas mais claras e mais fundas. Abaixo está, tintim por tintim, o que mudou e o que você vai sentir de diferente usando no dia a dia.</p>
+  <div class="chips">
+    <span class="chip">Versão 2.0</span>
+    <span class="chip">Reformulação geral</span>
+    <span class="chip">Julho de 2026</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 1 -->
+  <section>
+    <div class="lbl">01 · O jeito de usar</div>
+    <h2>Ficou muito mais leve de usar</h2>
+    <div class="item">
+      <h3>Acabou o passo a passo travado</h3>
+      <p><span class="tag2">Antes</span><span class="antes">você era conduzido por um processo em etapas e tinha que liberar cada passo pra ela continuar. Era chato e te prendia.</span></p>
+      <p><span class="tag2">Agora</span>a Logic lidera do começo ao fim. Ela estuda, acha o problema e já te entrega o caminho, tudo num fluxo só. Você lê e decide. Se quiser parar em algum ponto, é só falar, que ela para na hora.</p>
+    </div>
+    <div class="item">
+      <h3>Não precisa decorar comando nenhum</h3>
+      <p>É só conversar do jeito que você falaria com uma pessoa: <b>"analisa essa empresa"</b>, <b>"acha clientes de barbearia no Recreio"</b>, <b>"monta o plano de 90 dias"</b>. Ela entende o que você quer e faz. Os comandos com barra continuam existindo pra quem prefere, mas viraram um atalho, não uma obrigação.</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <div class="lbl">02 · As entregas</div>
+    <h2>Mais claras de ler e mais fundas por dentro</h2>
+    <div class="item">
+      <h3>Agora dá pra entender batendo o olho</h3>
+      <p><span class="tag2">Antes</span><span class="antes">o conteúdo era bom, mas mal apresentado. Vinha denso, difícil, com termo técnico solto. Muita gente sentia isso.</span></p>
+      <p><span class="tag2">Agora</span>reescrevemos tudo em linguagem de gente. Nada de jargão sem explicação, nada de parede de texto. Você vai bater o olho e entender em 30 segundos o que está forte, o que está fraco e onde está o dinheiro.</p>
+    </div>
+    <div class="item">
+      <h3>O diagnóstico ficou muito mais fundo</h3>
+      <p>Duas mudanças grandes aqui. A primeira: a pesquisa de mercado e de concorrência agora vem <b>dentro</b> do diagnóstico. É um raio-X só, não mais vários passos separados.</p>
+      <p>A segunda, e a mais importante: o diagnóstico não para mais no problema. Ele <b>projeta quanto dá pra faturar a mais</b> arrumando o gargalo, e agora sabe te dizer não só onde está o furo, mas <b>como converter e ganhar mais dinheiro</b>. É a diferença entre ouvir "seu problema é esse" e ouvir "seu problema é esse, arruma assim, e isso vale tanto por mês".</p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <div class="lbl">03 · O plano de ação</div>
+    <h2>No prazo que você escolher</h2>
+    <div class="item">
+      <h3>Do diagnóstico pro que fazer, sem enrolação</h3>
+      <p>Depois do raio-X, a Logic transforma tudo num plano prático. E você escolhe o horizonte: <b>10, 30, 60, 90, 180 dias ou 12 meses</b>. Cada passo vem com uma métrica pra você saber se funcionou, e tudo vem priorizado pelo que dá mais resultado com menos esforço. Sem lista de 40 tarefas soltas, só o que move o ponteiro.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <div class="lbl">04 · Achar clientes</div>
+    <h2>Prospecção que filtra por oportunidade de verdade</h2>
+    <div class="item">
+      <h3>Empresas novas pra abordar, já qualificadas</h3>
+      <p>Você diz o nicho, o lugar e quantos quer, e a Logic acha empresas novas pra você abordar. E não joga uma lista solta no seu colo: ela filtra as que têm <b>oportunidade real</b> (sem site, sem Instagram, digital fraco) e ainda te dá uma leitura rápida de cada uma, pra você já chegar sabendo por onde entrar.</p>
+      <p>Com a chave do Google (gratuita e sua), a lista sai completa e precisa. Tiramos a prospecção digital que não estava performando; o foco agora é empresa local, que funciona de verdade.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <div class="lbl">05 · O painel</div>
+    <h2>Tudo que você fizer, organizado num lugar só</h2>
+    <div class="item">
+      <h3>Um lugar pra enxergar o todo</h3>
+      <p>Lá dentro você vai encontrar um painel novo. Ele junta tudo que a Logic produz — as empresas que você estudar, os leads que achar, a configuração — num só lugar, pra você (ou quem for executar) ver de forma clara. E ele se atualiza sozinho: você faz algo no chat e aparece no painel, sem precisar mexer em nada.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section>
+    <div class="lbl">06 · Se você usa o MazyOS</div>
+    <h2>A Logic decide, o Mazy executa</h2>
+    <div class="item">
+      <h3>Os dois se completam, sem competir</h3>
+      <p>Se você já usa o MazyOS, agora eles trabalham juntos. A Logic pensa a estratégia e entrega o briefing pronto (pra quem, com que ângulo, o que priorizar), e o Mazy executa a parte de fazer: conteúdo, tráfego, automação. Você decide num lugar e executa no outro, sem retrabalho.</p>
+      <p>E se você <b>não</b> usa o Mazy, não muda nada: a Logic roda 100% sozinha do mesmo jeito.</p>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section>
+    <div class="lbl">07 · Ela aprende com você</div>
+    <h2>Fica mais afiada a cada uso</h2>
+    <div class="item">
+      <h3>Quanto mais você usa, melhor ela fica</h3>
+      <p>Cada empresa que passa e cada resultado que você registra ensinam a Logic. Com o tempo, o diagnóstico do seu tipo de negócio começa mais fundo e as entregas ficam mais no ponto pro seu caso. Ela não é uma ferramenta parada; ela melhora junto com você.</p>
+    </div>
+  </section>
+
+  <!-- fecho -->
+  <section class="closing" style="border-bottom:0">
+    <div class="lbl">Em resumo</div>
+    <h2>Menos atrito, mais clareza, mais dinheiro</h2>
+    <p>A ideia da 2.0 foi tirar o que atrapalhava e deixar cada entrega mais clara, mais funda e mais direta pro que importa: <b>te ajudar a ganhar mais dinheiro e a decidir melhor</b>. Você vai sentir isso desde a primeira empresa que analisar. E o seu feedback continua moldando o que vem a seguir, então qualquer coisa que você notar, é só falar.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span class="sig">System · Structure · Decision · Clarity</span>
+</footer>
+
+</body>
+</html>
