@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 100" fill="none">
+  <!-- Wordmark LOGIC — vetor geométrico fino e largo (monoline, terminais
+       retos, curvas suaves), fiel à identidade. Não depende de fonte. -->
+  <g fill="none" stroke="#fff" stroke-width="10" stroke-linecap="butt" stroke-linejoin="round">
+    <path d="M5 5 L5 95 L66 95"/>
+    <ellipse cx="146" cy="50" rx="47" ry="45"/>
+    <g transform="translate(220,0)"><path d="M91.4 26.4 A47 45 0 1 0 98 54 L58 54"/></g>
+    <path d="M351 5 L351 95"/>
+    <g transform="translate(379,0)"><path d="M85 25 A45 45 0 1 0 85 75"/></g>
+  </g>
+</svg>

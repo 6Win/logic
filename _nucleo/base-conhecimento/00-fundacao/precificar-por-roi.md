@@ -25,4 +25,4 @@ valor. Pra isso funcionar, você precisa de **duas competências**:
 - **No cliente:** a dor de "precificar olhando concorrente" é comuníssima no ICP (editor/designer
   que cobra igual todo mundo). Reprecificar por valor é um quick win de alto impacto.
 
-Relacionado: `operacao.md` (advisory, Preço = Oferta − Risco) · `banco-de-objecoes.md` · [[margem-contribuicao-ponto-equilibrio]]
+Relacionado: [[margem-contribuicao-ponto-equilibrio]] · [[precificar-pelo-valor-percebido]]

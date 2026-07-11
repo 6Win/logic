@@ -26,4 +26,4 @@ hipótese no mercado) → **tração** → **escala**.
 - **No cliente:** editor/designer que quer lançar serviço novo — validar com venda real antes de
   investir pesado. E [[validar-antes-de-escalar|só escalar o que foi validado]].
 
-Relacionado: [[validar-antes-de-escalar]] · [[lanca-e-melhora-no-percurso]] · `funil-logic.md`
+Relacionado: [[validar-antes-de-escalar]] · [[lanca-e-melhora-no-percurso]]

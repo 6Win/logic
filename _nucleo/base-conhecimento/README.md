@@ -4,13 +4,12 @@
 > empresa. Cada nota é atômica (uma ideia por arquivo). O método puxa **só o que o
 > caso pede** — nunca despeja todos.
 
-## ⚠️ Leitura importante (neutralização)
-Estas notas foram destiladas de um método de agência. **Trate-as como frameworks
-GENÉRICOS, aplicáveis a qualquer empresa.** Ignore resíduos de linguagem de um negócio
-específico (ex.: "nosso ICP", "autônomo digital", etapas `V1-V4`, preços em R$, nomes
-de produtos como Scan/Start/Scale). O que vale é o **princípio** de cada nota — o
-funil, o LTV/CAC, os níveis de consciência, a precificação por ROI — aplicado à empresa
-que está sendo estudada no momento.
+## ⚠️ Leitura importante
+Estas notas foram destiladas de um método de agência e **neutralizadas pra serem
+frameworks GENÉRICOS, aplicáveis a qualquer empresa.** O que vale é o **princípio** de
+cada nota — o funil, o LTV/CAC, os níveis de consciência, a precificação por ROI —
+aplicado à empresa que está sendo estudada no momento. Se sobrar algum resíduo de
+linguagem de um negócio específico, ignore e aplique o princípio.
 
 ## Domínios
 | Pasta | Cobre |

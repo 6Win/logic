@@ -12,10 +12,14 @@
    - o usuário **corrigiu / reclamou** (ex.: "ficou raso", "muito jargão", "traço feio");
    - um `/casos` mostrou que uma recomendação da Logic **funcionou ou furou** na prática.
 2. **Formato:** `[data] · [contexto: skill/entrega] · FUNCIONOU/FALHOU · [o padrão em 1 frase]`
-3. **Trigger de refino:** a cada **~15–20 registros**, revisar este arquivo, achar os
-   **padrões repetidos** e **ajustar as skills** (`.claude/skills/*`) ou as notas da
-   `base-conhecimento/` de acordo. Com trava: fazer backup antes, e só consolidar padrão
-   que apareceu **mais de uma vez** (um caso isolado não vira regra).
+3. **Trigger de refino:** a cada **~15–20 registros**, revisar este arquivo e achar os
+   **padrões repetidos**. Ajustar uma skill (`.claude/skills/*`) ou uma nota existente da
+   `base-conhecimento/` é mudança **mutante** — segue a trava total do
+   `_nucleo/auto-estudo.md` (nível 2): **backup** do arquivo em `_nucleo/_auto-estudo/backups/`,
+   **propor** o antes → depois ao usuário, aplicar só com **OK** (skill nunca muda no
+   silêncio), e **lançar no `_nucleo/_auto-estudo/registro.md`**. Só consolidar padrão que
+   apareceu **mais de uma vez** — um caso isolado não vira regra. Reverter é 1 passo (restaurar
+   o `.bak`).
 
 ## Distinção importante
 - `/casos` = aprende sobre o **negócio do cliente** (padrão de nicho → nota nova em `base-conhecimento`).

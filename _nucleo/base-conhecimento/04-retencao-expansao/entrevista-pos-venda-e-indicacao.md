@@ -22,7 +22,7 @@ e o cliente muitas vezes só não indicou por não ter pensado nisso.
 a gente precisava se conhecer — ele comentou que você tava passando por [situação X]…"* — entrar
 pelo vínculo e pela dor, não com "deixa eu te mostrar meu catálogo".
 
-**Aplicação LOGIC:** usar na própria LOGIC (no pós-Scan e no ROPRE) pra gerar **cases + indicação**
-dentro da bolha (COLB), e ensinar ao cliente. Casa com o funil de indicação.
+**Aplicação LOGIC:** usar na própria Logic (no pós-venda e no acompanhamento) pra gerar
+**cases + indicação**, e ensinar ao cliente a fazer o mesmo. Casa com o funil de indicação.
 
-Relacionado: `metodologia-logic-studio.md` (C, COLB) · `funil-logic.md` · [[retencao-e-onde-esta-o-dinheiro]]
+Relacionado: [[retencao-e-onde-esta-o-dinheiro]]

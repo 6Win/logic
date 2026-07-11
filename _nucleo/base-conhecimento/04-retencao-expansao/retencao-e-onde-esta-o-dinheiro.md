@@ -22,4 +22,4 @@ Má retenção faz o contrário: cliente insatisfeito vira **detrator** → vend
 pode ter pouca margem se a recorrência + indicação fizerem o payback. Retenção não é acaso: se
 constrói com experiência e com a [[entrevista-pos-venda-e-indicacao|entrevista de pós-venda]].
 
-Relacionado: `metodologia-logic-studio.md` (módulo C) · `operacao.md` · [[entrevista-pos-venda-e-indicacao]]
+Relacionado: [[entrevista-pos-venda-e-indicacao]] · [[experiencia-gera-crescimento-nubank]]

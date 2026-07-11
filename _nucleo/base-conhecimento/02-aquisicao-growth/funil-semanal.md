@@ -18,6 +18,6 @@ Estrutura de um funil assim:
 
 **Aplicação LOGIC:** o nosso "semanal" pode ser o conteúdo/carrossel + a oferta do diagnóstico
 grátis rodando toda semana (não em surtos). E a **base de reengajamento** = o CRM de leads que não
-fecharam na hora, pra reconectar. Casa com o funil (`funil-logic.md`) e a cadência do perfil.
+fecharam na hora, pra reconectar. Casa com o funil de vendas e a cadência do perfil.
 
-Relacionado: `funil-logic.md` · `perfil-logic.md` · [[validar-antes-de-escalar]] · [[rede-social-canal-de-vendas]]
+Relacionado: [[validar-antes-de-escalar]] · [[rede-social-canal-de-vendas]]

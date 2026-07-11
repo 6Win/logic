@@ -22,8 +22,8 @@ O empreendedor é criativo e quer sempre o novo — mas o segredo é **"amar o t
 repetição, cumprir objetivos toda semana. Quem escolhe uma coisa, abraça e repete com consistência
 é quem ganha (não quem troca de narrativa toda hora).
 
-**Aplicação LOGIC:** é a espinha do **Logic SYS** — estruturar o método com clareza de atração,
-comercial e entrega, e **validar com o primeiro cliente antes de escalar**. Casa com a regra de COO
-("v1 boa o suficiente, valida, depois escala") e com [[lanca-e-melhora-no-percurso]].
+**Aplicação LOGIC:** é a espinha do método da Logic — estruturar com clareza de atração,
+comercial e entrega, e **validar com o primeiro cliente antes de escalar**. Casa com o princípio
+"primeira versão boa o suficiente, valida, depois escala" e com [[lanca-e-melhora-no-percurso]].
 
-Relacionado: `logic-sys-arquitetura.md` · [[funil-semanal]] · [[lanca-e-melhora-no-percurso]]
+Relacionado: [[funil-semanal]] · [[lanca-e-melhora-no-percurso]]

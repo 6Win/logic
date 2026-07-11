@@ -17,7 +17,7 @@ Regras práticas:
   Máxima: *"depositar 10 pra sacar 1"* (servir muito mais do que se pede em troca).
 - Rede social não é só vitrine: é canal de **aquisição + conversão + retenção**.
 
-**Aplicação LOGIC:** vale pro nosso próprio perfil (@logicsys_) e é algo que ensinamos ao cliente.
-Cuidado com o tom (`preferencias.md`): valor primeiro, oferta sem hype.
+**Aplicação LOGIC:** vale pro nosso próprio perfil e é algo que ensinamos ao cliente.
+Cuidado com o tom: valor primeiro, oferta sem hype.
 
-Relacionado: `perfil-logic.md` · [[niveis-de-consciencia]] · [[teste-ab-e-criativos]]
+Relacionado: [[niveis-de-consciencia]] · [[teste-ab-e-criativos]]

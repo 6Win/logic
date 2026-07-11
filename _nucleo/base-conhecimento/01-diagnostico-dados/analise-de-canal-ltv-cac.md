@@ -19,7 +19,7 @@ por LTV/CAC. Só a conta completa revela.
 E **sempre testar:** canal não é fixo. O melhor de hoje pode ser superado; medir performance e
 realocar recurso com o tempo.
 
-**Aplicação LOGIC:** no **funil matemático** do Scan, puxar o cliente até LTV/CAC por canal —
+**Aplicação LOGIC:** no **funil matemático** do diagnóstico, puxar o cliente até LTV/CAC por canal —
 não deixar ele parar em "preciso de mais tráfego/leads". Quase sempre o gargalo não é topo.
 
-Relacionado: `metodologia-logic-studio.md` (funil matemático, LTV/CAC) · [[tres-ms-do-marketing]] · [[retencao-e-onde-esta-o-dinheiro]]
+Relacionado: [[tres-ms-do-marketing]] · [[retencao-e-onde-esta-o-dinheiro]]

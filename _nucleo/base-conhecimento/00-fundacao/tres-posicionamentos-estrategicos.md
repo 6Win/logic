@@ -24,4 +24,4 @@ financeiro, comercial, marketing e até o perfil de quem vende.
   tentam ser "baratos" (excelência operacional) sem escala pra isso — quando o caminho natural do
   criativo é **intimidade** (sob medida) ou **produto** (autoridade/marca).
 
-Relacionado: `operacao.md` (advisory) · [[precificar-por-roi]] · `_memoria/empresa.md`
+Relacionado: [[precificar-por-roi]] · [[precificar-pelo-valor-percebido]]

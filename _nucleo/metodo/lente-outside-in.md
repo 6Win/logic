@@ -1,7 +1,7 @@
 # Lente Outside-In — analisar uma empresa só com dado público
 
-> Esta é a camada NOVA do Logic (a etapa 1 do diagnóstico). O método clássico do
-> SYS Scan (`base-conhecimento/`) assume dados de dentro — funil, números, call
+> Esta é a camada NOVA do Logic (a etapa 1 do diagnóstico). O método clássico
+> (`base-conhecimento/`) assume dados de dentro — funil, números, call
 > com o dono. Aqui é o oposto: tirar conclusão estratégica **de fora**, sem
 > cooperação da empresa. É o que serve a pré-venda (o freelancer estudando o
 > prospect antes de abordar).
@@ -53,8 +53,8 @@ Para cada uma: o que observar publicamente → que gargalo/oportunidade indica.
    nível de consciência do público → `niveis-de-consciencia.md`). **Não despejar
    todos.**
 3. Achar **o gargalo** — o ponto que mais trava o crescimento, em 1 frase.
-4. Montar o Painel /10 (mesmo formato do SYS Scan) + 2–3 quick wins por
-   impacto × esforço.
+4. Montar o Painel /10 (o mesmo formato do diagnóstico completo) + 2–3 ganhos
+   rápidos por impacto × esforço.
 5. Passar pela `rubricas/qualidade.md`. Só então entregar.
 
 ## Dimensões do Painel /10 (fixas — padroniza a leitura)

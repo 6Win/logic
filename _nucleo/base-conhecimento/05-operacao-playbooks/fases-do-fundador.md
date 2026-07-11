@@ -21,8 +21,8 @@ Todo negócio (e fundador) evolui em fases. Onde a maioria empaca é não sair d
 
 > Cuidado (Bezos): não lance ideias mais rápido do que a empresa consegue executar. Mesmo ritmo.
 
-**Aplicação LOGIC:** o CEO está na **fase Operador** (solo, tudo nele) — e tudo bem, é o começo.
-O Logic SYS (o cérebro) é justamente o que começa a **tirar coisas do gargalo do CEO**, e o Claude
-(COO) cobre parte da fase Gestor. O norte é montar algo que rode sem depender 100% de uma pessoa.
+**Aplicação LOGIC:** o dono está na **fase Operador** (solo, tudo nele) — e tudo bem, é o começo.
+A Logic (o cérebro) é justamente o que começa a **tirar coisas do gargalo do dono**, cobrindo, como
+braço direito, parte da fase Gestor. O norte é montar algo que rode sem depender 100% de uma pessoa.
 
-Relacionado: `logic-sys-arquitetura.md` · `_memoria/empresa.md` (CEO/COO)
+Relacionado: [[lanca-e-melhora-no-percurso]] · [[validar-antes-de-escalar]]

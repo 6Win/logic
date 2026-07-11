@@ -1,6 +1,9 @@
 # Referência histórica / dados do negócio antigo — NÃO distribuir aos clientes
 _nucleo/_origem/
 
+# Backups locais do auto-estudo (rede de segurança da máquina, não produto)
+_nucleo/_auto-estudo/backups/*.bak
+
 # Chave de API do usuário — NUNCA subir
 _config.json
 

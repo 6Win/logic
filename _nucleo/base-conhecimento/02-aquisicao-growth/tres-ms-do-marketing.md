@@ -17,6 +17,6 @@ Estrutura simples pra montar aquisição:
   à campanha de meses. É onde entra a [[niveis-de-consciencia|jornada de consciência]].
 
 **Aplicação LOGIC:** é o mapa pra desenhar aquisição — nossa e do cliente. Casa com o **mapa de
-canais por jornada** do módulo G da metodologia.
+canais por jornada**.
 
-Relacionado: [[analise-de-canal-ltv-cac]] · [[niveis-de-consciencia]] · `metodologia-logic-studio.md` (módulo G)
+Relacionado: [[analise-de-canal-ltv-cac]] · [[niveis-de-consciencia]]

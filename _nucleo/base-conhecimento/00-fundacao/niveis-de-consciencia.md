@@ -23,4 +23,4 @@ captação, mas ainda não vê "sistema" como a solução. Nosso conteúdo tem q
 dor → consequência (ansiedade, mês no zero) → **a solução tem nome: sistema** → a oferta (diagnóstico grátis).
 Não adianta falar de oferta pra quem ainda está no nível 2.
 
-Relacionado: [[tres-ms-do-marketing]] · `banco-de-objecoes.md` · `big-idea-logic.md`
+Relacionado: [[tres-ms-do-marketing]] · [[vender-o-futuro-nao-o-presente]]

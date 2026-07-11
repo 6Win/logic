@@ -20,7 +20,7 @@ Três números que quase nenhum autônomo tem na ponta — e que o diagnóstico 
 > "Vender muito não salva a empresa" — depois de vender, o passo seguinte é **gestão financeira
 > profissional**. Faturamento sem margem/ponto de equilíbrio claros esconde prejuízo.
 
-**Aplicação LOGIC:** para o **serviço** do autônomo, adaptar (o "custo variável" é tempo/ferramentas).
-Ajuda a mostrar no Scan onde o preço está errado (estresse de preço) e qual o mínimo pra ter lucro.
+**Aplicação LOGIC:** para o **serviço** de um prestador, adaptar (o "custo variável" é tempo/ferramentas).
+Ajuda a mostrar no diagnóstico onde o preço está errado (estresse de preço) e qual o mínimo pra ter lucro.
 
-Relacionado: `metodologia-logic-studio.md` (funil matemático) · [[precificar-por-roi]] · [[analise-de-canal-ltv-cac]]
+Relacionado: [[precificar-por-roi]] · [[analise-de-canal-ltv-cac]]

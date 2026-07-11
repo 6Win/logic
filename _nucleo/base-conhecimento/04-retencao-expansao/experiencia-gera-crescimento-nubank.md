@@ -16,9 +16,9 @@ principal** ("principalidade") — 60% dos clientes têm o Nubank como banco pri
 > É a prova, em escala, de que [[retencao-e-onde-esta-o-dinheiro|o dinheiro está na retenção]]:
 > experiência excelente é o motor de aquisição mais barato que existe.
 
-**Aplicação LOGIC:** a gente não vai ter "área de vendas" no 0→1 — a nossa alavanca é a **experiência
-do diagnóstico + o high-touch do advisory**, que gera indicação dentro da bolha (COLB). Foco em ser a
+**Aplicação LOGIC:** a alavanca não é "área de vendas", é a **experiência do diagnóstico + o
+acompanhamento próximo**, que gera indicação dentro da rede de relacionamento do cliente. Foco em ser a
 **relação principal** de crescimento do cliente (não um fornecedor a mais). Reduzir fricção em cada
-contato (Lead Response Time <5min, entrega visível).
+contato (responder o lead em menos de 5 minutos, entrega visível).
 
-Relacionado: [[retencao-e-onde-esta-o-dinheiro]] · [[entrevista-pos-venda-e-indicacao]] · `metodologia-logic-studio.md` (C, COLB)
+Relacionado: [[retencao-e-onde-esta-o-dinheiro]] · [[entrevista-pos-venda-e-indicacao]]

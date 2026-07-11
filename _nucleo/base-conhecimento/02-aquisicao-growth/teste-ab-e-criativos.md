@@ -16,6 +16,6 @@ refazer os 3 fracos. Com o tempo sobra "a nata da nata". Empresa que prospecta e
 **não** gera criativo suficiente pode estar rodando tráfego **zero otimizado** = dinheiro na mesa.
 
 **Aplicação LOGIC:** é o **método científico** (hipótese → teste → conclusão) aplicado ao criativo.
-Entra no **Scale** (execução) e no que a gente mede pro cliente. Não é achismo — é medição.
+Entra na execução e no que se mede pro cliente. Não é achismo — é medição.
 
-Relacionado: `metodologia-logic-studio.md` (tudo se mede) · [[analise-de-canal-ltv-cac]]
+Relacionado: [[analise-de-canal-ltv-cac]]
