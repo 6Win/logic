@@ -67,9 +67,24 @@ só um atalho.
 | `/casos` | registra resultados e a Logic aprende com eles |
 | `/leads` | acha clientes ideais por região e nicho, com filtro de oportunidade |
 | `/painel` | abre o painel local (`site/`) com tudo organizado |
+| `/conectar` | opcional — liga ao painel online (abaixo) |
 
 > A pesquisa de concorrência e mercado deixou de ser um comando separado. Agora ela vem
 > **dentro do `/diag`**, num raio-X só.
+
+## Painel online (opcional)
+
+Além do painel local (`/painel`), dá pra ver os resultados também em
+**[logic-saas.vercel.app](https://logic-saas.vercel.app)** — útil se você usa em mais
+de uma máquina, ou quer mandar o link pra alguém acompanhar sem instalar nada.
+
+1. Entra em **logic-saas.vercel.app**, cria conta (ou loga).
+2. Na Visão geral tem um cartão **"Como conectar sua conta Claude"** com um token.
+3. Volta aqui no Claude e cola o token (ou diz `/conectar`).
+
+Pronto — daí em diante, `/diag`, `/plano`, `/leads` e `/casos` mandam o resultado pro
+painel online sozinhos, além de continuar salvando local. **Isso é 100% opcional**: sem
+conectar, a Logic roda exatamente igual, só local.
 
 ## Precisa de chave de API?
 

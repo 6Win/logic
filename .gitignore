@@ -4,6 +4,9 @@ _nucleo/_origem/
 # Chave de API do usuário — NUNCA subir
 _config.json
 
+# Token de sync com o painel online (logic-saas) — NUNCA subir
+scripts/sync.config.json
+
 # Lixo de sistema
 Thumbs.db
 .DS_Store

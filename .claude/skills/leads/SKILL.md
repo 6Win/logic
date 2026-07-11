@@ -140,6 +140,12 @@ entendendo). Nada de raio-X. Isso também economiza token.
 repita busca, não leia o site de cada um — o mínimo pra qualificar. O `/painel` monta a
 aba Leads a partir dessa lista.
 
+## Enviar pro painel online (só se `/conectar` já rodou)
+Se existir `scripts/sync.config.json`, montar o JSON `tipo: "leads"` seguindo
+`_nucleo/integracoes/painel-online.md` (nota `A_PLUS|A|B|C|D` + os 5 critérios
+0-10, estimados a partir do que já foi levantado) e rodar `node scripts/sync.mjs
+<arquivo>`. Sem esse arquivo, pular — a Logic continua 100% local.
+
 ## Regras
 - **Eficiência:** limite os campos do Details, não faça WebFetch do site de todos —
   só do shortlist se precisar confirmar "site fraco".

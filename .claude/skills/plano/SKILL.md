@@ -109,3 +109,9 @@ Plano enxuto, sequenciado, cada ação com métrica. Passar pela
 `_nucleo/rubricas/qualidade.md`. Salvar em `clientes/<empresa>/plano.md`.
 Sem Mazy, o plano vale sozinho (o usuário executa). Fechar apontando o próximo passo:
 executar (ou mandar pro Mazy) e depois `/casos`.
+
+## Enviar pro painel online (só se `/conectar` já rodou)
+Se existir `scripts/sync.config.json`, montar o JSON `tipo: "plano"` seguindo
+`_nucleo/integracoes/painel-online.md` (o `prazoDias` é o horizonte escolhido
+no Passo 1, em dias — 12 meses = 365) e rodar `node scripts/sync.mjs
+<arquivo>`. Sem esse arquivo, pular — a Logic continua 100% local.

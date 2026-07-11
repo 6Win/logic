@@ -33,6 +33,10 @@ configuração — só orienta e ativa o fluxo.
 > Fluxo: `/leads` acha cliente · `/diag` faz o raio-X + a previsão · `/plano` vira
 > execução · `/casos` registra e a Logic aprende o seu mercado.
 >
+> **Quer ver tudo isso também num painel online, sem mexer em arquivo?** Entra em
+> **logic-saas.vercel.app**, cria conta, cola aqui o token que aparece lá (ou só
+> diz `/conectar`) — é opcional, a Logic roda 100% local sem isso.
+>
 > Bora? Me diz o **nome de uma empresa** (a sua ou a de um cliente) que eu já começo. 🚀
 
 Manter curto, confiante e sem jargão. Não despejar a estrutura de pastas na cara do
@@ -60,6 +64,7 @@ usuário — só o essencial pra ele começar a usar em 30 segundos.
    | `/plano` | vira plano executável, no prazo que você escolher (com Mazy, vira briefing pras skills dele) |
    | `/casos` | registra resultado e a Logic **aprende o seu mercado** |
    | `/painel` | abre o painel local com tudo organizado (empresas, leads, config) |
+   | `/conectar` | (opcional) liga ao painel online — cola o token do site 1 vez e pronto |
 4. **Checar o essencial:** o Logic coleta dado público via web — confirmar que o
    ambiente do usuário tem acesso a `WebSearch`/`WebFetch`. Se não tiver, avisar que a
    coleta automática fica limitada (mas o usuário ainda pode colar dados manualmente).
