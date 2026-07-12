@@ -38,9 +38,15 @@ Leia a skill `.claude/skills/leads/SKILL.md` e siga o método dela:
 ## Qualificar (o filtro pedido)
 Aplique o filtro que veio (sem site · sem Instagram / parado · avaliação baixa · digital
 fraco). Pra cada candidato do shortlist, confira: **tem site?** (busca do nome + domínio
-próprio) · **tem Instagram ativo?** (`WebSearch` "<nome> instagram") · nota e nº de
-avaliações. Negócio ativo (tem avaliações = tem cliente) mas fraco no digital = lead
-forte. 0 avaliação + 0 presença = possível fantasma, descarta.
+próprio) · **tem Instagram ativo?** (`WebSearch` "<nome> instagram") · **tem telefone?**
+(Place Details / listagem) · nota e nº de avaliações. Negócio ativo (tem avaliações = tem
+cliente) mas fraco no digital = lead forte. 0 avaliação + 0 presença = possível fantasma,
+descarta.
+
+**Regra dura, sem exceção:** se o candidato não tem NENHUM dos três — telefone, site,
+Instagram — **descarta na hora**, não entra na lista, por melhor que pareça o resto
+(rating alto, nicho certo etc.). Sem nenhum contato não dá pra abordar, então não é
+lead, é ruído. Nunca devolva um item assim pro agente principal.
 
 ## O que devolver (só isso)
 Uma lista limpa, um bloco por lead, sem narrar o processo:

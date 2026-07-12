@@ -93,9 +93,9 @@ mostrar a mensagem pro usuário em vez de tentar de novo às cegas.
       "nicho": "barbearia",
       "regiao": "Recreio, Rio de Janeiro",
       "nomeEmpresa": "...",
-      "contato": "telefone/instagram, opcional",
-      "temSite": false,
-      "temInstagram": true,
+      "telefone": "(21) 99999-9999, opcional",
+      "site": "https://..., opcional",
+      "instagram": "@perfil ou https://instagram.com/..., opcional",
       "gancho": "a leitura curta do negócio (o furo digital)",
       "nota": "A",
       "criterioFit": 8,
@@ -107,11 +107,17 @@ mostrar a mensagem pro usuário em vez de tentar de novo às cegas.
   ]
 }
 ```
+- `telefone`/`site`/`instagram` são o valor de verdade (não booleano) — o painel
+  transforma cada um em link clicável (`tel:`, `https://`, `instagram.com/@`).
+  **Pelo menos 1 dos 3 é obrigatório**: o backend rejeita qualquer lead sem
+  nenhum contato (não dá pra abordar = não é lead). Nunca mande os 3 vazios.
 - `nota` é `"A_PLUS" | "A" | "B" | "C" | "D"` (a prioridade já calculada pelo
   `/leads`, sem site pesa mais).
 - Os 5 `criterio*` são notas de 0 a 10 — dá pra estimar a partir do que o
   `/leads` já levantou (sem site = oportunidade digital alta; rating baixo =
-  sinal de dinheiro fraco; etc.), não precisa perguntar de novo pro usuário.
+  sinal de dinheiro fraco; etc.), não precisa perguntar de novo pro usuário. O
+  painel calcula sozinho a pontuação exibida (0-100 = soma dos 5 critérios ÷
+  50 × 100) — nunca mandar uma pontuação solta.
 
 ## `tipo: "caso"`
 ```json

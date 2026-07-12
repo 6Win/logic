@@ -110,6 +110,12 @@ Sinais de oportunidade (quanto mais, melhor o lead):
 - **Mas tem que ser negócio real/ativo:** ter algumas avaliações mostra que tem cliente
   (tem dinheiro). Um lugar com 0 avaliação e 0 presença pode ser fantasma — descartar.
 
+**Regra dura, sem exceção — contato mínimo:** todo lead entregue precisa ter **pelo
+menos 1** jeito de contato real: telefone, site ou Instagram. Zero telefone + zero site
++ zero Instagram = **descarta sempre**, não interessa quão boa seja a oportunidade —
+lead que não dá pra abordar não é lead, é lixo. O painel (`/api/sync`) já rejeita
+qualquer lead assim, então nem adianta mandar.
+
 ### Priorizar e cortar
 Ordenar por oportunidade (sem site primeiro, depois digital fraco), mantendo só negócios
 ativos. Cortar na **quantidade pedida**.
@@ -142,9 +148,10 @@ aba Leads a partir dessa lista.
 
 ## Enviar pro painel online (só se `/conectar` já rodou)
 Se existir `scripts/sync.config.json`, montar o JSON `tipo: "leads"` seguindo
-`_nucleo/integracoes/painel-online.md` (nota `A_PLUS|A|B|C|D` + os 5 critérios
-0-10, estimados a partir do que já foi levantado) e rodar `node scripts/sync.mjs
-<arquivo>`. Sem esse arquivo, pular — a Logic continua 100% local.
+`_nucleo/integracoes/painel-online.md` — `telefone`/`site`/`instagram` como valor de
+verdade (não booleano; viram link clicável no painel), nota `A_PLUS|A|B|C|D` + os 5
+critérios 0-10 (estimados a partir do que já foi levantado) — e rodar `node
+scripts/sync.mjs <arquivo>`. Sem esse arquivo, pular — a Logic continua 100% local.
 
 ## Regras
 - **Eficiência:** limite os campos do Details, não faça WebFetch do site de todos —
