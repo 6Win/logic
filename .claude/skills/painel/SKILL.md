@@ -1,19 +1,19 @@
 ---
 name: painel
 description: >
-  Abre e atualiza o painel local da Logic (site/) — organiza empresas, leads e
-  config num painel visual. Regenera os dados em site/data/*.json a partir dos
-  arquivos reais e sobe o servidor local. Use quando o usuário disser "painel",
-  "/painel", "abre o painel", ou depois de /novo, /diag, /pesquisa, /plano,
-  /casos, /leads (pra refletir o que mudou).
+  Abre e atualiza o painel visual da Logic (site/) — organiza empresas, leads e
+  config. Regenera os dados em site/data/*.json a partir dos arquivos reais e
+  abre direto na conversa (Artifact) — sem servidor, sem navegador. Use quando o
+  usuário disser "painel", "/painel", "abre o painel", ou depois de /novo, /diag,
+  /pesquisa, /plano, /casos, /leads (pra refletir o que mudou).
 ---
 
 # /painel — o painel visual da Logic
 
-Painel administrativo local (`site/index.html`) — não é site de divulgação. Mostra
-o que já foi feito (empresas, leads, config) pra quem usa a Logic enxergar tudo
-organizado num lugar só, ajudando o fluxo. Fica em `site/`, servido local — **não
-precisa deploy** pra usar no dia a dia.
+Painel administrativo (`site/index.html`) — não é site de divulgação. Mostra o
+que já foi feito (empresas, leads, config) pra quem usa a Logic enxergar tudo
+organizado num lugar só, ajudando o fluxo. **Não precisa deploy nem servidor**
+pra usar no dia a dia — o padrão é abrir como Artifact, direto na conversa.
 
 ## O que fazer
 
@@ -66,22 +66,44 @@ precisa deploy** pra usar no dia a dia.
      false`, sem enfeite. Se não achar nada, `empresas.json` e `leads.json`
      ficam `[]` — o painel já mostra o estado vazio certo.
 
-2. **Subir o servidor local** (se não estiver rodando):
+2. **Abrir direto no Claude, como Artifact** (padrão — se a ferramenta Artifact
+   estiver disponível neste ambiente). Não sobe servidor nem abre navegador:
+   gera um HTML autocontido (dados embutidos, sem fetch) a partir de
+   `site/index.html` e publica com a ferramenta Artifact.
+
+   a. **Fonte (Satoshi):** o `<link>` do Fontshare não funciona dentro de um
+      Artifact (CSP bloqueia CDN externo). Já tem cache em
+      `site/.fonte-cache/satoshi-{400,700,900}.b64` (gitignored) — usar direto
+      se existir. Só baixar de novo se o cache não existir: pegar as URLs de
+      `@font-face` que a API do Fontshare devolve pra `satoshi@400,700,900`,
+      baixar os `.woff2`, converter cada um pra base64 e salvar nesses 3
+      arquivos. Substituir o `<link>` por três `@font-face` com
+      `src:url(data:font/woff2;base64,<...>)`, um por peso.
+   b. **Dados:** embutir o conteúdo de `data/empresas.json`, `data/leads.json`
+      e `data/config.json` direto como `const DATA = {...}` no script, e trocar
+      a função `j(path)` (que fazia `fetch`) por uma que lê de `DATA`. Remover
+      o `setInterval(refreshAll, 4000)` — é um snapshot, não precisa de
+      polling (rodar `/painel` de novo gera um snapshot atualizado).
+   c. **Mapa da aba Config:** o iframe do OpenStreetMap é um frame externo,
+      também bloqueado pelo CSP do Artifact — trocar por um card estático
+      (texto explicando Modo Google × Modo Busca, sem iframe).
+   d. **Esqueleto:** a ferramenta Artifact já envolve o arquivo em
+      `<!doctype>/<html>/<head>/<body>` sozinha — o HTML que a Logic monta
+      **não pode conter** essas tags (nem a de fechamento). Só o miolo: meta
+      viewport, title, `<style>`, `<header>`/`<main>`/`<footer>`, `<script>`.
+   e. Publicar com a ferramenta Artifact: `favicon: "⬛"` (combina com o
+      símbolo geométrico preto/branco da marca), descrição curta.
+   f. Confirmar ao usuário com o link que a ferramenta devolver.
+
+3. **Se a ferramenta Artifact não estiver disponível** (fallback — ambiente sem
+   essa capacidade): volta pro modo antigo, servidor local:
    ```bash
    cd site && npm start
    ```
-   Roda em `http://localhost:3000`. Se a porta já estiver ocupada (servidor
-   anterior ainda de pé), não precisa subir de novo — só abrir o navegador.
-
-3. **Abrir no navegador** — `http://localhost:3000`.
-
-4. O painel **se atualiza sozinho**: ele faz polling dos JSONs a cada poucos
-   segundos, então depois de aberto uma vez, qualquer novo `/diag`, `/leads`
-   etc. aparece ali sem precisar rodar `/painel` de novo. Rodar `/painel` outra
-   vez só garante que o servidor está de pé e os dados foram regenerados — não
-   precisa fechar nada.
-
-5. Confirmar ao usuário: *"Painel aberto — http://localhost:3000"*.
+   Roda em `http://localhost:3000` (se já tiver um servidor de pé, não precisa
+   subir de novo). Abrir no navegador e confirmar: *"Painel aberto —
+   http://localhost:3000"*. Nesse modo o painel faz polling dos JSONs sozinho;
+   no modo Artifact não — rodar `/painel` de novo gera um snapshot novo.
 
 ## Regras
 - **Sem emoji e sem símbolo decorativo** (nada de ✓, ↓, →, 🚀…) em nenhum lugar do

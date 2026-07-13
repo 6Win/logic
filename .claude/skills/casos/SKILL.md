@@ -58,10 +58,11 @@ Mais três seções fixas:
    `_nucleo/aprendizados-do-sistema.md` (padrão de entrega, não do negócio). A cada ~15–20
    registros, esse arquivo dispara o refino das skills. Ver o arquivo pro formato e a trava.
 7. Regenerar o painel (`site/`).
-8. **Enviar pro painel online** (só se `/conectar` já rodou): se existir
-   `scripts/sync.config.json`, montar o JSON `tipo: "caso"` seguindo
-   `_nucleo/integracoes/painel-online.md` e rodar `node scripts/sync.mjs
-   <arquivo>`. Sem esse arquivo, pular — a Logic continua 100% local.
+8. **Enviar pro painel online** (manual — só se o usuário pedir): a Logic é local
+   por padrão, não manda sozinha. Se o usuário pedir ("manda pro painel",
+   "sincroniza") e existir `scripts/sync.config.json`, montar o JSON `tipo: "caso"`
+   seguindo `_nucleo/integracoes/painel-online.md` e rodar `node scripts/sync.mjs
+   <arquivo>`.
 
 ## Estrutura de cada entrada (modelo)
 ```

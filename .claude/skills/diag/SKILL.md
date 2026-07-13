@@ -215,12 +215,13 @@ Rodar o output contra `_nucleo/rubricas/qualidade.md`. Se falhar em qualquer um
 dos 6 testes (principalmente o "conclusão não-óbvia"), **reescrever**. Só então
 salvar em `clientes/<empresa>/diagnostico.md` e entregar.
 
-### Passo 5b — Enviar pro painel online (só se `/conectar` já rodou)
-Se existir `scripts/sync.config.json`, montar o JSON `tipo: "diagnostico"`
-seguindo `_nucleo/integracoes/painel-online.md` e rodar `node scripts/sync.mjs
-<arquivo>`. Sem esse arquivo, pular este passo — a Logic continua 100% local.
-Nunca bloquear a entrega no chat esperando o sync; ele é depois, silencioso, só
-confirmando no fim ("também já está no painel online").
+### Passo 5b — Enviar pro painel online (manual — só se o usuário pedir)
+A Logic é local por padrão: **não** envia sozinha pro painel online ao fim do
+`/diag`, mesmo com `/conectar` já feito. Só monta e manda o sync se o usuário pedir
+na hora ("manda pro painel", "sincroniza"). Sem esse pedido, entrega só local e não
+menciona sync. Quando pedido: se existir `scripts/sync.config.json`, montar o JSON
+`tipo: "diagnostico"` seguindo `_nucleo/integracoes/painel-online.md` e rodar `node
+scripts/sync.mjs <arquivo>`.
 
 ### Passo 6 — Puxar pra frente (liderando, sem pedir licença)
 A etapa 1 já é entrega fechada. **Não pergunte "quer continuar?".** Conduza: aponte o

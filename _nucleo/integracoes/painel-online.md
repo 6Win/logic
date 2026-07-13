@@ -93,9 +93,10 @@ mostrar a mensagem pro usuário em vez de tentar de novo às cegas.
       "nicho": "barbearia",
       "regiao": "Recreio, Rio de Janeiro",
       "nomeEmpresa": "...",
-      "telefone": "(21) 99999-9999, opcional",
+      "telefone": "(21) 99999-9999, opcional — vira link de WhatsApp no painel",
       "site": "https://..., opcional",
       "instagram": "@perfil ou https://instagram.com/..., opcional",
+      "linkMaps": "https://maps.google.com/... ou link do Maps, opcional — não conta como contato, só ajuda a achar o lugar",
       "gancho": "a leitura curta do negócio (o furo digital)",
       "nota": "A",
       "criterioFit": 8,
@@ -108,9 +109,19 @@ mostrar a mensagem pro usuário em vez de tentar de novo às cegas.
 }
 ```
 - `telefone`/`site`/`instagram` são o valor de verdade (não booleano) — o painel
-  transforma cada um em link clicável (`tel:`, `https://`, `instagram.com/@`).
-  **Pelo menos 1 dos 3 é obrigatório**: o backend rejeita qualquer lead sem
-  nenhum contato (não dá pra abordar = não é lead). Nunca mande os 3 vazios.
+  transforma cada um em link clicável (`telefone` → WhatsApp, `site` → `https://`,
+  `instagram` → `instagram.com/@`). **Pelo menos 1 dos 3 é obrigatório**: o
+  backend rejeita qualquer lead sem nenhum contato (não dá pra abordar = não é
+  lead). Nunca mande os 3 vazios. `linkMaps` é só um extra pra achar o
+  endereço — não conta pra essa regra, um lead com só `linkMaps` e nada mais
+  ainda é rejeitado.
+  **Errado:** `"instagram": "ativo"` ou `"site": "tem"` — isso não é um link, o
+  painel não consegue transformar em nada clicável, e pro schema conta como
+  vazio (o lead é rejeitado inteiro, mesmo parecendo que "tinha Instagram").
+  **Certo:** `"instagram": "@barbearia_do_ze"` ou `"instagram":
+  "https://instagram.com/barbearia_do_ze"`. Se a coleta só confirmou que existe
+  mas não anotou o handle/link, vá buscar o valor antes de montar esse JSON —
+  não preencha com a palavra do status.
 - `nota` é `"A_PLUS" | "A" | "B" | "C" | "D"` (a prioridade já calculada pelo
   `/leads`, sem site pesa mais).
 - Os 5 `criterio*` são notas de 0 a 10 — dá pra estimar a partir do que o

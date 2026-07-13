@@ -83,7 +83,10 @@ Fonte principal grátis e estruturada: **OpenStreetMap (Overpass API)** — sem 
 3. **Desambiguar o lugar** (estado + zona; excluir homônimo) e **cortar portais**
    (`blocked_domains`: vivareal, webmotors, olx… quando quiser os negócios, não os agregadores).
 4. **Conferir cada candidato:** "<nome> <cidade> site" → tem domínio próprio? tem Instagram?
-   É isso que confirma o filtro "sem site" (o OSM sozinho não garante).
+   É isso que confirma o filtro "sem site" (o OSM sozinho não garante). **Sempre olhar a
+   ficha do Google Maps também** ("<nome> <cidade> maps") — mesmo sem chave, a listagem
+   pública quase sempre mostra telefone. Achou lá? Isso **é** o `telefone` do lead, mesmo
+   que não tenha site nem Instagram — não descarta achando que "só veio do Maps".
 5. **Varrer sub-áreas e acumular** sem repetir até a quantidade pedida.
 Avisar de leve: grátis é melhor-esforço (OSM não cobre tudo no BR); a chave do Google
 entrega a lista completa de uma vez.
@@ -111,10 +114,26 @@ Sinais de oportunidade (quanto mais, melhor o lead):
   (tem dinheiro). Um lugar com 0 avaliação e 0 presença pode ser fantasma — descartar.
 
 **Regra dura, sem exceção — contato mínimo:** todo lead entregue precisa ter **pelo
-menos 1** jeito de contato real: telefone, site ou Instagram. Zero telefone + zero site
-+ zero Instagram = **descarta sempre**, não interessa quão boa seja a oportunidade —
-lead que não dá pra abordar não é lead, é lixo. O painel (`/api/sync`) já rejeita
-qualquer lead assim, então nem adianta mandar.
+menos 1** valor real em `telefone`, `site` ou `instagram`. Na prática, pra negócio
+local, o telefone é o mais fácil de achar — **e o Google Maps é a fonte mais confiável
+dele** (a ficha pública mostra o número mesmo sem site nem Instagram, ver seção acima).
+Então antes de descartar por "não tem contato", **checa o Maps** — se tem telefone lá,
+usa ele. Sem WhatsApp (telefone), sem site e sem Instagram mesmo depois de checar o
+Maps = **descarta sempre**, não interessa quão boa seja a oportunidade (rating alto,
+nicho certo etc.) — lead que não dá pra abordar não é lead, é lixo, e o usuário gasta
+token à toa revisando ele. O painel (`/api/sync`) já rejeita qualquer lead assim, então
+nem adianta mandar — mas o certo é nem deixar chegar nessa lista: descarta na hora que
+confirmar que não tem nenhum dos três, não espera o servidor recusar.
+
+**O valor tem que ser o contato de verdade, não um status.** "Instagram ativo" é uma
+observação pra você decidir a nota do lead — não é o que vai no campo `instagram`. O
+que vai no campo é o `@handle` ou a URL do perfil que você achou na busca. Mesma coisa
+pra site (a URL) e telefone (o número). Se você confirmou "tem Instagram" mas não anotou
+o handle/link em algum momento da coleta, **isso não conta como contato capturado** —
+volte e pegue o valor, ou trate como "não achei" mesmo. Nunca escreva "ativo", "tem",
+"sim" ou "parado" sozinho no lugar do valor: isso passa despercebido pra você (parece um
+lead bom) mas chega vazio no `/api/sync` e todo o lote é rejeitado — foi exatamente esse
+o bug que gerou a reclamação de "lead com Instagram ativo sendo recusado".
 
 ### Priorizar e cortar
 Ordenar por oportunidade (sem site primeiro, depois digital fraco), mantendo só negócios
@@ -127,7 +146,7 @@ Formato por lead (linguagem clara, direto ao ponto):
 
 1. [Nome]
    Endereço · Telefone · [Google Maps: link]
-   Site: NÃO TEM  ·  Instagram: parado (últ. post há ~8 meses)  ·  ⭐ 4.6 (312 avaliações)
+   Site: NÃO TEM  ·  Instagram: @nome_do_perfil (parado, últ. post há ~8 meses)  ·  ⭐ 4.6 (312 avaliações)
    Leitura do negócio: negócio movimentado (312 avaliações = tem cliente e caixa), mas
    sem site e com Instagram abandonado — invisível pra quem pesquisa "estética no bairro"
    no Google. Vive de quem já conhece; some pra quem procura. É aí que dá pra entrar.
@@ -146,12 +165,29 @@ entendendo). Nada de raio-X. Isso também economiza token.
 repita busca, não leia o site de cada um — o mínimo pra qualificar. O `/painel` monta a
 aba Leads a partir dessa lista.
 
-## Enviar pro painel online (só se `/conectar` já rodou)
-Se existir `scripts/sync.config.json`, montar o JSON `tipo: "leads"` seguindo
+## Enviar pro painel online (manual — só se o usuário pedir)
+A Logic é local por padrão: **não** envia sozinha pro painel online no fim do `/leads`,
+mesmo com `/conectar` já feito. Só monta e manda o sync se o usuário pedir na hora,
+com algo como "manda pro painel", "sincroniza isso", "sobe os leads pro painel". Sem
+esse pedido, entrega só local (`clientes/`, `/painel` local) e não menciona sync.
+
+Quando o usuário pedir: se existir `scripts/sync.config.json`, montar o JSON `tipo: "leads"` seguindo
 `_nucleo/integracoes/painel-online.md` — `telefone`/`site`/`instagram` como valor de
-verdade (não booleano; viram link clicável no painel), nota `A_PLUS|A|B|C|D` + os 5
-critérios 0-10 (estimados a partir do que já foi levantado) — e rodar `node
-scripts/sync.mjs <arquivo>`. Sem esse arquivo, pular — a Logic continua 100% local.
+verdade (não booleano; viram link clicável no painel — `telefone` vira WhatsApp),
+`linkMaps` se tiver o link do Maps (não conta como contato, é só o "achar o lugar"),
+nota `A_PLUS|A|B|C|D` + os 5 critérios 0-10 (estimados a partir do que já foi
+levantado) — e rodar `node scripts/sync.mjs <arquivo>`. Sem esse arquivo, pular — a
+Logic continua 100% local.
+
+**Antes de rodar o sync, confira o JSON que você mesmo montou** (não confie que "já
+qualifiquei, então tá certo"): pra cada lead, `telefone` ou `site` ou `instagram`
+precisa ter um valor de verdade (string com número/URL/handle) — não vazio, não
+`null`, e não uma palavra de status tipo "ativo"/"parado". Achou um lead assim no seu
+próprio JSON? Não é o `/api/sync` que vai filtrar pra você — corrija o valor (volte e
+pegue o handle/link certo) ou tire o lead da lista antes de mandar. Se o sync voltar
+com erro 400 de "lead sem contato" mesmo depois dessa conferência, pare, mostre o erro
+pro usuário com o(s) lead(s) problemático(s) e pergunte — não fique tentando formato às
+cegas numa API de produção.
 
 ## Regras
 - **Eficiência:** limite os campos do Details, não faça WebFetch do site de todos —

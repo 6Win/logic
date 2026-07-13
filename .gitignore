@@ -10,6 +10,9 @@ _config.json
 # Token de sync com o painel online (logic-saas) — NUNCA subir
 scripts/sync.config.json
 
+# Cache local da fonte embutida no painel (Artifact) — só bytes de fonte, regenerável
+site/.fonte-cache/
+
 # Lixo de sistema
 Thumbs.db
 .DS_Store

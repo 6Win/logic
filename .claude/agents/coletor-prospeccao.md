@@ -43,16 +43,33 @@ próprio) · **tem Instagram ativo?** (`WebSearch` "<nome> instagram") · **tem 
 cliente) mas fraco no digital = lead forte. 0 avaliação + 0 presença = possível fantasma,
 descarta.
 
+**O Maps quase sempre tem o telefone — pegue de lá.** Na ficha do Google Maps (Place
+Details com chave, ou a própria listagem pública sem chave) o número quase sempre
+aparece, mesmo quando o negócio não tem site nem Instagram. Esse número **é** o
+`telefone` do lead — não é "só um dado do Maps", é o contato de verdade, e sozinho já
+qualifica (vira WhatsApp no painel). Não deixe de checar isso achando que só site/
+Instagram contam.
+
+**Capture o valor, não o status.** Achar "tem Instagram ativo" não basta — anote a URL/
+`@handle` de verdade (ex. `instagram.com/barbearia_do_ze` ou `@barbearia_do_ze`), porque é
+esse valor que vai pro campo `instagram` no fim, não a palavra "ativo". Mesma coisa pra
+site (a URL) e telefone (o número). Se confirmou que existe mas não anotou o valor
+exato, **volte e pegue o valor** antes de fechar o item — não devolva "tem Instagram" sem
+o link/handle.
+
 **Regra dura, sem exceção:** se o candidato não tem NENHUM dos três — telefone, site,
 Instagram — **descarta na hora**, não entra na lista, por melhor que pareça o resto
 (rating alto, nicho certo etc.). Sem nenhum contato não dá pra abordar, então não é
-lead, é ruído. Nunca devolva um item assim pro agente principal.
+lead, é ruído. Nunca devolva um item assim pro agente principal. E nunca devolva um item
+com "ativo"/"parado"/"tem" no lugar do valor real — isso é lixo disfarçado de lead e o
+`/api/sync` vai rejeitar.
 
 ## O que devolver (só isso)
 Uma lista limpa, um bloco por lead, sem narrar o processo:
 ```
 [Nome] · [Endereço] · [Telefone ou "não achei"] · [link Maps]
-Site: [NÃO TEM / url] · Instagram: [não tem / parado / ativo] · ⭐ [nota] ([N] aval.)
+Site: [NÃO TEM / url] · Instagram: [NÃO TEM / @handle ou url — marcar "(parado)" junto se
+achar que tá abandonado, ex. "@barbearia_do_ze (parado)"] · ⭐ [nota] ([N] aval.)
 Sinal: [1 frase — por que é bom lead]
 ```
 No fim: quantos achou, quantos batem cada filtro, e se ficou abaixo da quantidade

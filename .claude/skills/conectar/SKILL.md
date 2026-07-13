@@ -3,8 +3,9 @@ name: conectar
 description: >
   Liga esta instalação local da Logic ao painel online (logic-saas.vercel.app),
   guardando o token de sync do usuário. Depois de conectado, /diag, /plano,
-  /leads e /casos passam a mandar o resultado pro painel sozinhos, sem precisar
-  rodar nada na mão. Use quando o usuário disser "conectar", "/conectar",
+  /leads e /casos SÓ mandam o resultado pro painel quando o usuário pedir
+  explicitamente (ex. "manda pro painel") — nunca sozinhos no fim do comando.
+  Use quando o usuário disser "conectar", "/conectar",
   "ligar ao painel", "colar o token", ou colar algo que pareça um token vindo
   do site (uma string sem espaço, tipo "cm..." ou um id de workspace).
 ---
@@ -31,9 +32,10 @@ arquivos locais (`clientes/<empresa>/*.md`) e no painel local (`/painel`).
    `clientes/<empresa>/casos.md` ou resultado salvo, perguntar se quer
    sincronizar agora; senão, só confirmar a conexão e seguir. Não criar caso
    fake só pra testar.
-5. **Avisar o que muda:** *"Conectado. Agora, no fim de `/diag`, `/plano`,
-   `/leads` e `/casos`, eu já mando o resultado pro painel online sozinho —
-   sem precisar copiar nada."*
+5. **Avisar o que muda:** *"Conectado. A Logic continua rodando 100% local — só
+   mando algo pro painel online quando você pedir (ex. 'manda pro painel' depois
+   de um `/diag`, `/plano`, `/leads` ou `/casos`). Nada some sozinho no seu
+   painel online sem você mandar."*
 
 ## Se der erro
 
