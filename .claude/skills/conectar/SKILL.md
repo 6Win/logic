@@ -28,14 +28,17 @@ arquivos locais (`clientes/<empresa>/*.md`) e no painel local (`/painel`).
    { "url": "https://logic-saas.vercel.app", "token": "<o token colado>" }
    ```
    (Esse arquivo é local e ignorado pelo git — nunca sobe pro repositório.)
-4. **Confirmar com um teste leve, sem inventar dado:** se já existir algum
-   `clientes/<empresa>/casos.md` ou resultado salvo, perguntar se quer
-   sincronizar agora; senão, só confirmar a conexão e seguir. Não criar caso
-   fake só pra testar.
-5. **Avisar o que muda:** *"Conectado. A Logic continua rodando 100% local — só
-   mando algo pro painel online quando você pedir (ex. 'manda pro painel' depois
-   de um `/diag`, `/plano`, `/leads` ou `/casos`). Nada some sozinho no seu
-   painel online sem você mandar."*
+4. **Confirmar a conexão de verdade com o servidor (sempre, sem perguntar).**
+   Isso é diferente de "mandar resultado" — é só a Logic dizer "conectei" pro
+   painel saber que o token já está em uso. Sem isso, o painel online fica
+   preso na tela "cole o token" pra sempre, mesmo depois de conectado. Escrever
+   um arquivo temporário com `{"tipo":"conectar"}` e rodar `node
+   scripts/sync.mjs <arquivo>`. Deu certo (`ok: true`)? Conexão confirmada. Deu
+   erro de token inválido, ver "Se der erro" abaixo.
+5. **Avisar o que muda:** *"Conectado — já confirmei com o painel. A Logic
+   continua rodando 100% local — só mando resultado (diagnóstico, leads etc.)
+   pro painel quando você pedir (ex. 'manda pro painel' depois de um `/diag`,
+   `/plano`, `/leads` ou `/casos`). Nada some sozinho de lá sem você mandar."*
 
 ## Se der erro
 

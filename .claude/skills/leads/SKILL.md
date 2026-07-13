@@ -22,11 +22,19 @@ Instagram parado, digital fraco) e entrega **gancho de abordagem** por lead.
 dezenas de lugares e conferir site/Instagram um a um é trabalho pesado. Dispare o
 subagente **`coletor-prospeccao`** (passando nicho + lugar + filtro + quantidade) — ele
 volta só com a lista limpa e qualificada, mantendo o contexto principal leve e
-economizando token. Você (agente principal) recebe a lista e escreve, pra cada lead, uma
-**mini-leitura do negócio** (o que é, como parece funcionar, o furo digital pra explorar)
-— **não um script de mensagem pronto** (isso é cara de spam). A ideia é o cara bater o
-olho e já entender com quem vai falar e por onde entrar; ele aborda do jeito dele. A
-leitura e a apresentação são suas, não do coletor.
+economizando token. Você (agente principal) recebe a lista e escreve, pra cada lead, um
+**mini-diagnóstico** que vai no campo `gancho` (é o que o painel mostra no detalhe do
+lead) com duas partes curtas:
+1. **A leitura do negócio** (1-2 linhas): o que é, como parece funcionar, o furo digital
+   pra explorar — o mesmo raciocínio de um `/diag`, só que no tamanho de um lead, não o
+   raio-X completo.
+2. **Uma sugestão de abordagem** (1-2 linhas): um ângulo/gancho concreto de abertura pra
+   esse lead específico, citando o furo digital dele (ex.: *"Vi que vocês têm ótima nota
+   no Google mas não achei Instagram — hoje é onde a maioria pesquisa negócio local
+   antes de decidir."*). É uma **sugestão de partida**, não um script engessado pra
+   copiar e colar sem pensar — mas tem que ser específico daquele lead, nunca uma frase
+   genérica que serviria pra qualquer negócio (isso sim é cara de spam). O cara lê,
+   entende o ângulo e usa do jeito dele.
 
 ## O que perguntar (curto)
 Prospecção de **empresas locais** (loja, clínica, restaurante, barbearia…). Perguntar:
@@ -150,9 +158,13 @@ Formato por lead (linguagem clara, direto ao ponto):
    Leitura do negócio: negócio movimentado (312 avaliações = tem cliente e caixa), mas
    sem site e com Instagram abandonado — invisível pra quem pesquisa "estética no bairro"
    no Google. Vive de quem já conhece; some pra quem procura. É aí que dá pra entrar.
+   Gancho de abordagem: "Vi que vocês têm nota 4.6 no Google mas o Instagram parou há uns
+   8 meses — muita gente pesquisa 'estética aqui perto' antes de marcar horário."
 ```
-A leitura é curta (2–3 linhas): o que é, como parece funcionar, e o furo digital. Nada
-de raio-X (isso é o `/diag`) nem de script de abordagem pronto.
+A leitura é curta (2–3 linhas): o que é, como parece funcionar, e o furo digital — mais
+o gancho de abordagem (1-2 linhas, específico daquele lead, não genérico). Nada de
+raio-X (isso é o `/diag`); esse par leitura+gancho é o que vai no campo `gancho` do
+sync (ver "Qualificar" acima).
 Fechar com um resumo: quantos sem site, quantos sem/parado no Instagram, quantos com
 digital fraco. Se o usuário usa o Mazy, terminar com a ponte: *"esses leads sem
 Instagram são material pronto pro `/carrossel` e `/seo` do teu Mazy."*

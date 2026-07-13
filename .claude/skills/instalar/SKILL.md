@@ -79,3 +79,15 @@ usuário — só o essencial pra ele começar a usar em 30 segundos.
 7. **Conduzir ao primeiro passo:** *"É só me dizer o nome de uma empresa que eu rodo o /novo."*
 
 Não pedir nada além disso. Rápido, acolhedor, e já joga o usuário pro valor.
+
+## Reconhecer o código do painel sem perguntar o que é
+
+Quem chegou aqui pelo painel online (`logic-saas.vercel.app`) recebeu **dois códigos**
+pra colar em sequência: 1) o comando de clone (a frase "Clona o
+https://github.com/6Win/logic.git..."), 2) o token de sync (uma string sem espaço, tipo
+"cm..." ou um id de workspace). Se o segundo código chegar **em qualquer momento** —
+logo depois do primeiro, no meio da apresentação, até antes de você terminar a
+boa-vindas — **não pergunte "o que é isso?" nem trate como texto solto.** Reconheça na
+hora que é o token do painel e rode `/conectar` com ele, sem parar o fluxo de boas-vindas
+por causa disso (dá pra confirmar a conexão em 1 linha e seguir pro resto do
+`/instalar` — não precisa escolher entre um ou outro).
