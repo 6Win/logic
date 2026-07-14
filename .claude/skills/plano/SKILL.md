@@ -19,8 +19,46 @@ e cobra mais. Só roda com diagnóstico feito.
 > zero frase vaga, nomes de seção simples.
 
 ## Antes
-Ler `clientes/<empresa>/diagnostico.md` (o gargalo + quick wins) e, se houver,
-`pesquisa.md`. O plano ataca o gargalo primeiro.
+Ler `clientes/<empresa>/diagnostico.md` (o gargalo + a régua /100 por dimensão) e,
+se houver, `pesquisa.md`. O plano ataca a **menor dimensão da régua** (o gargalo) primeiro.
+
+## O plano é uma JORNADA (fundação → sucesso), não uma lista solta
+
+Um bom plano não é 20 tarefas em ordem aleatória — é uma **sequência** que respeita
+quatro âncoras da metodologia. Cada ação sai de uma delas, com o **framework citado**
+(igual a régua do diagnóstico ancora cada nota num fato). Puxar da `base-conhecimento/`
+só o que aquele caso pede.
+
+**1. A fase do fundador** ([[fases-do-fundador]]) — onde ele ESTÁ e pra onde vai.
+- **Operador** (solo, tudo gargalado nele — o começo mais comum): o plano tira coisa do
+  gargalo dele PRIMEIRO (a oferta, um processo, um canal só). Não adianta plano de escala
+  pra quem ainda faz tudo na mão.
+- **Gestor / Dono:** o plano passa a montar time, processo e o que roda sem ele.
+- O NORTE de todo plano: caminhar pro negócio que melhora **sem depender 100% de uma pessoa**.
+
+**2. A alavanca certa** ([[tres-alavancas-e-core-four]]) — só existem 3 jeitos de crescer:
+**mais clientes · ticket maior · recompra**. O plano ataca a alavanca MAIS FRACA (a que o
+diagnóstico apontou), não as três ao mesmo tempo. Só depois de saber a alavanca é que se
+escolhe o canal — o **Core Four**: conteúdo · pago · outreach frio · indicação. Recomendar
+tráfego pago pra quem tem furo de recompra = queimar dinheiro no lugar errado.
+
+**3. Validar antes de escalar** ([[validar-antes-de-escalar]]) — a sequência é sagrada:
+arrumar a BASE (oferta clara, posicionamento, página que converte) → **validar** com pouco
+→ SÓ ENTÃO escalar (volume, tráfego, time). Botar tráfego numa base furada é jogar dinheiro
+fora. O plano nunca manda escalar o que ainda não converte.
+
+**4. Construção de funil** ([[funil-semanal]]) — o plano constrói o funil por etapa, na ordem
+que o dinheiro passa, e cada etapa vira um bloco do plano:
+1. **Oferta** — a transformação, não o entregável ([[equacao-de-valor-oferta]], [[vender-o-futuro-nao-o-presente]]).
+2. **Aquisição** — o canal do Core Four que cabe na fase e no caixa ([[pago-organico-e-caixa-primeiro]]).
+3. **Conversão** — o caminho do interessado até o sim, falando com o nível de consciência dele ([[niveis-de-consciencia]]).
+4. **Retenção / recompra** — onde mora a maior parte do dinheiro ([[retencao-e-onde-esta-o-dinheiro]]).
+
+> **Amarração com o diagnóstico (obrigatória):** cada ação declara **qual dimensão da
+> régua /100 ela move e de quanto pra quanto** (ex.: *"cria a página de captura → move
+> Conversão de 30 pra ~55"*). Assim o plano não é genérico: é a continuação com número do
+> raio-X, ataca o gargalo primeiro, e dá pra **medir depois** se funcionou (o próximo
+> diagnóstico recalcula a régua e mostra o antes/depois).
 
 ## Passos
 1. **Escolher o horizonte** com o usuário: 10 / 30 / 60 / 90 / 180 dias ou 12
