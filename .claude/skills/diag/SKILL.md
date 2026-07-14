@@ -79,15 +79,17 @@ preço ancorado em **custo ou valor**? ([[precificar-pelo-valor-percebido]]).
 ```
 # Diagnóstico Logic — [empresa]  ·  Etapa 1 (pública)
 
-## 📊 Painel do negócio
-🟢 Oferta & Preço          8/10
-🟡 Posicionamento/Marca    5/10
-🔴 Aquisição               3/10   ← 🚨 GARGALO
-🔴 Conversão               3/10
-🟡 Reputação/Retenção      6/10
-🟢 Presença/Conteúdo       7/10
+## 📊 Painel do negócio                        Nota geral: 52/100
+🟢 Oferta & Preço          80/100
+🟡 Posicionamento/Marca    50/100
+🔴 Aquisição               30/100   ← 🚨 GARGALO
+🔴 Conversão               35/100
+🟡 Reputação/Retenção      60/100
+🟢 Presença/Conteúdo       70/100
 
 Gargalo em 1 frase: [o maior problema, direto]
+(Nota geral = média das 6. Cada dimensão sai da RÉGUA DE PONTOS —
+ver `_nucleo/metodo/lente-outside-in.md`. É soma de checks, não achismo.)
 
 ── COMO APRESENTAR (a comunicação é metade do valor — regra de ouro) ──
 O cara bate o olho e ENTENDE, sem adivinhar nada. Método comprovado: **Pirâmide de
@@ -121,8 +123,11 @@ Minto / BLUF** — começa pela resposta, depois o porquê, depois a prova.
 7. 💰 Onde está o dinheiro pra você — serviços a oferecer + como chegar no cliente
 8. Pra ir mais fundo → o plano completo (`/plano`, se pedir) ou a etapa 2 (suposições viram perguntas)
 ```
-Regras do Painel: menor nota = gargalo (🚨); empate → a que trava o funil mais
-cedo. Notas saem da análise, não do achismo.
+Regras do Painel: cada dimensão é 0–100 e sai da **régua de pontos**
+(`_nucleo/metodo/lente-outside-in.md`) — responde cada check com um fato citado
+(Sim/Parcial/Não) e **SOMA**; NUNCA escolhe o número no feeling. Nota geral =
+média das 6. Menor dimensão = gargalo (🚨); empate → a que trava o funil mais
+cedo. Legenda: 🟢 70–100 · 🟡 40–69 · 🔴 0–39.
 
 **Formato obrigatório (ver `rubricas/qualidade.md` itens 7–10):**
 
