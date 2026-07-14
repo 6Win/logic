@@ -59,7 +59,13 @@ if (!existsSync(arquivo)) {
   process.exit(1);
 }
 
-const payload = JSON.parse(readFileSync(arquivo, "utf8"));
+let payload;
+try {
+  payload = JSON.parse(readFileSync(arquivo, "utf8"));
+} catch {
+  console.error(`Arquivo ${arquivo} não é um JSON válido — confira se não foi salvo corrompido.`);
+  process.exit(1);
+}
 if (!payload.tipo) {
   console.error(
     'O JSON precisa ter o campo "tipo": "diagnostico" | "plano" | "leads" | "caso".'
@@ -68,11 +74,21 @@ if (!payload.tipo) {
 }
 
 const endpoint = url.replace(/\/$/, "") + "/api/sync";
-const resposta = await fetch(endpoint, {
-  method: "POST",
-  headers: { "content-type": "application/json", "x-sync-token": token },
-  body: JSON.stringify(payload),
-});
+let resposta;
+try {
+  resposta = await fetch(endpoint, {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-sync-token": token.trim() },
+    body: JSON.stringify(payload),
+  });
+} catch (erro) {
+  console.error(
+    `Não deu pra alcançar ${endpoint} — sem internet ou o painel está fora do ar. ` +
+      "Ficou salvo só local por enquanto; tenta de novo depois. " +
+      `(${erro.message})`
+  );
+  process.exit(1);
+}
 
 const corpo = await resposta.json().catch(() => ({}));
 if (!resposta.ok) {
