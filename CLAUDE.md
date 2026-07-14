@@ -164,12 +164,27 @@ coisa. Ative a skill correspondente e rode do início ao fim.
 | `/casos` | registra resultado pós-execução e **ensina a Logic** (auto-estudo) |
 | `/leads` | prospecção qualificada por região e nicho, com filtros que o Kaptar não tem |
 | `/painel` | abre o painel local (`site/`) — empresas, leads e config organizados, atualiza sozinho |
+| `/conectar` | (opcional) liga ao painel online (logic-saas.vercel.app) — cola o token do site 1 vez |
 
 Palavras-chave → skill: empresa nova → `novo` · diagnóstico/analisar/gargalo →
 `diag` · mercado/concorrente → `diag` (a pesquisa roda dentro dele, não separada) ·
 plano/passos/execução → `plano` · resultado/case → `casos` ·
 clientes/leads/prospecção → `leads`. Se ficar ambíguo entre duas, pergunte **1 coisa
 rápida** e siga.
+
+**Token do painel — reconhecer sempre, sem perguntar, em qualquer momento.**
+Isso vale a **qualquer altura da conversa**, inclusive como a **primeira
+mensagem da sessão**, mesmo antes de rodar `/instalar` ou o usuário dizer
+"conectar": se o que o usuário mandou é uma **string única, sem espaço, sem
+sentido em português/inglês** (tipo um id — tokens deste produto são cuid:
+começam com `c`, ~25 caracteres, ex. `cjld2cyuq0000t3rmniod1foy`), **é o
+token do painel**, não nome de empresa nem outra coisa. Não pergunte "o que é
+isso?", não trate como texto solto, e **não confunda com nome de empresa pro
+`/novo`** (nome de empresa tem espaço ou é uma palavra reconhecível — token
+não). Rode a skill `conectar` direto com esse token. Se a mensagem também
+tiver outra coisa (ex. o comando de clone antes, ou uma pergunta junto),
+resolve o token primeiro (confirma a conexão) e segue o resto sem parar o
+fluxo por causa disso.
 
 **`/leads` — o que bate o Kaptar:** o Kaptar dispara em massa num raio do Google
 Maps, sem filtro. A Logic filtra por **oportunidade real** (sem site, sem
