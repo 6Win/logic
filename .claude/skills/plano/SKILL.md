@@ -50,9 +50,16 @@ fora. O plano nunca manda escalar o que ainda não converte.
 **4. Construção de funil** ([[funil-semanal]]) — o plano constrói o funil por etapa, na ordem
 que o dinheiro passa, e cada etapa vira um bloco do plano:
 1. **Oferta** — a transformação, não o entregável ([[equacao-de-valor-oferta]], [[vender-o-futuro-nao-o-presente]]).
+   O preço mora no cruzamento de custo/mercado/valor, nunca solto ([[precificar-3-reguas-ancoragem-e-3-niveis]]).
 2. **Aquisição** — o canal do Core Four que cabe na fase e no caixa ([[pago-organico-e-caixa-primeiro]]).
-3. **Conversão** — o caminho do interessado até o sim, falando com o nível de consciência dele ([[niveis-de-consciencia]]).
+3. **Conversão** — o caminho do interessado até o sim, falando com o nível de consciência dele
+   ([[niveis-de-consciencia]]). Se a venda tem ticket alto ou passa por reunião/call, a etapa
+   ganha três camadas: **funil de vendas medido em taxas** ([[cinco-taxas-do-funil-de-vendas]]),
+   **CRM com pipeline e próxima ação** ([[crm-pipeline-e-3-leis]]), e **cadência de follow-up +
+   condução de reunião** ([[cadencia-de-conversao-14-dias]], [[reuniao-anti-no-show-e-objecoes]]).
 4. **Retenção / recompra** — onde mora a maior parte do dinheiro ([[retencao-e-onde-esta-o-dinheiro]]).
+   Migrar de projeto único pra recorrência (ou híbrido) é a alavanca mais forte de LTV
+   ([[modelos-de-cobranca-e-pos-venda]]).
 
 > **Amarração com o diagnóstico (obrigatória):** cada ação declara **qual dimensão da
 > régua /100 ela move e de quanto pra quanto** (ex.: *"cria a página de captura → move

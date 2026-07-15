@@ -73,7 +73,10 @@ Frameworks úteis pra achar o gargalo certo (puxar só o que o caso pede): a emp
 nome e escada** ou é commodity? ([[discurso-metodo-e-escada-de-ofertas]]) · depende de
 **anúncio direto** ou tem **aquário próprio**? ([[pescar-no-proprio-aquario]],
 [[conteudo-antes-do-anuncio]]) · o **CAC** cabe no ticket/LTV? ([[cac-cpl-e-o-custo-de-vender]]) ·
-preço ancorado em **custo ou valor**? ([[precificar-pelo-valor-percebido]]).
+preço ancorado em **custo ou valor**, ou solto sem régua? ([[precificar-pelo-valor-percebido]],
+[[precificar-3-reguas-ancoragem-e-3-niveis]]) · **já vende e tem número de funil** (contato →
+fechamento)? credite as 5 taxas vitais e ache a etapa mais à esquerda travada
+([[cinco-taxas-do-funil-de-vendas]]).
 
 ### Passo 4 — Montar o output
 ```
@@ -153,6 +156,11 @@ cedo. Legenda: 🟢 70–100 · 🟡 40–69 · 🔴 0–39.
 - **Como abordar** — a frase de abertura da reunião, ancorada no gargalo e na
   ameaça concreta. Ex.: *"Vocês construíram uma marca forte na região, mas achei um
   ponto específico que fica mais crítico com a chegada da Obramax…"*
+- **Modelo de cobrança sugerido** — quando fizer sentido, recomenda híbrido (setup +
+  recorrência) em vez de projeto único ([[modelos-de-cobranca-e-pos-venda]]): entrega
+  caixa rápido E previsibilidade, sustenta relação longa. Na condução da reunião de
+  venda, o filtro de 3 perguntas e o cofre de objeções ajudam a fechar
+  ([[reuniao-anti-no-show-e-objecoes]]).
 
 **As seções de elite (o que põe o Logic muito acima):**
 
@@ -252,9 +260,10 @@ Exemplos típicos: ticket médio, tamanho da equipe, canais de aquisição, obje
 principal, gargalos que o dono já percebe, diferenciais internos, números do funil
 (leads → contato → fechamento).
 
-Com as respostas: recalcular o Painel, calcular as **taxas do funil** se houver
-número, atualizar o gargalo. Atualizar `diagnostico.md`. Se o usuário não quiser
-responder, segue só com o que já tem — sem problema.
+Com as respostas: recalcular o Painel, calcular as **5 taxas do funil**
+([[cinco-taxas-do-funil-de-vendas]]) se houver número, atualizar o gargalo.
+Atualizar `diagnostico.md`. Se o usuário não quiser responder, segue só com o
+que já tem — sem problema.
 
 ---
 

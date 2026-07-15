@@ -61,6 +61,14 @@ solução. Isso muda TUDO na abordagem:
 > de consciência que guia o conteúdo/anúncio no /plano guia aqui a abordagem fria:
 > diagnóstico, plano e leads falam a mesma língua.
 
+**O gancho é só o D1, não a venda inteira.** Depois que o lead responde, ele sai da
+prospecção fria e entra em duas frentes que continuam o trabalho: a **cadência de
+14 dias** ([[cadencia-de-conversao-14-dias]]) segue com valor novo a cada toque até
+a reunião, e o **CRM de pipeline** ([[crm-pipeline-e-3-leis]]) garante que ele nunca
+fique "vivo só no WhatsApp" — cada lead numa etapa, com próxima ação e data. A
+categoria A–D calculada aqui já dita a intensidade da cadência (A = toque em 2h; D =
+resposta educada e fim).
+
 ## O que perguntar (curto)
 Prospecção de **empresas locais** (loja, clínica, restaurante, barbearia…). Perguntar:
 - **Nicho · cidade/região · raio** (opcional) **· quantos** (padrão 10).
