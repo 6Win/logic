@@ -36,6 +36,31 @@ lead) com duas partes curtas:
    genérica que serviria pra qualquer negócio (isso sim é cara de spam). O cara lê,
    entende o ângulo e usa do jeito dele.
 
+## O gancho, mais fundo (metodologia — não é frase pronta)
+
+Prospecção é o canal de **outreach frio** do crescimento — um dos 4 jeitos de ganhar
+cliente ([[tres-alavancas-e-core-four]]) e a lacuna que o Mazy (inbound) não cobre. Como
+o lead é **frio**, ele quase sempre está no **nível 1-2 de consciência**
+([[niveis-de-consciencia]]): não sabe que tem o problema, ou sente a dor mas não liga com
+solução. Isso muda TUDO na abordagem:
+
+- **O gancho move UM degrau, não vende.** Nível 1-2 foge de pitch. O trabalho do gancho é
+  levar de *"não sei que tenho problema"* pra *"peraí, isso me afeta"* — por isso
+  curiosidade > oferta. Ex.: NÃO *"faço site por R$X"* (isso é nível 5, ele nem chegou
+  lá), e SIM *"muita gente pesquisa 'X aqui perto' antes de decidir — e vocês não
+  aparecem"* (acorda pro problema).
+- **Ancora num achado ESPECÍFICO daquele lead** (o furo que a coleta pegou) — é o que
+  prova que não é disparo em massa e dá autoridade na abertura.
+- **Aponta o futuro, não o entregável** ([[vender-o-futuro-nao-o-presente]]): o gancho
+  mostra o que ele PERDE/GANHA (cliente que some pra quem aparece, dinheiro na mesa), não
+  "eu faço site/gestão de tráfego".
+
+> **A nota é calculada, não chutada** (igual a régua do diagnóstico): sai da pontuação
+> **0-100** de `[[nota-do-lead-a-plus-a-d]]` (6 fatores pesados → letra A+/D), e o lead
+> carrega os dois — *"87/100 — A+"* — pra o usuário auditar. E a **mesma** lente de níveis
+> de consciência que guia o conteúdo/anúncio no /plano guia aqui a abordagem fria:
+> diagnóstico, plano e leads falam a mesma língua.
+
 ## O que perguntar (curto)
 Prospecção de **empresas locais** (loja, clínica, restaurante, barbearia…). Perguntar:
 - **Nicho · cidade/região · raio** (opcional) **· quantos** (padrão 10).
