@@ -70,10 +70,42 @@ Para cada uma: o que observar publicamente → que gargalo/oportunidade indica.
 > marca `[hipótese]` (vira pergunta da etapa 2). Cada linha leva a fonte (`[Site]`,
 > `[IG]`, `[Google]`, `[Reclame Aqui]`…).
 >
-> **As 6 dimensões (fixas), cada uma 0–100.** A **nota geral da empresa** = média
-> das 6 (arredonda). A **menor dimensão é o gargalo** (🚨); empate → a que trava o
-> funil mais cedo. Legenda por dimensão: 🟢 forte (70–100) · 🟡 mediano (40–69) ·
-> 🔴 crítico (0–39).
+> **6 dimensões, cada uma 0–100.** A **nota geral** = média das dimensões **que se
+> APLICAM ao modelo** (ver Passo 0 — as que não se aplicam saem da conta, NUNCA entram
+> como 0). A **menor dimensão que se aplica é o gargalo** (🚨); empate → a que trava o
+> funil mais cedo. Legenda: 🟢 forte (70–100) · 🟡 mediano (40–69) · 🔴 crítico (0–39).
+
+### Passo 0 — o MODELO e o ESTÁGIO (antes de pontuar, obrigatório)
+
+A régua abaixo foi calibrada pro caso mais comum: **negócio LOCAL B2C** (loja,
+clínica, restaurante) — que vive de **ser encontrado** (Google, Maps, Instagram) e
+de **avaliação**. Pra esse, presença digital fraca = problema real. **Mas nem todo
+negócio é esse** — aplicar a régua cega gera nota baixa FALSA. Antes de pontuar:
+
+**1. Identifique o modelo e o estágio:**
+- Modelo: B2C local · **B2B** · **SaaS/produto digital** · e-commerce · serviço high-ticket/consultoria.
+- Estágio: **pré-lançamento** · tração inicial · escala.
+
+**2. Adapte a régua ao modelo (não penalize o que não é o jogo dele):**
+- Um **B2B/SaaS** que vende por outbound, indicação e parceria **não precisa** de Google
+  Meu Negócio, ranquear "nicho+cidade" nem postar no Instagram. A dimensão **Aquisição/
+  Presença digital LOCAL não se aplica** → **exclui da média** (não dá 0!). "Aparecer" pra
+  ele é OUTRA coisa: aparecer pra quem busca a solução/categoria, LinkedIn, cases, estar no
+  radar de quem decide — pontue por ISSO.
+- **Reputação:** pra B2B/SaaS a prova não é estrela no Maps — é **cases, logos de clientes,
+  retenção, indicação**. Avalie por essa lente, não por "avaliações ≥4,0".
+
+**3. Tração existente é SAÚDE — não se ignora.** *"Pré-lançamento e já com 300 empresas
+usando"* é um sinal FORTE (o mercado já validou) — puxa a nota PRA CIMA, não deixa baixa
+por "não aparece no Instagram".
+
+**4. Pouco contexto? A nota é PROVISÓRIA — e diga isso.** Outside-in vê só o público. Se
+você só tem a URL e o modelo não é óbvio, a nota é **leitura de fora, sujeita a erro** —
+rotule assim e **NÃO declare "muitos problemas"** com base só em visibilidade. Puxe as 1-2
+perguntas que mudam tudo (etapa 2): *é B2B ou B2C? como chega cliente hoje? que tração já
+tem?* — e recalcule. Número baixo com pouco contexto é **hipótese, não veredito**.
+
+---
 
 ### 1. Oferta & Proposta de valor  (equação de valor · método/escada)
 Base: [[equacao-de-valor-oferta]] · [[vender-o-futuro-nao-o-presente]] · [[discurso-metodo-e-escada-de-ofertas]]

@@ -220,6 +220,13 @@ Rodar o output contra `_nucleo/rubricas/qualidade.md`. Se falhar em qualquer um
 dos 6 testes (principalmente o "conclusão não-óbvia"), **reescrever**. Só então
 salvar em `clientes/<empresa>/diagnostico.md` e entregar.
 
+### Passo 5a — Abrir o painel (AUTOMÁTICO, não espere pedir)
+Terminou o diagnóstico? **Abra o painel visual na hora** — rode a skill `painel`
+(regenera `site/data/*.json` e abre o Artifact). O usuário NÃO deve precisar dizer
+"abre o painel": a Logic lidera e entrega o resultado visual junto com a conclusão,
+sempre. É LOCAL — não gasta sync nem manda nada pra fora, é só a visualização. (O
+mesmo vale ao fim de `/plano`, `/leads` e `/novo`.)
+
 ### Passo 5b — Enviar pro painel online (manual — só se o usuário pedir)
 A Logic é local por padrão: **não** envia sozinha pro painel online ao fim do
 `/diag`, mesmo com `/conectar` já feito. Só monta e manda o sync se o usuário pedir
